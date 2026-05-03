@@ -1,70 +1,98 @@
 const menuData = [
+    // VORSPEISE (Antipasti)
+    { id: 1, name: "Bruschetta Classic", category: "Vorspeise", price: 6.50, description: "Geröstetes Brot, Tomaten, Knoblauch" },
+    { id: 2, name: "Caprese", category: "Vorspeise", price: 9.50, description: "Büffelmozzarella, Tomaten, Basilikum" },
+    
+    // HAUPTSPEISE (Pizza & Pasta)
+    { id: 10, name: "Pizza Margherita", category: "Hauptspeise", price: 8.50, description: "Tomaten, Mozzarella, Basilikum" },
+    { id: 11, name: "Pizza Salami", category: "Hauptspeise", price: 10.50, description: "Rindersalami, Mozzarella" },
+    { id: 12, name: "Spaghetti Carbonara", category: "Hauptspeise", price: 12.00, description: "Speck, Ei, Pecorino" },
+    
+    // NACHTISCH (Dolci)
+    { id: 20, name: "Tiramisu", category: "Nachtisch", price: 6.00, description: "Hausgemacht nach Familienrezept" },
+    { id: 21, name: "Panna Cotta", category: "Nachtisch", price: 5.50, description: "Mit Fruchtspiegel" },
+    
     // GETRÄNKE
-    { id: 101, name: "Cola 0.33l", category: "Getränke", price: 3.50, description: "Eiskalt serviert", image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500" },
-    { id: 102, name: "Wasser 0.5l", category: "Getränke", price: 2.50, description: "Still oder Sprudel", image: "https://images.unsplash.com/photo-1548919973-5dea5846f669?auto=format&fit=crop&w=500" },
-    
-    // PIZZA
-    { id: 1, name: "Margherita", category: "Pizza", price: 8.50, description: "Tomaten, Mozzarella, Basilikum", image: "https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?auto=format&fit=crop&w=500" },
-    { id: 2, name: "Salami", category: "Pizza", price: 10.00, description: "Tomaten, Mozzarella, Rindersalami", image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500" },
-    
-    // PASTA
-    { id: 201, name: "Spaghetti Carbonara", category: "Pasta", price: 11.50, description: "Ei, Speck, Pecorino", image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=500" }
+    { id: 30, name: "Cola 0.33l", category: "Getränke", price: 3.50, description: "Eiskalt" },
+    { id: 31, name: "Wasser 0.5l", category: "Getränke", price: 2.50, description: "Still/Sprudel" }
 ];
 
 let cart = [];
-let selectedTable = "";
+let table = "";
 
 function startOrdering() {
-    const table = document.getElementById('tableNumber').value;
-    if (!table) {
-        alert("Bitte wählen Sie zuerst einen Tisch!");
-        return;
-    }
-    selectedTable = table;
-    document.getElementById('displayTable').innerText = table;
+    table = document.getElementById('tableNumber').value;
+    if(!table) return alert("Bitte Tisch wählen!");
+    document.getElementById('activeTable').innerText = table;
     document.getElementById('tableSelection').style.display = 'none';
     document.getElementById('menuContent').style.display = 'block';
-    renderMenu('Getränke'); // Start with drinks
+    renderMenu('Vorspeise'); // Open with Starters
 }
 
-function renderMenu(category) {
+function renderMenu(cat) {
     const grid = document.getElementById('menuGrid');
-    grid.innerHTML = '';
+    grid.innerHTML = `<h2 style="color:#d52b1e; border-bottom:2px solid #eee; padding-bottom:10px;">${cat}</h2>`;
     
-    const filtered = menuData.filter(item => item.category === category);
-    
-    filtered.forEach(item => {
+    document.querySelectorAll('nav button').forEach(b => b.style.color = "white");
+    document.getElementById('btn-'+cat).style.color = "#008c45";
+
+    menuData.filter(i => i.category === cat).forEach(item => {
         grid.innerHTML += `
-            <div class="menu-item" style="padding: 15px; border-bottom: 1px solid #eee; margin-bottom: 15px;">
-                <img src="${item.image}" style="width:100px; height:100px; float:left; border-radius:10px; margin-right:15px; object-fit:cover;">
-                <h3 style="margin:0;">${item.name}</h3>
-                <p style="font-size:0.8rem; color: #666;">${item.description}</p>
-                <div style="font-weight:bold;">${item.price.toFixed(2)}€</div>
-                <button onclick="addToCart(${item.id})" style="background:#d52b1e; color:white; border:none; padding:5px 15px; border-radius:5px; margin-top:5px;">+ Hinzufügen</button>
-                <div style="clear:both;"></div>
-            </div>
-        `;
+            <div class="menu-item" style="background:white; padding:15px; margin-bottom:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div>
+                    <h3 style="margin:0;">${item.name}</h3>
+                    <p style="margin:5px 0; font-size:0.8rem; color:#666;">${item.description}</p>
+                    <strong style="color:#d52b1e;">${item.price.toFixed(2)}€</strong>
+                </div>
+                <button onclick="addToCart(${item.id})" style="background:#008c45; color:white; border:none; padding:10px; border-radius:5px; font-weight:bold;">+ ADD</button>
+            </div>`;
     });
 }
 
 function addToCart(id) {
-    const item = menuData.find(i => i.id === id);
-    cart.push(item);
-    document.getElementById('cartCount').innerText = cart.length;
+    cart.push(menuData.find(i => i.id === id));
+    document.getElementById('totalPrice').innerText = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
 }
 
-function sendOrder() {
-    if (cart.length === 0) { alert("Warenkorb leer!"); return; }
-
-    let message = `🪑 *TISCH ${selectedTable} - BESTELLUNG* 🪑%0A%0A`;
-    let total = 0;
-    cart.forEach((item) => {
-        message += `- ${item.name} (${item.price.toFixed(2)}€)%0A`;
-        total += item.price;
+function openSummary() {
+    if(cart.length === 0) return alert("Warenkorb leer!");
+    document.getElementById('orderModal').style.display = 'block';
+    document.getElementById('rTable').innerText = table;
+    document.getElementById('rDate').innerText = new Date().toLocaleString('de-DE');
+    
+    // Sort receipt by category order: Vorspeise -> Hauptspeise -> Nachtisch -> Getränke
+    const order = ["Vorspeise", "Hauptspeise", "Nachtisch", "Getränke"];
+    let html = "";
+    
+    order.forEach(cat => {
+        const items = cart.filter(i => i.category === cat);
+        if(items.length > 0) {
+            html += `<div style="font-weight:bold; border-bottom:1px solid #000; margin-top:10px; text-transform:uppercase;">-- ${cat} --</div>`;
+            items.forEach(i => {
+                html += `<div style="display:flex; justify-content:space-between; font-size:0.9rem;">
+                            <span>1x ${i.name}</span>
+                            <span>${i.price.toFixed(2)}€</span>
+                         </div>`;
+            });
+        }
     });
+    
+    document.getElementById('rItems').innerHTML = html;
+    document.getElementById('rTotal').innerText = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
+}
 
-    message += `%0A💰 *Gesamt: ${total.toFixed(2)}€*`;
+function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 
-    const myNumber = "49123456789"; // Replace with your number!
-    window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+function shareOrder() {
+    const text = `Bestellung Tisch ${table} - Pizzeria Sorrentino:\n${cart.map(i => i.name).join(", ")}\nGesamt: ${document.getElementById('rTotal').innerText}€`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
+}
+
+function downloadReceipt() {
+    const content = document.getElementById('receipt').innerText;
+    const blob = new Blob([content], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `Sorrentino_Tisch_${table}.txt`;
+    a.click();
 }
