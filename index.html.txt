@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria Sorrentino | Köln</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2><i class="fas fa-pizza-slice"></i> Pizzeria Sorrentino</h2>
+                <p>Griechenpforte 46, 50676 Köln</p>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-basket"></i>
+                <span id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="categories">
+            <div class="container">
+                <div class="category-tabs">
+                    <button class="tab active" data-category="all">Alle</button>
+                    <button class="tab" data-category="antipasti">Antipasti</button>
+                    <button class="tab" data-category="pizza">Pizza</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div id="menuItems" class="menu-grid"></div>
+        </section>
+    </main>
+
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Ihr Warenkorb</h3>
+            <div id="cartItems"></div>
+            <hr>
+            <div class="total">Gesamt: €<span id="cartTotal">0.00</span></div>
+            <button class="place-order-btn" onclick="placeOrder()">Jetzt Bestellen</button>
+            <button onclick="toggleCart()" style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">Schließen</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
