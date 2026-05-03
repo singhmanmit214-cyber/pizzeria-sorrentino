@@ -1,72 +1,99 @@
- // --- DATABASE ---
+ // --- COMPLETE MENU DATABASE ---
 const menuData = [
-    // PIZZA (Prices from your menu photos)
-    { id: 1, name: "Pizza Margherita", category: "Pizza", price: 10.50, description: "Tomatensauce, Mozzarella, Oregano" },
-    { id: 2, name: "Pizza Salami", category: "Pizza", price: 12.00, description: "Rindersalami" },
-    { id: 3, name: "Pizza Prosciutto", category: "Pizza", price: 12.00, description: "Edelschinken" },
-    { id: 4, name: "Pizza Funghi", category: "Pizza", price: 11.00, description: "Frische Champignons" },
-    { id: 5, name: "Pizza Tonno", category: "Pizza", price: 13.00, description: "Thunfisch, Zwiebeln" },
-    { id: 6, name: "Pizza Inferno", category: "Pizza", price: 13.00, description: "Scharfe Salami" },
-    { id: 7, name: "Pizza Amsterdam", category: "Pizza", price: 17.50, description: "Hähnchen, Sauce Hollandaise, Brokkoli" },
-    { id: 8, name: "Pizza Chiara", category: "Pizza", price: 18.50, description: "Scharfe Salami, Auberginen, Pinienkerne" },
+    // --- ANTIPASTI & INSALATE ---
+    { id: 1, name: "Bruschetta Classic (4 Stk.)", category: "Antipasti", price: 8.50, description: "mit Tomaten, Knoblauch, Basilikum" },
+    { id: 2, name: "Focaccia", category: "Antipasti", price: 6.50, description: "Hausgemachtes Brot mit Rosmarin" },
+    { id: 3, name: "Pizzabrötchen (8 Stk.)", category: "Antipasti", price: 5.50, description: "mit Kräuterbutter" },
+    { id: 4, name: "Caprese", category: "Antipasti", price: 12.50, description: "Büffelmozzarella, Tomaten, Basilikum" },
+    { id: 5, name: "Carpaccio di Manzo", category: "Antipasti", price: 14.00, description: "Hauchdünnes Rinderfilet, Parmesan, Rucola" },
+    { id: 6, name: "Carpaccio di Pesce", category: "Antipasti", price: 14.50, description: "Hauchdünner Fisch nach Art des Hauses" },
+    { id: 7, name: "Ziegenkäse", category: "Antipasti", price: 15.50, description: "mit Honig und Walnüssen" },
+    { id: 8, name: "Antipasto Italiano (2 Pers.)", category: "Antipasti", price: 24.50, description: "Gemischte Vorspeisenplatte" },
+    { id: 9, name: "Antipasto Vegetale", category: "Antipasti", price: 11.50, description: "Vegetarische Vorspeisenplatte" },
+    { id: 10, name: "Insalata Mista", category: "Salate", price: 9.00, description: "Gemischter Saisonsalat" },
+    { id: 11, name: "Insalata Pollo", category: "Salate", price: 12.50, description: "Salat mit Hähnchenbrust" },
+    { id: 12, name: "Insalata Salmone", category: "Salate", price: 15.50, description: "Salat mit Lachsstreifen" },
+    { id: 13, name: "Insalata Capricciosa", category: "Salate", price: 14.50, description: "Salat mit Schinken, Käse, Ei, Oliven" },
 
-    // PASTA
-    { id: 101, name: "Spaghetti Napoli", category: "Pasta", price: 12.00, description: "Tomatensauce, Basilikum" },
-    { id: 102, name: "Spaghetti Bolognese", category: "Pasta", price: 15.50, description: "Hausgemachte Rinderhackfleischsauce" },
-    { id: 103, name: "Spaghetti Carbonara", category: "Pasta", price: 16.50, description: "Guanciale Speck, Ei, Parmesan" },
-    { id: 104, name: "Tagliatelle di Manzo", category: "Pasta", price: 20.50, description: "Rinderfiletspitzen, Rucola" },
+    // --- PIZZA CLASSIC ---
+    { id: 100, name: "Pizza Margherita", category: "Pizza", price: 10.50, description: "Tomatensauce, Mozzarella" },
+    { id: 101, name: "Pizza Bufalina", category: "Pizza", price: 12.00, description: "mit Büffelmozzarella" },
+    { id: 102, name: "Pizza Salami", category: "Pizza", price: 12.00, description: "Rindersalami" },
+    { id: 103, name: "Pizza Prosciutto", category: "Pizza", price: 12.00, description: "Edelschinken" },
+    { id: 104, name: "Pizza Funghi", category: "Pizza", price: 12.00, description: "Frische Champignons" },
+    { id: 105, name: "Pizza Inferno", category: "Pizza", price: 13.00, description: "Scharfe Salami" },
+    { id: 106, name: "Pizza Tonno", category: "Pizza", price: 13.50, description: "Thunfisch, Zwiebeln" },
+    { id: 107, name: "Pizza Hawaii", category: "Pizza", price: 13.00, description: "Schinken, Ananas" },
+    { id: 108, name: "Pizza Quattro Stagioni", category: "Pizza", price: 14.50, description: "Schinken, Salami, Pilze, Thunfisch" },
+    { id: 109, name: "Pizza Verdura", category: "Pizza", price: 14.50, description: "Frisches Gemüse, Knoblauch" },
+    { id: 110, name: "Pizza Amsterdam", category: "Pizza", price: 17.50, description: "Hähnchen, Hollandaise, Brokkoli" },
+    { id: 111, name: "Pizza Chiara", category: "Pizza", price: 18.50, description: "Scharfe Salami, Auberginen, Büffelmozzarella" },
+    { id: 112, name: "Pizza Calzone", category: "Pizza", price: 15.00, description: "Gefüllte Pizza" },
 
-    // SALATE
-    { id: 201, name: "Insalata Mista", category: "Salat", price: 9.00, description: "Gemischter Saisonsalat" },
-    { id: 202, name: "Insalata Pollo", category: "Salat", price: 12.50, description: "Salat mit Hähnchenbrust" },
-    { id: 203, name: "Insalata Salmone", category: "Salat", price: 16.50, description: "Salat mit Lachsstreifen" },
+    // --- PASTA ---
+    { id: 200, name: "Spaghetti Napoli", category: "Pasta", price: 12.00, description: "Tomatensauce, Basilikum" },
+    { id: 201, name: "Spaghetti Bolognese", category: "Pasta", price: 15.50, description: "Rinder-Hackfleischsauce" },
+    { id: 202, name: "Spaghetti Carbonara", category: "Pasta", price: 16.50, description: "Guanciale Speck, Ei, Parmesan" },
+    { id: 203, name: "Penne Arrabbiata", category: "Pasta", price: 13.00, description: "Scharfe Tomatensauce" },
+    { id: 204, name: "Rigatoni Norcina", category: "Pasta", price: 16.50, description: "Balsamico-Sahne, Hähnchen, Pilze" },
+    { id: 205, name: "Tagliatelle di Manzo", category: "Pasta", price: 20.50, description: "Rinderfiletspitzen, Rucola" },
+    { id: 206, name: "Lasagne Hausgemacht", category: "Pasta", price: 16.50, description: "mit Rinderhack überbacken" },
 
-    // GETRÄNKE - SOFTDRINKS
-    { id: 501, name: "Coca Cola / Zero / Light", category: "Getränke", price: 3.50, description: "0,33l Glasflasche" },
-    { id: 502, name: "Fanta / Sprite", category: "Getränke", price: 3.50, description: "0,33l Glasflasche" },
-    { id: 503, name: "Apfelschorle", category: "Getränke", price: 3.50, description: "0,33l" },
-    { id: 504, name: "Wasser Still (Klein/Groß)", category: "Getränke", price: 3.00, description: "0,25l / 0,75l verfügbar" },
-    { id: 505, name: "Wasser Sprudel (Klein/Groß)", category: "Getränke", price: 3.00, description: "0,25l / 0,75l verfügbar" },
+    // --- VEGANE OPTIONEN ---
+    { id: 300, name: "Vegane Pizza Margherita", category: "Vegan", price: 12.50, description: "mit veganem Käse" },
+    { id: 301, name: "Vegane Spaghetti Bolognese", category: "Vegan", price: 18.50, description: "mit veganem Hack" },
+    { id: 302, name: "Vegane Tagliatelle Salmone", category: "Vegan", price: 20.50, description: "mit veganem Lachs" },
 
-    // BIERE
-    { id: 601, name: "Kölsch (0,2l / 0,3l)", category: "Getränke", price: 2.20, description: "Frisch vom Fass" },
-    { id: 602, name: "Weizenbier / Alkoholfrei", category: "Getränke", price: 5.50, description: "0,5l Flasche" },
-    { id: 603, name: "Jever / Jever Fun", category: "Getränke", price: 3.80, description: "Pils 0,33l" },
+    // --- CARNE & PESCE ---
+    { id: 400, name: "Schnitzel Wiener Art", category: "Fleisch/Fisch", price: 15.50, description: "mit Pommes" },
+    { id: 401, name: "Rinderfilet vom Grill", category: "Fleisch/Fisch", price: 30.50, description: "Arg. Rinderfilet" },
+    { id: 402, name: "Salmone Griglia", category: "Fleisch/Fisch", price: 25.50, description: "Gegrillter Lachs" },
+    { id: 403, name: "Calamari Fritti", category: "Fleisch/Fisch", price: 20.00, description: "Frittierte Tintenfischringe" },
 
-    // SPIRITZ & HOT
-    { id: 701, name: "Aperol Spritz / Limoncello Spritz", category: "Getränke", price: 8.50, description: "Erfrischender Aperitif" },
-    { id: 702, name: "Kaffeespezialitäten", category: "Getränke", price: 3.20, description: "Espresso, Cappuccino, Latte Macchiato" },
+    // --- DESSERT ---
+    { id: 500, name: "Hausgemachtes Tiramisu", category: "Dessert", price: 8.00, description: "Klassisch italienisch" },
+    { id: 501, name: "Schoko Souffle", category: "Dessert", price: 7.00, description: "mit flüssigem Kern" },
+    { id: 502, name: "Veganer Cheesecake", category: "Dessert", price: 8.50, description: "mit Himbeeren" },
 
-    // WEINE
-    { id: 801, name: "Weine (Rot / Weiß / Rosé)", category: "Getränke", price: 6.50, description: "0,2l Qualitätsweine" }
+    // --- GETRÄNKE ---
+    { id: 600, name: "Coca Cola / Zero / Light", category: "Getränke", price: 3.50, description: "0,33l Glasflasche" },
+    { id: 601, name: "Fanta / Sprite", category: "Getränke", price: 3.50, description: "0,33l Glasflasche" },
+    { id: 602, name: "Wasser Still/Sprudel (0,25l)", category: "Getränke", price: 3.00, description: "Kleine Flasche" },
+    { id: 603, name: "Wasser Still/Sprudel (0,75l)", category: "Getränke", price: 6.50, description: "Große Flasche" },
+    { id: 604, name: "Kölsch 0,2l", category: "Getränke", price: 2.20, description: "Frisch vom Fass" },
+    { id: 605, name: "Kölsch 0,3l", category: "Getränke", price: 3.30, description: "Frisch vom Fass" },
+    { id: 606, name: "Weizenbier 0,5l", category: "Getränke", price: 5.50, description: "mit/ohne Alkohol" },
+    { id: 607, name: "Aperol / Limoncello Spritz", category: "Getränke", price: 8.50, description: "Spritzige Longdrinks" },
+    { id: 608, name: "Espresso / Kaffee", category: "Getränke", price: 2.50, description: "Italienische Röstung" },
+    { id: 609, name: "Hauswein (Rot/Weiß/Rosé)", category: "Getränke", price: 6.50, description: "0,2l Glas" }
 ];
 
 let cart = [];
 let selectedTable = "";
 
-// --- ON LOAD: BUILD THE 15 CIRCLES ---
+// --- INITIALIZE THE 15 TABLE CIRCLES ---
 window.onload = function() {
     const grid = document.getElementById('tableGrid');
-    for (let i = 1; i <= 15; i++) {
-        let circle = document.createElement('div');
-        circle.className = 'table-circle';
-        circle.innerText = i;
-        circle.onclick = () => selectTable(i);
-        grid.appendChild(circle);
+    if (grid) {
+        for (let i = 1; i <= 15; i++) {
+            let circle = document.createElement('div');
+            circle.className = 'table-circle';
+            circle.innerText = i;
+            circle.onclick = () => selectTable(i);
+            grid.appendChild(circle);
+        }
     }
 };
 
-// --- TABLE SELECTION ---
 function selectTable(num) {
     selectedTable = num;
     document.getElementById('activeTable').innerText = num;
     document.getElementById('summaryTable').innerText = num;
     document.getElementById('tableSelection').style.display = 'none';
     document.getElementById('menuContent').style.display = 'block';
-    renderMenu('Pizza'); // Start with Pizza category
+    renderMenu('Antipasti'); // Standard start category
 }
 
-// --- RENDER MENU ITEMS ---
 function renderMenu(cat) {
     const container = document.getElementById('menuGrid');
     container.innerHTML = '';
@@ -74,19 +101,18 @@ function renderMenu(cat) {
     
     items.forEach(item => {
         container.innerHTML += `
-            <div class="menu-item" style="background:#1a1a1a; border: 1px solid #333; padding:15px; border-radius:10px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+            <div class="menu-item">
                 <div>
-                    <h3 style="margin:0; color:#fff;">${item.name}</h3>
-                    <p style="margin:5px 0; color:#888; font-size:0.8rem;">${item.description}</p>
-                    <span style="color:#d4af37; font-weight:bold;">${item.price.toFixed(2)}€</span>
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <span>${item.price.toFixed(2)}€</span>
                 </div>
-                <button onclick="addToCart(${item.id})" style="background:#d4af37; color:black; border:none; padding:10px 15px; border-radius:5px; font-weight:bold;">+</button>
+                <button class="add-btn" onclick="addToCart(${item.id})">+</button>
             </div>
         `;
     });
 }
 
-// --- CART LOGIC ---
 function addToCart(id) {
     const item = menuData.find(i => i.id === id);
     cart.push(item);
@@ -101,36 +127,54 @@ function updateCartBar() {
 
 function openSummary() {
     if (cart.length === 0) return alert("Warenkorb leer!");
-    const modal = document.getElementById('orderModal');
+    document.getElementById('orderModal').style.display = 'flex';
     const rItems = document.getElementById('rItems');
-    modal.style.display = 'flex';
     
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    const tax = total - (total / 1.07);
+
     rItems.innerHTML = cart.map(i => `
-        <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #eee;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
             <span>1x ${i.name}</span>
             <span>${i.price.toFixed(2)}€</span>
         </div>
-    `).join('');
+    `).join('') + `
+        <div style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px; font-size:0.8rem; color:#666;">
+            <div style="display:flex; justify-content:space-between;"><span>inkl. 7% MwSt.</span> <span>${tax.toFixed(2)}€</span></div>
+        </div>
+    `;
     
-    document.getElementById('rTotal').innerText = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
+    document.getElementById('rTotal').innerText = total.toFixed(2);
 }
 
 function closeModal() {
     document.getElementById('orderModal').style.display = 'none';
 }
 
-// --- WHATSAPP ORDER ---
-function shareOrder() {
-    const total = document.getElementById('rTotal').innerText;
-    const items = cart.map(i => `• ${i.name}`).join('%0A');
-    const msg = `*BESTELLUNG TISCH ${selectedTable}*%0A%0A${items}%0A%0A*Gesamt: ${total}€*`;
+function printReceipt() {
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    const tax = total - (total / 1.07);
+    const date = new Date().toLocaleString('de-DE');
     
-    // Replace the number below with your actual restaurant number
-    window.open(`https://wa.me/4917600000000?text=${msg}`);
-}
-
-// --- CALL WAITER ---
-function callWaiter() {
-    const msg = `🔔 *Service benötigt an Tisch ${selectedTable}*`;
-    window.open(`https://wa.me/4917600000000?text=${encodeURIComponent(msg)}`);
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+        <html>
+        <body style="font-family:monospace; padding:20px; text-align:center; width:280px; margin:auto; border:1px solid #ddd;">
+            <h2>SORRENTINO</h2>
+            <p>Pizzeria - Trattoria<br>${date}</p>
+            <hr>
+            <p><strong>TISCH: ${selectedTable}</strong></p>
+            <hr>
+            <div style="text-align:left;">
+                ${cart.map(i => `<div style="display:flex;justify-content:space-between;"><span>1x ${i.name}</span> <span>${i.price.toFixed(2)}€</span></div>`).join('')}
+            </div>
+            <hr>
+            <h3 style="display:flex;justify-content:space-between;"><span>TOTAL:</span> <span>${total.toFixed(2)}€</span></h3>
+            <p style="font-size:10px;">Netto: ${(total - tax).toFixed(2)}€<br>MwSt 7%: ${tax.toFixed(2)}€</p>
+            <p>Vielen Dank für Ihren Besuch!</p>
+            <script>window.print(); setTimeout(() => window.close(), 500);</script>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
 }
