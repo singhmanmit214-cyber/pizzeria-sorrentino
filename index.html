@@ -3,43 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzeria Sorrentino - Tisch-Bestellung</title>
+    <title>Pizzeria Sorrentino | Tisch-Bestellung</title>
     <style>
-        :root { --primary: #d52b1e; --secondary: #008c45; --dark: #333; --light: #f4f4f4; }
-        body { font-family: sans-serif; margin: 0; background: var(--light); padding-bottom: 100px; }
-        header { background: var(--primary); color: white; text-align: center; padding: 15px; }
+        :root { --red: #d52b1e; --green: #008c45; --white: #ffffff; --dark: #222; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #f8f8f8; color: var(--dark); }
         
-        /* Table Selection Screen */
-        #tableSelection { padding: 40px 20px; text-align: center; display: block; }
-        .btn-main { background: var(--secondary); color: white; padding: 15px; border: none; border-radius: 10px; font-weight: bold; width: 100%; max-width: 300px; cursor: pointer; }
+        /* Header */
+        header { background: var(--red); color: white; text-align: center; padding: 25px 10px; border-bottom: 5px solid var(--green); }
+        header h1 { margin: 0; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
         
-        /* Menu Screen */
+        /* Table Selection */
+        #tableSelection { padding: 50px 20px; text-align: center; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto; }
+        select { width: 100%; padding: 15px; font-size: 1.1rem; border-radius: 8px; border: 2px solid #ddd; margin-bottom: 20px; }
+        
+        /* Menu Section */
         #menuContent { display: none; }
-        nav { display: flex; background: var(--dark); position: sticky; top: 0; z-index: 1000; overflow-x: auto; }
-        nav button { flex: 1; padding: 15px; border: none; background: none; color: white; font-weight: bold; cursor: pointer; }
-        nav button.active { border-bottom: 4px solid var(--secondary); }
+        nav { display: flex; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav button { flex: 1; padding: 15px; border: none; background: none; font-weight: bold; font-size: 0.9rem; cursor: pointer; border-bottom: 3px solid transparent; }
+        nav button.active { color: var(--red); border-bottom: 3px solid var(--red); }
 
-        .menu-grid { padding: 15px; }
-        .menu-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .item-info { flex: 1; }
-        .add-btn { background: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 6px; }
+        .menu-grid { padding: 15px; padding-bottom: 120px; }
+        .menu-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid var(--green); }
+        .item-info h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+        .item-info p { margin: 0; font-size: 0.8rem; color: #666; }
+        .price-tag { font-weight: bold; color: var(--red); display: block; margin-top: 5px; }
+        .add-btn { background: var(--green); color: white; border: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; }
 
-        .bottom-bar { position: fixed; bottom: 0; width: 100%; background: white; border-top: 2px solid var(--primary); padding: 15px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; }
-        
+        /* Bottom Bar */
+        .bottom-bar { position: fixed; bottom: 0; width: 100%; background: white; border-top: 2px solid var(--red); padding: 15px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
+        .btn-order { background: var(--red); color: white; padding: 12px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
         /* Receipt Modal */
-        #orderModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; }
-        .modal-content { background: white; margin: 10% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; }
-        .receipt { border: 1px dashed #333; padding: 15px; font-family: monospace; background: #fff; margin-bottom: 20px; }
+        #orderModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; }
+        .modal-body { background: white; margin: 20px auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 10px; }
+        .receipt { border: 1px dashed #444; padding: 20px; font-family: 'Courier New', Courier, monospace; background: #fff; line-height: 1.4; }
         
-        .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-print { background: #333; color: white; padding: 10px; border: none; border-radius: 5px; }
-        .btn-share { background: #25D366; color: white; padding: 10px; border: none; border-radius: 5px; }
-        .btn-download { background: #007bff; color: white; padding: 10px; border: none; border-radius: 5px; }
+        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .action-grid button { padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; color: white; }
+        .btn-p { background: #333; }
+        .btn-s { background: #25D366; }
+        .btn-d { background: #007bff; }
+        .btn-c { background: var(--red); grid-column: span 2; }
 
         @media print {
             body * { visibility: hidden; }
             .receipt, .receipt * { visibility: visible; }
-            .receipt { position: absolute; left: 0; top: 0; width: 100%; }
+            .receipt { position: absolute; left: 0; top: 0; width: 100%; border: none; }
         }
     </style>
 </head>
@@ -50,70 +60,83 @@
 </header>
 
 <div id="tableSelection">
-    <h2>Willkommen!</h2>
-    <p>Wählen Sie Ihren Tisch:</p>
-    <select id="tableNumber" style="width: 100%; max-width: 300px; padding: 15px; margin-bottom: 20px; font-size: 1.1rem; border-radius: 10px;">
-        <option value="">-- Tisch wählen --</option>
-        <script>for(let i=1; i<=15; i++) document.write(`<option value="${i}">Tisch ${i}</option>`);</script>
-    </select><br>
-    <button class="btn-main" onclick="startOrdering()">Speisekarte öffnen</button>
+    <div class="card">
+        <h2 style="margin-top:0;">Benvenuti!</h2>
+        <p>Bitte wählen Sie Ihren Tisch:</p>
+        <select id="tableNumber">
+            <option value="">-- Tisch auswählen --</option>
+            <script>for(let i=1; i<=15; i++) document.write(`<option value="${i}">Tisch ${i}</option>`);</script>
+        </select>
+        <button class="add-btn" style="width:100%; padding:15px; font-size:1.1rem;" onclick="startOrdering()">SPEISEKARTE ÖFFNEN</button>
+    </div>
 </div>
 
 <div id="menuContent">
     <nav>
-        <button onclick="renderMenu('Getränke')" class="cat-btn" id="btn-Getränke">Getränke</button>
-        <button onclick="renderMenu('Pizza')" class="cat-btn" id="btn-Pizza">Pizza</button>
-        <button onclick="renderMenu('Pasta')" class="cat-btn" id="btn-Pasta">Pasta</button>
+        <button onclick="renderMenu('Pizza')" id="btn-Pizza">PIZZA</button>
+        <button onclick="renderMenu('Pasta')" id="btn-Pasta">PASTA</button>
+        <button onclick="renderMenu('Getränke')" id="btn-Getränke">DRINKS</button>
     </nav>
 
     <div id="menuGrid" class="menu-grid"></div>
 
     <div class="bottom-bar">
-        <div>Tisch: <span id="activeTable"></span><br><strong>Summe: <span id="totalPrice">0.00</span>€</strong></div>
-        <button class="btn-main" style="width: auto;" onclick="openOrderSummary()">Bestellung prüfen</button>
+        <div>
+            <small>Tisch: <span id="activeTable"></span></small><br>
+            <strong>Gesamt: <span id="totalPrice">0.00</span>€</strong>
+        </div>
+        <button class="btn-order" onclick="openSummary()">BESTELLUNG PRÜFEN</button>
     </div>
 </div>
 
 <div id="orderModal">
-    <div class="modal-content">
-        <h2 style="text-align: center;">Ihre Quittung</h2>
+    <div class="modal-body">
         <div id="receipt" class="receipt">
             <center>
                 <strong>PIZZERIA SORRENTINO</strong><br>
-                Tisch: <span id="receiptTable"></span><br>
-                <span id="receiptDate"></span><br>
-                --------------------------------
+                Italienische Spezialitäten<br>
+                -------------------------<br>
+                Tisch: <span id="rTable"></span><br>
+                Datum: <span id="rDate"></span><br>
+                -------------------------
             </center>
-            <div id="receiptItems"></div>
-            --------------------------------<br>
-            <strong>GESAMT: <span id="receiptTotal"></span>€</strong>
+            <div id="rItems" style="margin: 15px 0;"></div>
+            -------------------------<br>
+            <strong>GESAMTSUMME: <span id="rTotal"></span>€</strong><br>
+            <center style="margin-top:10px;">Vielen Dank für Ihren Besuch!</center>
         </div>
 
-        <div class="action-btns">
-            <button class="btn-print" onclick="window.print()">Drucken 🖨️</button>
-            <button class="btn-share" onclick="shareOrder()">Teilen 📲</button>
-            <button class="btn-download" onclick="downloadReceipt()" style="grid-column: span 2;">Download (PDF/Text) 📥</button>
-            <button style="background: var(--secondary); color: white; grid-column: span 2; padding: 15px; border:none; border-radius: 5px; font-weight:bold; margin-top:10px;" onclick="location.reload()">Neue Bestellung</button>
+        <div class="action-grid">
+            <button class="btn-p" onclick="window.print()">Drucken 🖨️</button>
+            <button class="btn-s" onclick="shareOrder()">Teilen 📲</button>
+            <button class="btn-d" onclick="downloadReceipt()">Download 📥</button>
+            <button class="btn-c" onclick="location.reload()">NEUE BESTELLUNG</button>
+            <button style="grid-column: span 2; background:#666; color:white; border:none; padding:10px; border-radius:5px;" onclick="closeModal()">Zurück zum Menü</button>
         </div>
     </div>
 </div>
 
 <script>
 const menuData = [
-    { id: 101, name: "Cola 0.33l", category: "Getränke", price: 3.50, description: "Eiskalt" },
-    { id: 102, name: "Wasser 0.5l", category: "Getränke", price: 2.50, description: "Still/Sprudel" },
-    { id: 1, name: "Pizza Margherita", category: "Pizza", price: 8.50, description: "Tomaten, Mozzarella" },
-    { id: 2, name: "Pizza Salami", category: "Pizza", price: 10.50, description: "Salami vom Rind" },
-    { id: 3, name: "Pasta Carbonara", category: "Pasta", price: 12.00, description: "Ei, Speck, Käse" }
+    { id: 1, name: "Margherita", category: "Pizza", price: 8.50, description: "Tomatensoße, Mozzarella, Basilikum" },
+    { id: 2, name: "Salami", category: "Pizza", price: 10.50, description: "Rindersalami, Mozzarella" },
+    { id: 3, name: "Tonno e Cipolla", category: "Pizza", price: 11.50, description: "Thunfisch, rote Zwiebeln" },
+    { id: 4, name: "Vegetaria", category: "Pizza", price: 11.00, description: "Frisches Gemüse, Oliven" },
+    { id: 5, name: "Spaghetti Carbonara", category: "Pasta", price: 12.00, description: "Ei, Speck, Pecorino-Käse" },
+    { id: 6, name: "Penne All'Arrabbiata", category: "Pasta", price: 10.50, description: "Scharfe Tomatensoße, Knoblauch" },
+    { id: 7, name: "Lasagne Al Forno", category: "Pasta", price: 13.00, description: "Hausgemacht, mit Rinderhack" },
+    { id: 101, name: "Coca Cola 0.33l", category: "Getränke", price: 3.50, description: "Eiskalte Dose" },
+    { id: 102, name: "Fanta 0.33l", category: "Getränke", price: 3.50, description: "Eiskalte Dose" },
+    { id: 103, name: "Mineralwasser 0.5l", category: "Getränke", price: 2.50, description: "Prickelnd oder Still" },
+    { id: 104, name: "Peroni Bier 0.33l", category: "Getränke", price: 4.00, description: "Italienisches Lagerbier" }
 ];
 
 let cart = [];
-let currentTable = "";
+let table = "";
 
 function startOrdering() {
-    const table = document.getElementById('tableNumber').value;
-    if(!table) return alert("Bitte Tisch wählen!");
-    currentTable = table;
+    table = document.getElementById('tableNumber').value;
+    if(!table) return alert("Bitte Tischnummer wählen!");
     document.getElementById('activeTable').innerText = table;
     document.getElementById('tableSelection').style.display = 'none';
     document.getElementById('menuContent').style.display = 'block';
@@ -123,8 +146,8 @@ function startOrdering() {
 function renderMenu(cat) {
     const grid = document.getElementById('menuGrid');
     grid.innerHTML = '';
-    document.querySelectorAll('.cat-btn').forEach(b => b.style.borderBottom = "none");
-    document.getElementById('btn-'+cat).style.borderBottom = "4px solid #008c45";
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-'+cat).classList.add('active');
 
     menuData.filter(i => i.category === cat).forEach(item => {
         grid.innerHTML += `
@@ -132,34 +155,37 @@ function renderMenu(cat) {
                 <div class="item-info">
                     <h3>${item.name}</h3>
                     <p>${item.description}</p>
-                    <strong>${item.price.toFixed(2)}€</strong>
+                    <span class="price-tag">${item.price.toFixed(2)} €</span>
                 </div>
-                <button class="add-btn" onclick="addToCart(${item.id})">+ Hinzufügen</button>
+                <button class="add-btn" onclick="addToCart(${item.id})">+ ADD</button>
             </div>`;
     });
 }
 
 function addToCart(id) {
     cart.push(menuData.find(i => i.id === id));
-    document.getElementById('totalPrice').innerText = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    document.getElementById('totalPrice').innerText = total.toFixed(2);
 }
 
-function openOrderSummary() {
-    if(cart.length === 0) return alert("Warenkorb ist leer!");
+function openSummary() {
+    if(cart.length === 0) return alert("Warenkorb leer!");
     document.getElementById('orderModal').style.display = 'block';
-    document.getElementById('receiptTable').innerText = currentTable;
-    document.getElementById('receiptDate').innerText = new Date().toLocaleString();
+    document.getElementById('rTable').innerText = table;
+    document.getElementById('rDate').innerText = new Date().toLocaleString();
     
-    let itemsHtml = "";
+    let html = "";
     cart.forEach(i => {
-        itemsHtml += `<div style="display:flex; justify-content:space-between;"><span>${i.name}</span><span>${i.price.toFixed(2)}€</span></div>`;
+        html += `<div style="display:flex; justify-content:space-between;"><span>${i.name}</span><span>${i.price.toFixed(2)}€</span></div>`;
     });
-    document.getElementById('receiptItems').innerHTML = itemsHtml;
-    document.getElementById('receiptTotal').innerText = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
+    document.getElementById('rItems').innerHTML = html;
+    document.getElementById('rTotal').innerText = cart.reduce((s, i) => s + i.price, 0).toFixed(2);
 }
+
+function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 
 function shareOrder() {
-    const text = `Bestellung Tisch ${currentTable}: ${cart.map(i => i.name).join(", ")}. Gesamt: ${cart.reduce((s, i) => s + i.price, 0).toFixed(2)}€`;
+    const text = `Bestellung Pizzeria Sorrentino - Tisch ${table}: ${cart.map(i => i.name).join(", ")}. Summe: ${document.getElementById('rTotal').innerText}€`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
 }
 
@@ -168,7 +194,7 @@ function downloadReceipt() {
     const blob = new Blob([content], { type: 'text/plain' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `Tisch_${currentTable}_Quittung.txt`;
+    a.download = `Bestellung_Tisch_${table}.txt`;
     a.click();
 }
 </script>
