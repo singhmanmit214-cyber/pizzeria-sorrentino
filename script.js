@@ -1,26 +1,26 @@
 const menuData = [
-    { id: 1, name: "Margherita", category: "Pizza", price: 8.50, description: "Tomaten, Mozzarella, Basilikum", image: "https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?auto=format&fit=crop&w=500" },
-    { id: 2, name: "Salami", category: "Pizza", price: 10.00, description: "Tomaten, Mozzarella, Rindersalami", image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500" },
-    { id: 3, name: "Spaghetti Carbonara", category: "Pasta", price: 11.50, description: "Sahnesauce, Schinken, Ei", image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=500" },
-    { id: 4, name: "Tiramisu", category: "Dessert", price: 6.50, description: "Hausgemacht nach Familienrezept", image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500" }
+    { id: 1, name: "Margherita", category: "pizza", price: 8.50, description: "Tomaten, Mozzarella, Basilikum", image: "https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?auto=format&fit=crop&w=500" },
+    { id: 2, name: "Salami", category: "pizza", price: 10.00, description: "Tomaten, Mozzarella, Rindersalami", image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500" },
+    { id: 3, name: "Bruschetta", category: "Antipasti", price: 6.50, description: "Geröstetes Brot mit Tomaten", image: "https://images.unsplash.com/photo-1572656631137-7935297eff55?auto=format&fit=crop&w=500" }
 ];
 
 let cart = [];
 
 function renderMenu(category = 'All') {
     const grid = document.getElementById('menuGrid');
+    if(!grid) return;
     grid.innerHTML = '';
     
-    const filtered = category === 'All' ? menuData : menuData.filter(item => item.category === category);
+    const filtered = category === 'All' ? menuData : menuData.filter(item => item.category.toLowerCase() === category.toLowerCase());
     
     filtered.forEach(item => {
         grid.innerHTML += `
-            <div class="menu-item">
-                <img src="${item.image}" alt="${item.name}">
+            <div class="menu-item" style="padding: 15px; border-bottom: 1px solid #eee; margin-bottom: 10px;">
+                <img src="${item.image}" alt="${item.name}" style="width:100%; border-radius:10px;">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
-                <div class="price">${item.price.toFixed(2)}€</div>
-                <button class="add-btn" onclick="addToCart(${item.id})">Hinzufügen</button>
+                <div class="price"><strong>${item.price.toFixed(2)}€</strong></div>
+                <button onclick="addToCart(${item.id})" style="background:#d52b1e; color:white; border:none; padding:10px; border-radius:5px; margin-top:10px; width:100%;">Hinzufügen</button>
             </div>
         `;
     });
@@ -29,36 +29,41 @@ function renderMenu(category = 'All') {
 function addToCart(id) {
     const item = menuData.find(i => i.id === id);
     cart.push(item);
-    updateCartUI();
-}
-
-function updateCartUI() {
     document.getElementById('cartCount').innerText = cart.length;
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
+}
+
+function sendOrder() {
+    const type = document.getElementById('orderType').value;
+    const name = document.getElementById('customerName').value;
+    const address = document.getElementById('customerAddress').value;
     
+    if (cart.length === 0) {
+        alert("Ihr Warenkorb ist leer!");
+        return;
+    }
+    if (!name) {
+        alert("Bitte geben Sie Ihren Namen ein!");
+        return;
+    }
+
+    let message = `🍕 *NEUE BESTELLUNG - SORRENTINO* 🍕%0A%0A`;
+    message += `*Name:* ${name}%0A`;
+    message += `*Art:* ${type}%0A`;
+    if(type === "Lieferung") message += `*Adresse:* ${address}%0A`;
+    
+    message += `%0A*Bestellung:*%0A`;
     let total = 0;
-    cart.forEach((item, index) => {
+    cart.forEach((item) => {
+        message += `- ${item.name} (${item.price.toFixed(2)}€)%0A`;
         total += item.price;
-        cartItems.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:10px;">
-            <span>${item.name}</span>
-            <span>${item.price.toFixed(2)}€</span>
-        </div>`;
     });
-    
-    document.getElementById('cartTotal').innerText = total.toFixed(2);
+
+    message += `%0A💰 *Gesamt: ${total.toFixed(2)}€*`;
+
+    // CHANGE THIS TO YOUR REAL NUMBER
+    const myNumber = "49123456789"; 
+    window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
 }
 
-function toggleCart() {
-    const modal = document.getElementById('cartModal');
-    modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-}
+window.onload = () => renderMenu('All');
 
-function filterMenu(category, event) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
-    renderMenu(category);
-}
-
-// Initial Load
-window.onload = () => renderMenu();
