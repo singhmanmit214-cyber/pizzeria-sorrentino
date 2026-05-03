@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -14,58 +14,50 @@
             <h1>SORRENTINO</h1>
             <p>PIZZERIA - TRATTORIA</p>
         </div>
-        <h2 class="gold-text">Wählen Sie Ihren Tisch</h2>
-        <div id="tableGrid" class="table-grid">
-            </div>
+        <h2 class="gold-text">Tisch wählen</h2>
+        <div id="tableGrid" class="table-grid"></div>
     </div>
 
     <div id="menuContent" class="screen" style="display: none;">
         <header class="main-header">
             <div class="header-info">
                 <span class="table-badge">Tisch <span id="activeTable">0</span></span>
-                <button class="waiter-btn" onclick="callWaiter()">🔔 Service</button>
             </div>
             <h2 class="logo-small">SORRENTINO</h2>
         </header>
 
         <nav class="category-nav">
             <button class="nav-btn" onclick="renderMenu('Antipasti')">Antipasti</button>
-            <button class="nav-btn" onclick="renderMenu('Salat')">Salate</button>
+            <button class="nav-btn" onclick="renderMenu('Salate')">Salate</button>
             <button class="nav-btn" onclick="renderMenu('Pizza')">Pizza</button>
             <button class="nav-btn" onclick="renderMenu('Pasta')">Pasta</button>
+            <button class="nav-btn" onclick="renderMenu('Vegan')">Vegan</button>
+            <button class="nav-btn" onclick="renderMenu('Fleisch/Fisch')">Fleisch & Fisch</button>
+            <button class="nav-btn" onclick="renderMenu('Dessert')">Dessert</button>
             <button class="nav-btn" onclick="renderMenu('Getränke')">Getränke</button>
         </nav>
 
-        <div id="menuGrid" class="menu-container">
-            </div>
+        <div id="menuGrid" class="menu-container"></div>
 
         <div id="cartBar" class="cart-bar" onclick="openSummary()">
-            <div class="cart-info">
-                <span id="cartCount">0</span> Artikel im Warenkorb
-            </div>
-            <div class="cart-total">
-                <span id="totalPrice">0.00</span>€
-            </div>
+            <span><span id="cartCount">0</span> Artikel</span>
+            <span><span id="totalPrice">0.00</span>€</span>
         </div>
     </div>
 
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <div class="receipt-header">
-                <h3>IHRE BESTELLUNG</h3>
+                <h3>SORRENTINO</h3>
                 <p>Tisch <span id="summaryTable"></span></p>
             </div>
             <div id="rItems" class="receipt-items"></div>
-            <div class="receipt-footer">
-                <div class="total-row">
-                    <span>Gesamtbetrag</span>
-                    <span class="gold-text"><span id="rTotal">0.00</span>€</span>
-                </div>
-                <button class="whatsapp-btn" onclick="shareOrder()">
-                    WhatsApp Bestellung senden
-                </button>
-                <button class="close-btn" onclick="closeModal()">Zurück zum Menü</button>
+            <div class="total-row">
+                <span>Gesamt</span>
+                <span id="rTotal">0.00</span>€
             </div>
+            <button class="print-btn" onclick="printReceipt()">Beleg drucken / PDF</button>
+            <button class="close-btn" onclick="closeModal()">Zurück</button>
         </div>
     </div>
 
