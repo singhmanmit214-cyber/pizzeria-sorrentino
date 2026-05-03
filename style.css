@@ -1,55 +1,208 @@
-/* Receipt Modal Styling */
-.receipt {
-    background: #fff;
-    padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    border: 1px solid #eee;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-    color: #000;
+ /* --- Global Settings --- */
+:root {
+    --gold: #d4af37;
+    --dark-gold: #996515;
+    --black: #0a0a0a;
+    --dark-grey: #1a1a1a;
+    --white: #ffffff;
+    --whatsapp-green: #25D366;
 }
 
-.receipt-header {
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent; /* Clean mobile taps */
+}
+
+/* --- Table Selection (The 15 Circles) --- */
+.logo-container {
     text-align: center;
-    border-bottom: 2px dashed #000;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    padding: 50px 20px 20px;
 }
 
-.receipt-category {
+.logo-container h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 2.8rem;
+    margin: 0;
+    letter-spacing: 5px;
+}
+
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.table-circle {
+    width: 75px;
+    height: 75px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.table-circle:active {
+    background: var(--gold);
+    color: var(--black);
+    transform: scale(0.9);
+}
+
+/* --- Menu Page --- */
+.main-header {
+    background: var(--dark-grey);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-badge {
+    background: var(--gold);
+    color: var(--black);
+    padding: 5px 15px;
+    border-radius: 20px;
     font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 1px solid #000;
-    margin-top: 15px;
-    margin-bottom: 5px;
+}
+
+.category-nav {
+    display: flex;
+    overflow-x: auto;
+    padding: 15px;
+    gap: 12px;
+    background: var(--black);
+    scrollbar-width: none;
+}
+
+.category-nav::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+    background: var(--dark-grey);
+    border: 1px solid var(--dark-gold);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 25px;
+    white-space: nowrap;
     font-size: 0.9rem;
 }
 
-.receipt-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    line-height: 1.5;
+/* --- Menu Items --- */
+.menu-container {
+    padding: 10px 15px 120px; /* Space for the bottom bar */
 }
 
-.receipt-total {
-    margin-top: 15px;
-    border-top: 2px dashed #000;
-    padding-top: 10px;
+.menu-item {
+    background: var(--dark-grey);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.add-btn {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* --- Cart Bottom Bar --- */
+.cart-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    font-weight: bold;
     font-size: 1.1rem;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+}
+
+/* --- Order Modal & Tax Receipt --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    color: #333;
+    width: 85%;
+    max-width: 380px;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.receipt-header h3 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.receipt-header p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #777;
     font-weight: bold;
 }
 
-/* Category Navigation */
-nav button.active {
-    color: #008c45 !important;
-    border-bottom: 3px solid #d52b1e;
+.whatsapp-btn {
+    background: var(--whatsapp-green);
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
     font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
-@media print {
-    .action-grid, nav, header, .bottom-bar { display: none !important; }
-    #orderModal { position: absolute; top: 0; left: 0; background: white; }
-    .modal-body { margin: 0; width: 100%; border: none; }
+.close-btn {
+    background: transparent;
+    color: #888;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: underline;
 }
