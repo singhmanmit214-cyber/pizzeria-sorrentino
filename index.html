@@ -1,20 +1,38 @@
-<div id="orderForm" style="padding: 20px; background: #f9f9f9; border-radius: 15px; margin: 20px;">
-    <h3>Bestelldetails</h3>
-    
-    <label>Art der Bestellung:</label><br>
-    <select id="orderType" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px;">
-        <option value="Abholung">Selbstabholung</option>
-        <option value="Lieferung">Lieferung</option>
-    </select>
+<body>
+    <header style="background: #d52b1e; color: white; text-align: center; padding: 20px;">
+        <h1>Pizzeria Sorrentino</h1>
+        <p>Benvenuto!</p>
+    </header>
 
-    <input type="text" id="customerName" placeholder="Ihr Name" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-    
-    <input type="text" id="customerAddress" placeholder="Straße, Hausnummer, PLZ (nur bei Lieferung)" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:1px solid #ccc;">
+    <div id="tableSelection" style="padding: 20px; text-align: center; background: #fdfdfd;">
+        <h3>Bitte wählen Sie Ihren Tisch:</h3>
+        <select id="tableNumber" style="width: 80%; padding: 15px; font-size: 1.2rem; border-radius: 10px; border: 2px solid #008c45;">
+            <option value="">-- Tisch wählen --</option>
+            <script>
+                for(let i=1; i<=15; i++) {
+                    document.write(`<option value="${i}">Tisch ${i}</option>`);
+                }
+            </script>
+        </select>
+        <button onclick="startOrdering()" style="display: block; margin: 20px auto; background: #008c45; color: white; padding: 15px 40px; border: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;">
+            Speisekarte öffnen
+        </button>
+    </div>
 
-    <p>Artikel im Warenkorb: <span id="cartCount">0</span></p>
-    
-    <button onclick="sendOrder()" style="background:#d52b1e; color:white; padding:15px; width:100%; border:none; border-radius:10px; font-weight:bold; font-size:1.1rem;">
-        Bestellung über WhatsApp abschicken 📲
-    </button>
-</div>
+    <div id="menuContent" style="display: none;">
+        <nav style="display: flex; justify-content: space-around; background: #eee; padding: 10px; position: sticky; top: 0; z-index: 100;">
+            <button onclick="renderMenu('Getränke')">Getränke</button>
+            <button onclick="renderMenu('Pizza')">Pizza</button>
+            <button onclick="renderMenu('Pasta')">Pasta</button>
+        </nav>
 
+        <div id="menuGrid" style="padding: 15px;"></div>
+
+        <div id="orderForm" style="position: sticky; bottom: 0; background: white; padding: 20px; border-top: 3px solid #d52b1e; text-align: center;">
+            <p>Tisch <span id="displayTable"></span> | Artikel: <span id="cartCount">0</span></p>
+            <button onclick="sendOrder()" style="background:#008c45; color:white; padding:15px; width:100%; border:none; border-radius:10px; font-weight:bold;">
+                Bestellung an die Küche schicken 📲
+            </button>
+        </div>
+    </div>
+</body>
