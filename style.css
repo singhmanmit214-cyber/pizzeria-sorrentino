@@ -1,115 +1,54 @@
- :root {
-    --gold: #DAAB2D;
-    --black: #0A0A0A;
-    --dark: #161616;
-    --free: #2ecc71;   /* Green for available */
-    --active: #e74c3c; /* Red for active */
-    --paid: #3498db;   /* Blue for paid */
-    --shadow: rgba(0, 0, 0, 0.5);
+ .category-wrapper {
+    background: #111;
+    padding: 15px 0;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
 }
 
-body {
-    background: var(--black);
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    overflow: hidden; /* Prevents whole-page scrolling */
-    user-select: none;
-}
-
-/* --- 9-SECOND INTRO SCREEN --- */
-#intro-screen {
-    height: 100vh;
+.category-scroll {
     display: flex;
-    justify-content: center;
+    overflow-x: auto; /* Allows horizontal swipe */
+    gap: 15px;
+    padding: 10px 20px;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome/Safari */
+}
+
+.cat-dot {
+    min-width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    border: 2px solid #DAAB2D;
+    display: flex;
     align-items: center;
-    background: black;
-    animation: fadeOut 1s forwards 9s;
-    z-index: 999;
-    position: relative;
-}
-
-.elegant-logo-container {
+    justify-content: center;
+    font-size: 0.7rem;
+    color: white;
     text-align: center;
-    border: 2px solid var(--gold);
-    padding: 50px;
-    border-radius: 50% / 15%; /* Creates that oval label look */
-    box-shadow: 0 0 20px rgba(218, 171, 45, 0.2);
+    flex-shrink: 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
 }
 
-.main-title { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 4rem; 
-    color: var(--gold); 
-    margin: 0; 
-    letter-spacing: 6px; 
-    text-transform: uppercase;
+.cat-dot.active {
+    background: #DAAB2D;
+    color: black;
+    box-shadow: 0 0 15px rgba(218, 171, 45, 0.4);
+    transform: scale(1.05);
 }
 
-.sub-title { 
-    font-size: 0.9rem; 
-    letter-spacing: 4px; 
-    color: var(--gold); 
-    margin-top: 10px;
-}
-
-.est { color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 5px; }
-
-@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
-
-/* --- TABLE GRID SCREEN --- */
-.header-logo { 
-    padding: 25px; 
-    font-family: 'Playfair Display'; 
-    color: var(--gold); 
-    font-size: 2rem; 
-    text-align: center; 
-    letter-spacing: 2px;
-}
-
-.status-legend { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    font-size: 0.85rem; 
-    margin-bottom: 30px; 
-}
-
-.dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; margin-right: 5px; }
-.green { background: var(--free); }
-.red { background: var(--active); }
-.blue { background: var(--paid); }
-
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
-    padding: 0 20px; 
-    max-width: 600px; 
-    margin: auto; 
-}
-
-.t-btn { 
-    aspect-ratio: 1; 
-    background: var(--dark); 
-    border: 1px solid #333; 
-    color: white; 
-    font-size: 1.4rem; 
-    border-radius: 15px; 
+.add-item-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background: #DAAB2D;
+    color: black;
+    font-size: 1.8rem;
     font-weight: bold;
-    box-shadow: 0 4px 6px var(--shadow);
-    transition: transform 0.1s;
 }
-
-.t-btn:active { transform: scale(0.95); }
-
-/* Table Status Indicator Stripes */
-.t-available { border-bottom: 6px solid var(--free); }
-.t-active { border-bottom: 6px solid var(--active); }
-.t-paid { border-bottom: 6px solid var(--paid); }
-
-/* --- CATEGORY CIRCLES --- */
-.category-wrapper { 
-    background: #111; 
-    padding: 20px 0; 
-    border-bottom: 1px solid #2
