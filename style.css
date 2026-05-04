@@ -1,107 +1,33 @@
- :root {
-    --gold: #d4af37;
-    --black: #0a0a0a;
-    --dark-grey: #1a1a1a;
-    --white: #ffffff;
+ body { background-color: #0A0A0A; color: #FFFFF0; font-family: 'serif', 'Times New Roman'; margin: 0; padding: 0; }
+.gold { color: #DAAB2D; }
+
+#welcome-screen { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+h1 { font-size: 3.5rem; letter-spacing: 5px; margin: 0; color: #DAAB2D; }
+.est { font-size: 1rem; color: #A5A5A5; letter-spacing: 2px; margin-bottom: 30px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; max-width: 400px; margin: auto; }
+.table-btn { border: 1px solid #DAAB2D; background: none; color: #DAAB2D; padding: 20px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+
+#menu-screen { display: none; padding: 15px; padding-top: 80px; padding-bottom: 120px; }
+.nav-header { position: fixed; top: 0; left: 0; right: 0; background: #111; padding: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid #DAAB2D; z-index: 100; }
+
+.category-bar { display: flex; overflow-x: auto; white-space: nowrap; padding: 10px 0; margin-bottom: 10px; border-bottom: 1px solid #222; }
+.cat-item { color: #A5A5A5; margin-right: 25px; font-weight: bold; cursor: pointer; padding: 5px; font-size: 1.1rem; }
+.cat-item.active { color: #DAAB2D; border-bottom: 2px solid #DAAB2D; }
+
+.food-card { background: #1A1A1A; margin-bottom: 12px; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid #DAAB2D; }
+.food-name { color: #DAAB2D; font-weight: bold; font-size: 1.1rem; }
+.food-desc { color: #A5A5A5; font-size: 0.85rem; margin: 5px 0; }
+.add-btn { background: #DAAB2D; border: none; width: 40px; height: 40px; border-radius: 50%; font-weight: bold; font-size: 1.4rem; cursor: pointer; }
+
+.checkout-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #111; padding: 20px; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #DAAB2D; }
+.action-buttons { display: flex; justify-content: space-around; gap: 10px; }
+.print-btn { flex: 1; background: #DAAB2D; color: #0A0A0A; border: none; padding: 12px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+
+#receipt-area { display: none; }
+@media print {
+    body * { visibility: hidden; }
+    #receipt-area, #receipt-area * { visibility: visible; }
+    #receipt-area { position: absolute; left: 0; top: 0; width: 100%; display: block; color: black; background: white; padding: 20px; }
+    .receipt-line { display: flex; justify-content: space-between; border-bottom: 1px dashed #ccc; padding: 5px 0; }
 }
-
-body {
-    background-color: var(--black);
-    color: var(--white);
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-}
-
-/* Table Circles */
-.logo-container { text-align: center; padding: 40px 0; }
-.logo-container h1 { color: var(--gold); font-family: 'Playfair Display', serif; letter-spacing: 4px; }
-.gold-text { text-align: center; color: var(--gold); }
-
-.table-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 320px;
-    margin: 0 auto;
-    padding-bottom: 50px;
-}
-
-.table-circle {
-    width: 70px;
-    height: 70px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold);
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* Menu Layout */
-.main-header { background: var(--dark-grey); padding: 15px; border-bottom: 2px solid var(--gold); text-align: center; }
-.table-badge { background: var(--gold); color: black; padding: 5px 15px; border-radius: 20px; font-weight: bold; }
-.logo-small { color: var(--gold); margin-top: 10px; font-family: 'Playfair Display', serif; }
-
-.category-nav {
-    display: flex;
-    overflow-x: auto; /* Allows swiping left and right for categories */
-    padding: 15px;
-    gap: 10px;
-    background: #000;
-    white-space: nowrap;
-}
-
-.nav-btn {
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 8px 15px;
-    border-radius: 5px;
-}
-
-.menu-item {
-    background: var(--dark-grey);
-    margin: 10px 15px;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 4px solid var(--gold);
-}
-
-.add-btn { background: var(--gold); color: black; border: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; }
-
-/* Cart Bar */
-.cart-bar {
-    position: fixed;
-    bottom: 0; width: 100%;
-    background: var(--gold);
-    color: black;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    box-sizing: border-box;
-}
-
-/* Receipt Modal */
-.modal {
-    display: none; position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    align-items: center; justify-content: center;
-}
-
-.modal-content { background: white; color: black; width: 85%; padding: 20px; border-radius: 15px; }
-.receipt-header { text-align: center; border-bottom: 1px dashed #ccc; margin-bottom: 10px; }
-.total-row { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin: 15px 0; }
-
-.print-btn {
-    background: black; color: white; width: 100%;
-    border: none; padding: 15px; border-radius: 5px; font-weight: bold;
-}
-
-.close-btn { background: transparent; width: 100%; border: none; color: #888; margin-top: 10px; text-decoration: underline; }
