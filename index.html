@@ -1,54 +1,94 @@
  <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorrentino - Est. 2019</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorrentino POS</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div id="welcome-screen">
-        <h1>SORRENTINO</h1>
-        <p class="est">EST. 2019</p>
-        <p style="color: #DAAB2D; font-size: 1.2rem;">Wählen Sie Ihren Tisch</p>
-        <div class="grid" id="table-grid"></div>
+<!-- LOGO SCREEN -->
+<div id="logo-screen">
+    <h1 class="logo">SORRENTINO</h1>
+</div>
+
+<!-- TABLE SCREEN -->
+<div id="welcome-screen">
+    <h1>SORRENTINO</h1>
+    <p class="est">EST. 2019</p>
+    <p>Wählen Sie Ihren Tisch</p>
+    <div class="grid" id="table-grid"></div>
+</div>
+
+<!-- MENU SCREEN -->
+<div id="menu-screen">
+
+    <div class="nav-header">
+        <span>Tisch <span id="selected-table"></span></span>
+        <span>Total: <span id="cart-total">0.00</span>€</span>
     </div>
 
-    <div id="menu-screen">
-        <div class="nav-header">
-            <span class="gold" style="font-weight: bold; font-size: 1.2rem;">Tisch <span id="selected-table"></span></span>
-            <span class="gold" style="font-size: 1.2rem;">Total: <span id="cart-total">0.00</span>€</span>
-        </div>
-        
-        <div class="category-bar">
-            <div class="cat-item active" onclick="filterMenu('Pizza', event)">Pizza</div>
-            <div class="cat-item" onclick="filterMenu('Al Forno', event)">Al Forno</div>
-            <div class="cat-item" onclick="filterMenu('Pasta', event)">Pasta</div>
-            <div class="cat-item" onclick="filterMenu('Vegan', event)">Vegan</div>
-            <div class="cat-item" onclick="filterMenu('Drinks', event)">Drinks</div>
-        </div>
-
-        <div id="food-list"></div>
-
-        <div class="checkout-bar">
-            <div class="action-buttons">
-                <button class="print-btn" onclick="printReceipt()">Drucken</button>
-                <button class="print-btn" style="background: #333; color: white;" onclick="downloadReceipt()">Speichern</button>
-                <button class="print-btn" style="background: #800; color: white;" onclick="resetApp()">Neu</button>
-            </div>
-        </div>
+    <!-- MAIN CATEGORY -->
+    <div class="category-bar" id="main-cats">
+        <div onclick="selectMain('Drinks')">Drinks</div>
+        <div onclick="selectMain('Salad')">Salad</div>
+        <div onclick="selectMain('Pizza')">Pizza</div>
+        <div onclick="selectMain('Special Pizza')">Special Pizza</div>
+        <div onclick="selectMain('Pasta')">Pasta</div>
+        <div onclick="selectMain('Dessert')">Dessert</div>
+        <div onclick="selectMain('Al Forno')">Al Forno</div>
+        <div onclick="selectMain('Vegan Pizza')">Vegan Pizza</div>
+        <div onclick="selectMain('Vegan Pasta')">Vegan Pasta</div>
+        <div onclick="selectMain('Vegan Al Forno')">Vegan Al Forno</div>
     </div>
 
-    <div id="receipt-area">
-        <h2 style="text-align: center;">SORRENTINO</h2>
-        <p style="text-align: center;">Est. 2019<br>Rechnung - Tisch <span id="r-table"></span></p>
+    <!-- SUB CATEGORY -->
+    <div class="category-bar" id="sub-cats"></div>
+
+    <!-- FOOD LIST -->
+    <div id="food-list"></div>
+
+    <!-- CART PREVIEW -->
+    <div id="cart-preview"></div>
+
+    <!-- ACTIONS -->
+    <div class="checkout-bar">
+        <button onclick="printReceipt()">Print</button>
+        <button onclick="downloadReceipt()">Download</button>
+        <button onclick="shareReceipt()">Share</button>
+        <button onclick="resetApp()">Reset</button>
+    </div>
+
+</div>
+
+<!-- RECEIPT -->
+<div id="receipt-area">
+    <div class="receipt-box">
+        <h2>SORRENTINO</h2>
+        <p>Est. 2019</p>
+
+        <div class="receipt-info">
+            <span>Tisch: <b id="r-table"></b></span>
+            <span id="r-date"></span>
+        </div>
+
         <hr>
+
         <div id="r-items"></div>
-        <hr>
-        <h3 style="display: flex; justify-content: space-between;"><span>GESAMT:</span> <span id="r-total"></span></h3>
-    </div>
 
-    <script src="script.js"></script>
+        <hr>
+
+        <div class="receipt-total">
+            <span>TOTAL</span>
+            <span id="r-total"></span>
+        </div>
+
+        <p class="thanks">Danke!</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
