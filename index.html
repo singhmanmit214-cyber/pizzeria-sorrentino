@@ -1,58 +1,49 @@
  <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sorrentino POS</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorrentino POS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<div id="logo-screen">
-    <h1 class="logo">SORRENTINO</h1>
-</div>
-
-<div id="welcome-screen">
-    <h2>Tables</h2>
-    <div class="grid" id="table-grid"></div>
-</div>
-
-<div id="menu-screen">
-
-    <div class="nav-header">
-        <span>Tisch <span id="selected-table"></span></span>
-        <span>Total: <span id="cart-total">0.00</span>€</span>
+    <div id="intro-screen">
+        <div class="logo-animation">
+            <h1>SORRENTINO</h1>
+            <div class="gold-line"></div>
+            <p>PIZZERIA - TRATTORIA</p>
+        </div>
     </div>
 
-    <div class="category-bar">
-        <div onclick="selectMain('Drinks')">Drinks</div>
-        <div onclick="selectMain('Pizza')">Pizza</div>
-        <div onclick="selectMain('Pasta')">Pasta</div>
+    <div id="table-screen" style="display:none;">
+        <div class="small-logo">SORRENTINO</div>
+        <h2>Wähle einen Tisch</h2>
+        <div class="grid" id="table-grid"></div>
     </div>
 
-    <div id="food-list"></div>
+    <div id="menu-screen" style="display:none;">
+        <header class="pos-header">
+            <button class="nav-btn" onclick="showTableScreen()">←</button>
+            <div class="table-tag">Tisch <span id="active-table"></span></div>
+            <div class="price-tag"><span id="cart-total">0.00</span>€</div>
+        </header>
 
-    <div id="cart-preview"></div>
+        <div class="category-circles" id="cat-scroll">
+            </div>
 
-    <div class="checkout-bar">
-        <button onclick="printReceipt()">Print</button>
-        <button onclick="completeOrder()">Complete</button>
-        <button onclick="resetTable()">Reset</button>
-        <button onclick="goBack()">Back</button>
+        <div id="item-list" class="items-container"></div>
+
+        <div class="pos-actions">
+            <button class="action-btn p-print" onclick="printReceipt()">Drucken</button>
+            <button class="action-btn p-share" onclick="shareReceipt()">Teilen</button>
+            <button class="action-btn p-reset" onclick="resetCart()">Löschen</button>
+        </div>
     </div>
 
-</div>
+    <div id="print-layout"></div>
 
-<div id="receipt-area">
-    <div class="receipt-box">
-        <h2>SORRENTINO</h2>
-        <p>Tisch <span id="r-table"></span></p>
-        <div id="r-items"></div>
-        <h3>Total: <span id="r-total"></span></h3>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
