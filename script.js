@@ -1,180 +1,144 @@
- // --- COMPLETE MENU DATABASE ---
-const menuData = [
-    // --- ANTIPASTI & INSALATE ---
-    { id: 1, name: "Bruschetta Classic (4 Stk.)", category: "Antipasti", price: 8.50, description: "mit Tomaten, Knoblauch, Basilikum" },
-    { id: 2, name: "Focaccia", category: "Antipasti", price: 6.50, description: "Hausgemachtes Brot mit Rosmarin" },
-    { id: 3, name: "Pizzabrötchen (8 Stk.)", category: "Antipasti", price: 5.50, description: "mit Kräuterbutter" },
-    { id: 4, name: "Caprese", category: "Antipasti", price: 12.50, description: "Büffelmozzarella, Tomaten, Basilikum" },
-    { id: 5, name: "Carpaccio di Manzo", category: "Antipasti", price: 14.00, description: "Hauchdünnes Rinderfilet, Parmesan, Rucola" },
-    { id: 6, name: "Carpaccio di Pesce", category: "Antipasti", price: 14.50, description: "Hauchdünner Fisch nach Art des Hauses" },
-    { id: 7, name: "Ziegenkäse", category: "Antipasti", price: 15.50, description: "mit Honig und Walnüssen" },
-    { id: 8, name: "Antipasto Italiano (2 Pers.)", category: "Antipasti", price: 24.50, description: "Gemischte Vorspeisenplatte" },
-    { id: 9, name: "Antipasto Vegetale", category: "Antipasti", price: 11.50, description: "Vegetarische Vorspeisenplatte" },
-    { id: 10, name: "Insalata Mista", category: "Salate", price: 9.00, description: "Gemischter Saisonsalat" },
-    { id: 11, name: "Insalata Pollo", category: "Salate", price: 12.50, description: "Salat mit Hähnchenbrust" },
-    { id: 12, name: "Insalata Salmone", category: "Salate", price: 15.50, description: "Salat mit Lachsstreifen" },
-    { id: 13, name: "Insalata Capricciosa", category: "Salate", price: 14.50, description: "Salat mit Schinken, Käse, Ei, Oliven" },
+ import React, { useState } from 'react';
+import { 
+  StyleSheet, Text, View, FlatList, TouchableOpacity, 
+  ScrollView, SafeAreaView, StatusBar, Image 
+} from 'react-native';
 
-    // --- PIZZA CLASSIC ---
-    { id: 100, name: "Pizza Margherita", category: "Pizza", price: 10.50, description: "Tomatensauce, Mozzarella" },
-    { id: 101, name: "Pizza Bufalina", category: "Pizza", price: 12.00, description: "mit Büffelmozzarella" },
-    { id: 102, name: "Pizza Salami", category: "Pizza", price: 12.00, description: "Rindersalami" },
-    { id: 103, name: "Pizza Prosciutto", category: "Pizza", price: 12.00, description: "Edelschinken" },
-    { id: 104, name: "Pizza Funghi", category: "Pizza", price: 12.00, description: "Frische Champignons" },
-    { id: 105, name: "Pizza Inferno", category: "Pizza", price: 13.00, description: "Scharfe Salami" },
-    { id: 106, name: "Pizza Tonno", category: "Pizza", price: 13.50, description: "Thunfisch, Zwiebeln" },
-    { id: 107, name: "Pizza Hawaii", category: "Pizza", price: 13.00, description: "Schinken, Ananas" },
-    { id: 108, name: "Pizza Quattro Stagioni", category: "Pizza", price: 14.50, description: "Schinken, Salami, Pilze, Thunfisch" },
-    { id: 109, name: "Pizza Verdura", category: "Pizza", price: 14.50, description: "Frisches Gemüse, Knoblauch" },
-    { id: 110, name: "Pizza Amsterdam", category: "Pizza", price: 17.50, description: "Hähnchen, Hollandaise, Brokkoli" },
-    { id: 111, name: "Pizza Chiara", category: "Pizza", price: 18.50, description: "Scharfe Salami, Auberginen, Büffelmozzarella" },
-    { id: 112, name: "Pizza Calzone", category: "Pizza", price: 15.00, description: "Gefüllte Pizza" },
-
-    // --- PASTA ---
-    { id: 200, name: "Spaghetti Napoli", category: "Pasta", price: 12.00, description: "Tomatensauce, Basilikum" },
-    { id: 201, name: "Spaghetti Bolognese", category: "Pasta", price: 15.50, description: "Rinder-Hackfleischsauce" },
-    { id: 202, name: "Spaghetti Carbonara", category: "Pasta", price: 16.50, description: "Guanciale Speck, Ei, Parmesan" },
-    { id: 203, name: "Penne Arrabbiata", category: "Pasta", price: 13.00, description: "Scharfe Tomatensauce" },
-    { id: 204, name: "Rigatoni Norcina", category: "Pasta", price: 16.50, description: "Balsamico-Sahne, Hähnchen, Pilze" },
-    { id: 205, name: "Tagliatelle di Manzo", category: "Pasta", price: 20.50, description: "Rinderfiletspitzen, Rucola" },
-    { id: 206, name: "Lasagne Hausgemacht", category: "Pasta", price: 16.50, description: "mit Rinderhack überbacken" },
-
-    // --- VEGANE OPTIONEN ---
-    { id: 300, name: "Vegane Pizza Margherita", category: "Vegan", price: 12.50, description: "mit veganem Käse" },
-    { id: 301, name: "Vegane Spaghetti Bolognese", category: "Vegan", price: 18.50, description: "mit veganem Hack" },
-    { id: 302, name: "Vegane Tagliatelle Salmone", category: "Vegan", price: 20.50, description: "mit veganem Lachs" },
-
-    // --- CARNE & PESCE ---
-    { id: 400, name: "Schnitzel Wiener Art", category: "Fleisch/Fisch", price: 15.50, description: "mit Pommes" },
-    { id: 401, name: "Rinderfilet vom Grill", category: "Fleisch/Fisch", price: 30.50, description: "Arg. Rinderfilet" },
-    { id: 402, name: "Salmone Griglia", category: "Fleisch/Fisch", price: 25.50, description: "Gegrillter Lachs" },
-    { id: 403, name: "Calamari Fritti", category: "Fleisch/Fisch", price: 20.00, description: "Frittierte Tintenfischringe" },
-
-    // --- DESSERT ---
-    { id: 500, name: "Hausgemachtes Tiramisu", category: "Dessert", price: 8.00, description: "Klassisch italienisch" },
-    { id: 501, name: "Schoko Souffle", category: "Dessert", price: 7.00, description: "mit flüssigem Kern" },
-    { id: 502, name: "Veganer Cheesecake", category: "Dessert", price: 8.50, description: "mit Himbeeren" },
-
-    // --- GETRÄNKE ---
-    { id: 600, name: "Coca Cola / Zero / Light", category: "Getränke", price: 3.50, description: "0,33l Glasflasche" },
-    { id: 601, name: "Fanta / Sprite", category: "Getränke", price: 3.50, description: "0,33l Glasflasche" },
-    { id: 602, name: "Wasser Still/Sprudel (0,25l)", category: "Getränke", price: 3.00, description: "Kleine Flasche" },
-    { id: 603, name: "Wasser Still/Sprudel (0,75l)", category: "Getränke", price: 6.50, description: "Große Flasche" },
-    { id: 604, name: "Kölsch 0,2l", category: "Getränke", price: 2.20, description: "Frisch vom Fass" },
-    { id: 605, name: "Kölsch 0,3l", category: "Getränke", price: 3.30, description: "Frisch vom Fass" },
-    { id: 606, name: "Weizenbier 0,5l", category: "Getränke", price: 5.50, description: "mit/ohne Alkohol" },
-    { id: 607, name: "Aperol / Limoncello Spritz", category: "Getränke", price: 8.50, description: "Spritzige Longdrinks" },
-    { id: 608, name: "Espresso / Kaffee", category: "Getränke", price: 2.50, description: "Italienische Röstung" },
-    { id: 609, name: "Hauswein (Rot/Weiß/Rosé)", category: "Getränke", price: 6.50, description: "0,2l Glas" }
-];
-
-let cart = [];
-let selectedTable = "";
-
-// --- INITIALIZE THE 15 TABLE CIRCLES ---
-window.onload = function() {
-    const grid = document.getElementById('tableGrid');
-    if (grid) {
-        for (let i = 1; i <= 15; i++) {
-            let circle = document.createElement('div');
-            circle.className = 'table-circle';
-            circle.innerText = i;
-            circle.onclick = () => selectTable(i);
-            grid.appendChild(circle);
-        }
-    }
+const COLORS = {
+  bg: '#0A0A0A',
+  gold: '#DAAB2D',
+  textMain: '#FFFFF0',
+  textDim: '#A5A5A5',
+  card: '#1A1A1A'
 };
 
-function selectTable(num) {
-    selectedTable = num;
-    document.getElementById('activeTable').innerText = num;
-    document.getElementById('summaryTable').innerText = num;
-    document.getElementById('tableSelection').style.display = 'none';
-    document.getElementById('menuContent').style.display = 'block';
-    renderMenu('Antipasti'); // Standard start category
+// FULL MENU DATA
+const menuData = [
+    { id: 1, name: "Coca Cola", category: "Drinks", subCategory: "Alkoholfrei", price: 3.50, description: "0.33l" },
+    { id: 2, name: "Peroni", category: "Drinks", subCategory: "Biers", price: 4.80, description: "Italienisches Lager" },
+    { id: 3, name: "Pizza Margherita", category: "Pizza", price: 10.50, description: "Tomaten, Mozzarella, Basilikum" },
+    { id: 4, name: "Pizza Amsterdam", category: "Specials Pizzas", price: 17.50, description: "Hähnchen, Hollandaise, Broccoli" },
+    { id: 5, name: "Spaghetti Bolognese", category: "Pasta", price: 15.50, description: "100% Rinderhackfleisch" },
+    { id: 6, name: "Lasagne Hausgemacht", category: "Pasta", price: 16.50, description: "Al Forno Spezialität" },
+    { id: 7, name: "V. Pizza Margherita", category: "Vegan Pizza", price: 12.50, description: "Veganer Käse" },
+    { id: 8, name: "Tiramisu Classic", category: "Desserts", price: 8.00, description: "Hausgemacht seit 2019" },
+];
+
+export default function App() {
+  const [step, setStep] = useState('welcome'); // welcome -> table -> menu
+  const [selectedTable, setSelectedTable] = useState(null);
+  const [mainCat, setMainCat] = useState('Pizza');
+  const [subCat, setSubCat] = useState('Alkoholfrei');
+  const [cart, setCart] = useState([]);
+
+  const mainCategories = ['Drinks', 'Pizza', 'Pasta', 'Specials Pizzas', 'Desserts', 'Vegan Pizza', 'Vegan Pasta', 'Vegan Desserts'];
+  const drinkSubs = ['Alkoholfrei', 'Biers', 'Weins', 'Cocktails', 'Hot Drinks'];
+
+  // 1. WELCOME SCREEN
+  if (step === 'welcome') {
+    return (
+      <TouchableOpacity style={styles.fullCentering} onPress={() => setStep('table')}>
+        <StatusBar barStyle="light-content" />
+        <Text style={styles.logoLg}>SORRENTINO</Text>
+        <Text style={styles.estText}>EST. 2019</Text>
+        <Text style={styles.touchStart}>Tippen zum Starten</Text>
+      </TouchableOpacity>
+    );
+  }
+
+  // 2. TABLE SELECTION
+  if (step === 'table') {
+    return (
+      <View style={styles.fullCentering}>
+        <Text style={styles.goldTitle}>Welcher Tisch?</Text>
+        <View style={styles.grid}>
+          {[...Array(15)].map((_, i) => (
+            <TouchableOpacity key={i} style={styles.tableBtn} onPress={() => { setSelectedTable(i+1); setStep('menu'); }}>
+              <Text style={styles.tableBtnT}>{i+1}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    );
+  }
+
+  // 3. MAIN MENU
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      
+      {/* Mini Header */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Tisch {selectedTable}</Text>
+        <TouchableOpacity onPress={() => setStep('welcome')}>
+          <Text style={{color: COLORS.gold}}>Abmelden</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Main Categories (Horizontal) */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.catScroll}>
+        {mainCategories.map(c => (
+          <TouchableOpacity key={c} onPress={() => setMainCat(c)} style={styles.catTab}>
+            <Text style={[styles.catText, mainCat === c && styles.activeCatText]}>{c}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+
+      {/* Sub-Categories for Drinks only */}
+      {mainCat === 'Drinks' && (
+        <View style={styles.subBar}>
+          {drinkSubs.map(s => (
+            <TouchableOpacity key={s} onPress={() => setSubCat(s)} style={[styles.subTab, subCat === s && styles.activeSubTab]}>
+              <Text style={[styles.subTabText, subCat === s && {color: COLORS.gold}]}>{s}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
+
+      {/* Items List */}
+      <FlatList
+        data={menuData.filter(i => mainCat === 'Drinks' ? i.category === mainCat && i.subCategory === subCat : i.category === mainCat)}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({item}) => (
+          <View style={styles.itemCard}>
+            <View style={{flex: 1}}>
+              <Text style={styles.itemName}>{item.name}</Text>
+              <Text style={styles.itemDesc}>{item.description}</Text>
+              <Text style={styles.itemPrice}>{item.price.toFixed(2)}€</Text>
+            </View>
+            <TouchableOpacity style={styles.addBtn} onPress={() => setCart([...cart, item])}>
+              <Text style={{fontSize: 20, fontWeight: 'bold'}}>+</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+    </SafeAreaView>
+  );
 }
 
-function renderMenu(cat) {
-    const container = document.getElementById('menuGrid');
-    container.innerHTML = '';
-    const items = menuData.filter(i => i.category === cat);
-    
-    items.forEach(item => {
-        container.innerHTML += `
-            <div class="menu-item">
-                <div>
-                    <h3>${item.name}</h3>
-                    <p>${item.description}</p>
-                    <span>${item.price.toFixed(2)}€</span>
-                </div>
-                <button class="add-btn" onclick="addToCart(${item.id})">+</button>
-            </div>
-        `;
-    });
-}
-
-function addToCart(id) {
-    const item = menuData.find(i => i.id === id);
-    cart.push(item);
-    updateCartBar();
-}
-
-function updateCartBar() {
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    document.getElementById('totalPrice').innerText = total.toFixed(2);
-    document.getElementById('cartCount').innerText = cart.length;
-}
-
-function openSummary() {
-    if (cart.length === 0) return alert("Warenkorb leer!");
-    document.getElementById('orderModal').style.display = 'flex';
-    const rItems = document.getElementById('rItems');
-    
-    const total = cart.reduce((s, i) => s + i.price, 0);
-    const tax = total - (total / 1.07);
-
-    rItems.innerHTML = cart.map(i => `
-        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-            <span>1x ${i.name}</span>
-            <span>${i.price.toFixed(2)}€</span>
-        </div>
-    `).join('') + `
-        <div style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px; font-size:0.8rem; color:#666;">
-            <div style="display:flex; justify-content:space-between;"><span>inkl. 7% MwSt.</span> <span>${tax.toFixed(2)}€</span></div>
-        </div>
-    `;
-    
-    document.getElementById('rTotal').innerText = total.toFixed(2);
-}
-
-function closeModal() {
-    document.getElementById('orderModal').style.display = 'none';
-}
-
-function printReceipt() {
-    const total = cart.reduce((s, i) => s + i.price, 0);
-    const tax = total - (total / 1.07);
-    const date = new Date().toLocaleString('de-DE');
-    
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(`
-        <html>
-        <body style="font-family:monospace; padding:20px; text-align:center; width:280px; margin:auto; border:1px solid #ddd;">
-            <h2>SORRENTINO</h2>
-            <p>Pizzeria - Trattoria<br>${date}</p>
-            <hr>
-            <p><strong>TISCH: ${selectedTable}</strong></p>
-            <hr>
-            <div style="text-align:left;">
-                ${cart.map(i => `<div style="display:flex;justify-content:space-between;"><span>1x ${i.name}</span> <span>${i.price.toFixed(2)}€</span></div>`).join('')}
-            </div>
-            <hr>
-            <h3 style="display:flex;justify-content:space-between;"><span>TOTAL:</span> <span>${total.toFixed(2)}€</span></h3>
-            <p style="font-size:10px;">Netto: ${(total - tax).toFixed(2)}€<br>MwSt 7%: ${tax.toFixed(2)}€</p>
-            <p>Vielen Dank für Ihren Besuch!</p>
-            <script>window.print(); setTimeout(() => window.close(), 500);</script>
-        </body>
-        </html>
-    `);
-    printWindow.document.close();
-}
+const styles = StyleSheet.create({
+  fullCentering: { flex: 1, backgroundColor: COLORS.bg, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  logoLg: { color: COLORS.gold, fontSize: 45, fontWeight: '900', letterSpacing: 6 },
+  estText: { color: COLORS.textDim, fontSize: 16, marginTop: 10, letterSpacing: 2 },
+  touchStart: { color: COLORS.gold, marginTop: 100, opacity: 0.6, fontSize: 12 },
+  goldTitle: { color: COLORS.gold, fontSize: 24, fontWeight: 'bold', marginBottom: 30 },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' },
+  tableBtn: { width: 65, height: 65, borderRadius: 35, borderWidth: 1, borderColor: COLORS.gold, margin: 10, justifyContent: 'center', alignItems: 'center' },
+  tableBtnT: { color: COLORS.gold, fontSize: 20, fontWeight: 'bold' },
+  container: { flex: 1, backgroundColor: COLORS.bg },
+  header: { flexDirection: 'row', justifyContent: 'space-between', padding: 20, borderBottomWidth: 1, borderColor: '#222' },
+  headerText: { color: COLORS.gold, fontSize: 18, fontWeight: 'bold' },
+  catScroll: { maxHeight: 60, marginVertical: 10 },
+  catTab: { paddingHorizontal: 20, justifyContent: 'center' },
+  catText: { color: COLORS.textDim, fontSize: 16 },
+  activeCatText: { color: COLORS.gold, fontWeight: 'bold', borderBottomWidth: 2, borderColor: COLORS.gold },
+  subBar: { flexDirection: 'row', padding: 10, backgroundColor: '#111' },
+  subTab: { marginRight: 15, paddingBottom: 5 },
+  activeSubTab: { borderBottomWidth: 1, borderColor: COLORS.gold },
+  subTabText: { color: COLORS.textDim, fontSize: 13 },
+  itemCard: { backgroundColor: COLORS.card, margin: 10, padding: 15, borderRadius: 12, flexDirection: 'row', alignItems: 'center' },
+  itemName: { color: COLORS.gold, fontSize: 17, fontWeight: 'bold' },
+  itemDesc: { color: COLORS.textDim, fontSize: 12, marginVertical: 4 },
+  itemPrice: { color: COLORS.textMain, fontWeight: 'bold', fontSize: 15 },
+  addBtn: { width: 40, height: 40, backgroundColor: COLORS.gold, borderRadius: 20, justifyContent: 'center', alignItems: 'center', marginLeft: 10 }
+});
