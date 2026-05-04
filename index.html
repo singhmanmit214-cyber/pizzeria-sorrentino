@@ -9,20 +9,15 @@
 
 <body>
 
-<!-- LOGO SCREEN -->
 <div id="logo-screen">
     <h1 class="logo">SORRENTINO</h1>
 </div>
 
-<!-- TABLE SCREEN -->
 <div id="welcome-screen">
-    <h1>SORRENTINO</h1>
-    <p class="est">EST. 2019</p>
-    <p>Wählen Sie Ihren Tisch</p>
+    <h2>Tables</h2>
     <div class="grid" id="table-grid"></div>
 </div>
 
-<!-- MENU SCREEN -->
 <div id="menu-screen">
 
     <div class="nav-header">
@@ -30,62 +25,31 @@
         <span>Total: <span id="cart-total">0.00</span>€</span>
     </div>
 
-    <!-- MAIN CATEGORY -->
-    <div class="category-bar" id="main-cats">
+    <div class="category-bar">
         <div onclick="selectMain('Drinks')">Drinks</div>
-        <div onclick="selectMain('Salad')">Salad</div>
         <div onclick="selectMain('Pizza')">Pizza</div>
-        <div onclick="selectMain('Special Pizza')">Special Pizza</div>
         <div onclick="selectMain('Pasta')">Pasta</div>
-        <div onclick="selectMain('Dessert')">Dessert</div>
-        <div onclick="selectMain('Al Forno')">Al Forno</div>
-        <div onclick="selectMain('Vegan Pizza')">Vegan Pizza</div>
-        <div onclick="selectMain('Vegan Pasta')">Vegan Pasta</div>
-        <div onclick="selectMain('Vegan Al Forno')">Vegan Al Forno</div>
     </div>
 
-    <!-- SUB CATEGORY -->
-    <div class="category-bar" id="sub-cats"></div>
-
-    <!-- FOOD LIST -->
     <div id="food-list"></div>
 
-    <!-- CART PREVIEW -->
     <div id="cart-preview"></div>
 
-    <!-- ACTIONS -->
     <div class="checkout-bar">
         <button onclick="printReceipt()">Print</button>
-        <button onclick="downloadReceipt()">Download</button>
-        <button onclick="shareReceipt()">Share</button>
-        <button onclick="resetApp()">Reset</button>
+        <button onclick="completeOrder()">Complete</button>
+        <button onclick="resetTable()">Reset</button>
+        <button onclick="goBack()">Back</button>
     </div>
 
 </div>
 
-<!-- RECEIPT -->
 <div id="receipt-area">
     <div class="receipt-box">
         <h2>SORRENTINO</h2>
-        <p>Est. 2019</p>
-
-        <div class="receipt-info">
-            <span>Tisch: <b id="r-table"></b></span>
-            <span id="r-date"></span>
-        </div>
-
-        <hr>
-
+        <p>Tisch <span id="r-table"></span></p>
         <div id="r-items"></div>
-
-        <hr>
-
-        <div class="receipt-total">
-            <span>TOTAL</span>
-            <span id="r-total"></span>
-        </div>
-
-        <p class="thanks">Danke!</p>
+        <h3>Total: <span id="r-total"></span></h3>
     </div>
 </div>
 
