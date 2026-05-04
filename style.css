@@ -1,8 +1,15 @@
  body {
-    background: black;
-    color: white;
-    font-family: Arial;
     margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0A0A0A;
+    color: #F5F5F5;
+}
+
+/* GOLD COLOR */
+:root {
+    --gold: #DAAB2D;
+    --dark: #111;
+    --card: #1A1A1A;
 }
 
 /* LOGO */
@@ -11,10 +18,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: black;
 }
 .logo {
-    color: gold;
     font-size: 3rem;
+    color: var(--gold);
+    letter-spacing: 5px;
+}
+
+/* HEADER */
+.nav-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--dark);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gold);
+    z-index: 10;
+    font-weight: bold;
 }
 
 /* TABLE GRID */
@@ -27,49 +50,109 @@
 
 .table-btn {
     padding: 25px;
-    font-size: 18px;
     border-radius: 50%;
-    border: none;
+    font-size: 18px;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+}
+
+/* STATUS */
+.empty { opacity: 0.4; }
+.active { background: #5a0000; color: white; }
+.paid { background: #1e5a1e; color: white; }
+
+/* CATEGORY */
+.category-bar {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    margin-top: 70px;
+    border-bottom: 1px solid #222;
+}
+
+.category-bar div {
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    color: #aaa;
     cursor: pointer;
 }
 
-/* STATUS COLORS */
-.empty { background: green; }
-.active { background: red; }
-.paid { background: blue; }
+.category-bar div.active {
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
 
-/* MENU */
-.nav-header {
+/* FOOD CARD */
+.food-card {
+    background: var(--card);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 12px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-left: 3px solid var(--gold);
+}
+
+.food-name {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.price {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* BUTTON */
+.add-btn {
+    background: var(--gold);
+    color: black;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+/* CART */
+#cart-preview {
     padding: 10px;
     background: #111;
+    border-top: 1px solid var(--gold);
 }
 
-.category-bar {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-}
-
-.food-card {
-    background: #222;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
+/* ACTION BAR */
 .checkout-bar {
     position: fixed;
     bottom: 0;
     width: 100%;
+    background: var(--dark);
     display: flex;
     gap: 5px;
+    border-top: 1px solid var(--gold);
+}
+
+.checkout-bar button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    font-weight: bold;
+    background: var(--gold);
+    color: black;
 }
 
 /* RECEIPT */
+.receipt-box {
+    font-family: monospace;
+    max-width: 300px;
+    margin: auto;
+}
+
+/* PRINT */
 @media print {
     body * { display: none; }
-    #receipt-area { display: block; }
+    #receipt-area { display: block; color: black; background: white; }
 }
