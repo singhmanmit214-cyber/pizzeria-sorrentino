@@ -1,158 +1,99 @@
- body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0A0A0A;
-    color: #F5F5F5;
-}
-
-/* GOLD COLOR */
-:root {
+ :root {
     --gold: #DAAB2D;
-    --dark: #111;
-    --card: #1A1A1A;
+    --black: #0D0D0D;
+    --dark: #1A1A1A;
 }
 
-/* LOGO */
-#logo-screen {
+body {
+    background: var(--black);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+/* Intro Animation */
+#intro-screen {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
+    animation: fadeOut 1s forwards 9s; /* Starts fading out at 9 seconds */
 }
-.logo {
-    font-size: 3rem;
+
+.logo-animation h1 {
+    font-family: 'Playfair Display';
+    font-size: 3.5rem;
     color: var(--gold);
-    letter-spacing: 5px;
+    letter-spacing: 6px;
+    margin: 0;
+    animation: fadeIn 2s;
 }
 
-/* HEADER */
-.nav-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--dark);
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--gold);
-    z-index: 10;
-    font-weight: bold;
-}
+.gold-line { height: 2px; background: var(--gold); width: 80px; margin: 15px auto; }
 
-/* TABLE GRID */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+
+/* Table Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     padding: 20px;
-}
-
-.table-btn {
-    padding: 25px;
-    border-radius: 50%;
-    font-size: 18px;
-    border: 2px solid var(--gold);
-    background: transparent;
-    color: var(--gold);
-}
-
-/* STATUS */
-.empty { opacity: 0.4; }
-.active { background: #5a0000; color: white; }
-.paid { background: #1e5a1e; color: white; }
-
-/* CATEGORY */
-.category-bar {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px;
-    margin-top: 70px;
-    border-bottom: 1px solid #222;
-}
-
-.category-bar div {
-    margin-right: 15px;
-    padding: 8px 12px;
-    border-radius: 20px;
-    color: #aaa;
-    cursor: pointer;
-}
-
-.category-bar div.active {
-    color: var(--gold);
-    border: 1px solid var(--gold);
-}
-
-/* FOOD CARD */
-.food-card {
-    background: var(--card);
-    margin: 10px;
-    padding: 15px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 3px solid var(--gold);
-}
-
-.food-name {
-    color: var(--gold);
-    font-weight: bold;
-}
-
-.price {
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-/* BUTTON */
-.add-btn {
-    background: var(--gold);
-    color: black;
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 20px;
-}
-
-/* CART */
-#cart-preview {
-    padding: 10px;
-    background: #111;
-    border-top: 1px solid var(--gold);
-}
-
-/* ACTION BAR */
-.checkout-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: var(--dark);
-    display: flex;
-    gap: 5px;
-    border-top: 1px solid var(--gold);
-}
-
-.checkout-bar button {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    font-weight: bold;
-    background: var(--gold);
-    color: black;
-}
-
-/* RECEIPT */
-.receipt-box {
-    font-family: monospace;
-    max-width: 300px;
+    max-width: 400px;
     margin: auto;
 }
 
-/* PRINT */
+.t-btn {
+    aspect-ratio: 1;
+    background: var(--dark);
+    border: 1px solid #333;
+    color: var(--gold);
+    font-size: 1.4rem;
+    border-radius: 12px;
+}
+
+/* Category Circles */
+.category-circles {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 10px;
+    gap: 15px;
+    scrollbar-width: none;
+}
+
+.cat-dot {
+    min-width: 85px; height: 85px; border-radius: 50%;
+    background: var(--dark); border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: bold; cursor: pointer;
+    line-height: 1.2; padding: 5px;
+}
+
+.cat-dot.active { background: var(--gold); color: black; }
+
+/* Items */
+.items-container { padding: 15px; padding-bottom: 150px; }
+.food-item {
+    background: var(--dark); border-radius: 15px; padding: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px; border-left: 4px solid var(--gold);
+}
+
+/* Actions */
+.pos-actions {
+    position: fixed; bottom: 0; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px; padding: 20px; background: #000; box-sizing: border-box;
+}
+
+.action-btn { padding: 15px; border-radius: 10px; border: none; font-weight: bold; }
+.p-print { background: var(--gold); }
+.p-share { background: #0066cc; color: white; }
+.p-reset { background: #444; color: white; }
+
 @media print {
-    body * { display: none; }
-    #receipt-area { display: block; color: black; background: white; }
+    body * { visibility: hidden; }
+    #print-layout, #print-layout * { visibility: visible; }
 }
