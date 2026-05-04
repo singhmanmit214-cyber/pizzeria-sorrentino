@@ -2,48 +2,48 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorrentino POS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sorrentino | POS System</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div id="intro-screen">
-        <div class="logo-animation">
-            <h1>SORRENTINO</h1>
-            <div class="gold-line"></div>
-            <p>PIZZERIA - TRATTORIA</p>
+        <div class="elegant-logo-container">
+            <div class="vintage-frame">
+                <span class="est">EST 2016</span>
+                <h1 class="main-title">SORRENTINO</h1>
+                <p class="sub-title">CLEAN FOOD & GOOD TASTE</p>
+            </div>
         </div>
     </div>
 
     <div id="table-screen" style="display:none;">
-        <div class="small-logo">SORRENTINO</div>
-        <h2>Wähle einen Tisch</h2>
+        <div class="header-logo">SORRENTINO</div>
+        <div class="status-legend">
+            <span><i class="dot green"></i> Frei</span>
+            <span><i class="dot red"></i> Belegt</span>
+            <span><i class="dot blue"></i> Bezahlt</span>
+        </div>
         <div class="grid" id="table-grid"></div>
     </div>
 
     <div id="menu-screen" style="display:none;">
         <header class="pos-header">
-            <button class="nav-btn" onclick="showTableScreen()">←</button>
-            <div class="table-tag">Tisch <span id="active-table"></span></div>
-            <div class="price-tag"><span id="cart-total">0.00</span>€</div>
+            <button class="nav-back" onclick="showTableScreen()">←</button>
+            <div class="table-info">Tisch <span id="active-table-num">0</span></div>
+            <div class="total-info"><span id="cart-total">0.00</span>€</div>
         </header>
-
-        <div class="category-circles" id="cat-scroll">
-            </div>
-
+        <div class="category-wrapper"><div class="category-scroll" id="cat-circles"></div></div>
         <div id="item-list" class="items-container"></div>
-
-        <div class="pos-actions">
-            <button class="action-btn p-print" onclick="printReceipt()">Drucken</button>
-            <button class="action-btn p-share" onclick="shareReceipt()">Teilen</button>
-            <button class="action-btn p-reset" onclick="resetCart()">Löschen</button>
+        <div class="action-footer">
+            <button class="act-btn b-print" onclick="printReceipt()">Drucken</button>
+            <button class="act-btn b-share" onclick="shareReceipt()">Teilen</button>
+            <button class="act-btn b-pay" onclick="markAsPaid()">Bezahlt</button>
+            <button class="act-btn b-reset" onclick="clearTable()">Leeren</button>
         </div>
     </div>
-
-    <div id="print-layout"></div>
-
+    <div id="receipt-print-area"></div>
     <script src="script.js"></script>
 </body>
 </html>
