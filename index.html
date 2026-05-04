@@ -2,63 +2,51 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino | Digital Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorrentino - Est. 2019</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="tableSelection" class="screen">
-        <div class="logo-container">
-            <h1>SORRENTINO</h1>
-            <p>PIZZERIA - TRATTORIA</p>
-        </div>
-        <h2 class="gold-text">Tisch wählen</h2>
-        <div id="tableGrid" class="table-grid"></div>
+    <div id="welcome-screen">
+        <h1>SORRENTINO</h1>
+        <p class="est">EST. 2019</p>
+        <p style="color: #DAAB2D; font-size: 1.2rem;">Wählen Sie Ihren Tisch</p>
+        <div class="grid" id="table-grid"></div>
     </div>
 
-    <div id="menuContent" class="screen" style="display: none;">
-        <header class="main-header">
-            <div class="header-info">
-                <span class="table-badge">Tisch <span id="activeTable">0</span></span>
+    <div id="menu-screen">
+        <div class="nav-header">
+            <span class="gold" style="font-weight: bold; font-size: 1.2rem;">Tisch <span id="selected-table"></span></span>
+            <span class="gold" style="font-size: 1.2rem;">Total: <span id="cart-total">0.00</span>€</span>
+        </div>
+        
+        <div class="category-bar">
+            <div class="cat-item active" onclick="filterMenu('Pizza', event)">Pizza</div>
+            <div class="cat-item" onclick="filterMenu('Al Forno', event)">Al Forno</div>
+            <div class="cat-item" onclick="filterMenu('Pasta', event)">Pasta</div>
+            <div class="cat-item" onclick="filterMenu('Vegan', event)">Vegan</div>
+            <div class="cat-item" onclick="filterMenu('Drinks', event)">Drinks</div>
+        </div>
+
+        <div id="food-list"></div>
+
+        <div class="checkout-bar">
+            <div class="action-buttons">
+                <button class="print-btn" onclick="printReceipt()">Drucken</button>
+                <button class="print-btn" style="background: #333; color: white;" onclick="downloadReceipt()">Speichern</button>
+                <button class="print-btn" style="background: #800; color: white;" onclick="resetApp()">Neu</button>
             </div>
-            <h2 class="logo-small">SORRENTINO</h2>
-        </header>
-
-        <nav class="category-nav">
-            <button class="nav-btn" onclick="renderMenu('Antipasti')">Antipasti</button>
-            <button class="nav-btn" onclick="renderMenu('Salate')">Salate</button>
-            <button class="nav-btn" onclick="renderMenu('Pizza')">Pizza</button>
-            <button class="nav-btn" onclick="renderMenu('Pasta')">Pasta</button>
-            <button class="nav-btn" onclick="renderMenu('Vegan')">Vegan</button>
-            <button class="nav-btn" onclick="renderMenu('Fleisch/Fisch')">Fleisch & Fisch</button>
-            <button class="nav-btn" onclick="renderMenu('Dessert')">Dessert</button>
-            <button class="nav-btn" onclick="renderMenu('Getränke')">Getränke</button>
-        </nav>
-
-        <div id="menuGrid" class="menu-container"></div>
-
-        <div id="cartBar" class="cart-bar" onclick="openSummary()">
-            <span><span id="cartCount">0</span> Artikel</span>
-            <span><span id="totalPrice">0.00</span>€</span>
         </div>
     </div>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <div class="receipt-header">
-                <h3>SORRENTINO</h3>
-                <p>Tisch <span id="summaryTable"></span></p>
-            </div>
-            <div id="rItems" class="receipt-items"></div>
-            <div class="total-row">
-                <span>Gesamt</span>
-                <span id="rTotal">0.00</span>€
-            </div>
-            <button class="print-btn" onclick="printReceipt()">Beleg drucken / PDF</button>
-            <button class="close-btn" onclick="closeModal()">Zurück</button>
-        </div>
+    <div id="receipt-area">
+        <h2 style="text-align: center;">SORRENTINO</h2>
+        <p style="text-align: center;">Est. 2019<br>Rechnung - Tisch <span id="r-table"></span></p>
+        <hr>
+        <div id="r-items"></div>
+        <hr>
+        <h3 style="display: flex; justify-content: space-between;"><span>GESAMT:</span> <span id="r-total"></span></h3>
     </div>
 
     <script src="script.js"></script>
