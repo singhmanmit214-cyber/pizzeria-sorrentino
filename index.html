@@ -1,24 +1,32 @@
  <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino POS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="table-screen">
-        <div class="gold-header"><h1>SORRENTINO</h1></div>
+        <div style="text-align:center; padding:20px; color:var(--gold); border-bottom:1px solid var(--gold);"><h1>SORRENTINO</h1></div>
         <div id="table-grid"></div>
     </div>
 
-    <div id="menu-screen" style="display:none;">
-        <div class="gold-header"><h2 id="current-tisch-display">TISCH</h2></div>
-        <div id="sub-nav-container"></div>
-        <div id="menu-display"></div>
-        <div class="gold-footer-bar">
-            <div id="cart-status">0 Items | 0.00€</div>
-            <div onclick="renderTables()" style="cursor:pointer; border:1px solid black; padding:5px; border-radius:5px;">← TISCHE</div>
+    <div id="menu-screen">
+        <div class="main-menu-area">
+            <div style="padding:15px; border-bottom:1px solid var(--gold); color:var(--gold); font-weight:bold;" id="current-tisch-title"></div>
+            <div id="sub-nav"></div>
+            <div id="menu-display"></div>
+            <div class="mobile-footer">
+                <span onclick="renderTables()">← TISCHE</span>
+                <span id="mobile-total">0.00€</span>
+            </div>
+        </div>
+
+        <div class="order-sidebar">
+            <h3 style="color:var(--gold);">RECHNUNG</h3>
+            <div class="order-list" id="order-list"></div>
+            <div class="total-area"><span>TOTAL:</span><span id="total-sum">0.00 €</span></div>
+            <button class="footer-btn">BEZAHLEN</button>
+            <button class="footer-btn" style="background:#333; color:white;" onclick="renderTables()">ZURÜCK</button>
         </div>
     </div>
     <script src="script.js"></script>
