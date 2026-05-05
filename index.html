@@ -11,24 +11,27 @@
         <div id="table-sidebar">
             <h2 class="logo">SORRENTINO</h2>
             <div id="table-grid"></div>
-            <div class="sidebar-footer">
-                <button class="closing-btn" onclick="showDayClosing()">KASSEN-ABSCHLUSS</button>
-            </div>
+            <button class="closing-btn" onclick="showDayClosing()">KASSEN-ABSCHLUSS</button>
         </div>
 
         <div id="menu-side">
-            <div id="cat-list"></div>
-            <div id="item-list"></div>
+            <div class="main-nav">
+                <button class="main-cat-btn" onclick="showMainSection('FOOD')">ESSEN</button>
+                <button class="main-cat-btn" onclick="showMainSection('VEGAN')">VEGAN</button>
+                <button class="main-cat-btn" onclick="showMainSection('DRINKS')">GETRÄNKE</button>
+            </div>
+            <div id="sub-cat-nav"></div>
+            <div id="menu-display"></div>
         </div>
 
         <div id="cart-side">
-            <div class="cart-header">Tisch <span id="active-table-num">-</span></div>
-            <div id="cart-items-container"></div>
+            <div class="cart-header">Tisch <span id="active-table-num">1</span></div>
+            <div id="cart-items"></div>
             <div class="cart-footer">
-                <div class="total-display">Gesamt: <span id="cart-total">0.00</span>€</div>
-                <div class="cart-actions">
-                    <button class="btn-cancel" onclick="clearCurrentTable()">STORNOR</button>
-                    <button class="btn-pay" onclick="openPayment()">BEZAHLEN</button>
+                <div class="total-box">Total: <span id="cart-total">0.00</span>€</div>
+                <div class="cart-btns">
+                    <button class="btn-cancel" onclick="clearTable()">STORNOR</button>
+                    <button class="btn-pay" onclick="openPayment()">BILLING</button>
                 </div>
             </div>
         </div>
