@@ -1,19 +1,42 @@
- :root { --gold: #D4AF37; --black: #000000; }
+ :root { --gold: #D4AF37; --black: #000000; --dark: #121212; }
 body, html { height: 100%; margin: 0; background: var(--black); color: white; font-family: sans-serif; overflow: hidden; }
-.gold-header { border-bottom: 2px solid var(--gold); padding: 15px; text-align: center; color: var(--gold); }
 
-/* THE HUB - 3 Big Boxes centered */
-.hub-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh; gap: 20px; }
-.gold-hub-box { width: 85%; max-width: 400px; padding: 35px; background: transparent; border: 2px solid var(--gold); color: var(--gold); font-size: 1.6rem; font-weight: bold; border-radius: 15px; text-transform: uppercase; }
+/* TABLE SCREEN */
+#table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
+.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; font-weight: bold; font-size: 1.2rem; }
+.occupied { background: #600 !important; border-color: red !important; }
+
+/* LAYOUT */
+#menu-screen { display: none; height: 100vh; flex-direction: column; }
+
+@media (min-width: 900px) {
+    #menu-screen { flex-direction: row; }
+    .main-menu-area { flex: 2; border-right: 2px solid var(--gold); }
+    .order-sidebar { display: flex !important; flex: 0.8; }
+}
+
+.main-menu-area { display: flex; flex-direction: column; height: 100%; width: 100%; }
+
+/* HUB BUTTONS (Centered) */
+.hub-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; gap: 20px; }
+.gold-box { width: 85%; max-width: 400px; padding: 40px; background: transparent; border: 2px solid var(--gold); color: var(--gold); font-size: 1.8rem; font-weight: bold; border-radius: 15px; }
 
 /* MENU ITEMS */
-#menu-display { flex: 1; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; align-content: start; }
-.gold-item-card { background: #111; border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center; }
-.price-tag { color: var(--gold); font-weight: bold; margin-top: 5px; display: block; }
+#menu-display { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px; overflow-y: auto; align-content: start; }
+.item-card { background: var(--dark); border: 1px solid #333; padding: 20px; border-radius: 10px; text-align: center; }
+.gold-text { color: var(--gold); font-weight: bold; }
 
-#sub-nav-container { display: none; overflow-x: auto; padding: 10px; gap: 10px; background: #111; border-bottom: 1px solid var(--gold); }
-.gold-nav-btn { background: transparent; color: white; border: 1px solid var(--gold); padding: 10px; border-radius: 5px; white-space: nowrap; }
+/* NAV */
+#sub-nav { display: none; background: #000; padding: 10px; gap: 10px; overflow-x: auto; border-bottom: 1px solid var(--gold); }
+.sub-btn { background: transparent; color: white; border: 1px solid #444; padding: 10px 15px; border-radius: 5px; white-space: nowrap; }
+.nav-back { background: var(--gold); border: none; font-weight: bold; padding: 10px 15px; border-radius: 5px; }
 
-#table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
-.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; font-weight: bold; }
-.gold-footer-bar { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; position: fixed; bottom: 0; width: 100%; }
+/* SIDEBAR */
+.order-sidebar { display: none; background: #080808; flex-direction: column; padding: 20px; }
+.order-list { flex: 1; overflow-y: auto; margin-bottom: 10px; }
+.order-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222; }
+.total-area { font-size: 1.8rem; color: var(--gold); font-weight: bold; display: flex; justify-content: space-between; padding: 10px 0; }
+.footer-btn { background: var(--gold); color: black; border: none; padding: 15px; font-weight: bold; border-radius: 5px; width: 100%; margin-top: 10px; }
+
+.mobile-footer { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; }
+@media (min-width: 900px) { .mobile-footer { display: none; } }
