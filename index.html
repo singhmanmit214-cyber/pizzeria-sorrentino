@@ -3,48 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino POS</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Sorrentino POS Pro</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="table-screen">
+    <div id="table-screen" class="screen">
         <div class="header-logo">SORRENTINO</div>
-        <div class="status-legend">
-            <span><i class="dot green"></i> Frei</span>
-            <span><i class="dot red"></i> Aktiv</span>
-            <span><i class="dot blue"></i> Bezahlt</span>
-        </div>
         <div class="grid" id="table-grid"></div>
     </div>
 
-    <div id="menu-screen" style="display:none;">
+    <div id="menu-screen" class="screen" style="display: none;">
         <header class="pos-header">
-            <button class="nav-back" onclick="showTableScreen()">← TISCHE</button>
+            <button class="nav-back" onclick="showTableScreen()">←</button>
             <div class="table-info">TISCH <span id="active-table-num">0</span></div>
-            <div class="total-info"><span id="cart-total">0.00</span>€</div>
+            <div class="cart-trigger" onclick="openCartOverlay()">
+                🛒 <span id="cart-count">0</span> - <span id="cart-total-top">0.00</span>€
+            </div>
         </header>
 
-        <div class="category-wrapper">
-            <div class="category-scroll" id="cat-circles"></div>
-        </div>
+        <div class="pos-body">
+            <aside class="mini-cart">
+                <h3>Bon Vorschau</h3>
+                <div id="mini-cart-items"></div>
+            </aside>
 
-        <div class="main-content-layout">
-            <div id="item-list" class="items-container"></div>
-            
-            <div id="receipt-live-view"></div>
-        </div>
-
-        <div class="action-footer">
-            <button class="act-btn b-print" onclick="printReceipt()">DRUCKEN</button>
-            <button class="act-btn b-pay" onclick="markAsPaid()">BEZAHLT</button>
-            <button class="act-btn b-reset" onclick="clearTable()">LEEREN</button>
+            <main class="menu-area">
+                <div class="category-scroll" id="cat-list"></div>
+                <div id="item-list" class="items-grid"></div>
+            </main>
         </div>
     </div>
 
-    <div id="print-area"></div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <div id="cart-overlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Bestellübersicht</h2>
+            <div id="full-cart-list"></div>
+            <div class="overlay-footer">
+                <button class="btn-cancel" onclick="closeCartOverlay()">Zurück</button>
+                <button class="btn-billing" onclick="openBilling()">Abrechnung</button>
+            </div>
