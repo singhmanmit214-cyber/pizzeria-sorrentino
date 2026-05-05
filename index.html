@@ -3,42 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino POS Pro</title>
+    <title>Sorrentino POS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app-container">
-        <div id="table-sidebar">
-            <h2 class="logo">SORRENTINO</h2>
-            <div id="table-grid"></div>
-            <button class="closing-btn" onclick="showDayClosing()">KASSEN-ABSCHLUSS</button>
-        </div>
+    <div id="table-screen" class="screen active">
+        <header><h1>SORRENTINO</h1></header>
+        <div class="table-grid" id="table-grid"></div>
+        <button class="closing-btn" onclick="showDayClosing()">Tagesabschluss</button>
+    </div>
 
-        <div id="menu-side">
-            <div class="main-nav">
-                <button class="main-cat-btn" onclick="showMainSection('FOOD')">ESSEN</button>
-                <button class="main-cat-btn" onclick="showMainSection('VEGAN')">VEGAN</button>
-                <button class="main-cat-btn" onclick="showMainSection('DRINKS')">GETRÄNKE</button>
+    <div id="menu-screen" class="screen">
+        <header>
+            <button onclick="goBackToTables()" class="back-btn">← Tisch <span id="active-table-title">1</span></button>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Suchen..." oninput="searchMenu()">
             </div>
-            <div id="sub-cat-nav"></div>
-            <div id="menu-display"></div>
-        </div>
+            <button onclick="toggleCart()" class="cart-toggle">🛒 <span id="cart-count">0</span></button>
+        </header>
+        
+        <nav class="main-nav">
+            <button onclick="showSection('FOOD')">ESSEN</button>
+            <button onclick="showSection('DRINKS')">GETRÄNKE</button>
+            <button onclick="showSection('VEGAN')">VEGAN</button>
+        </nav>
+        
+        <div id="sub-nav" class="sub-nav"></div>
+        <div id="menu-display" class="menu-grid"></div>
+    </div>
 
-        <div id="cart-side">
-            <div class="cart-header">Tisch <span id="active-table-num">1</span></div>
-            <div id="cart-items"></div>
-            <div class="cart-footer">
-                <div class="total-box">Total: <span id="cart-total">0.00</span>€</div>
-                <div class="cart-btns">
-                    <button class="btn-cancel" onclick="clearTable()">STORNOR</button>
-                    <button class="btn-pay" onclick="openPayment()">BILLING</button>
-                </div>
-            </div>
+    <div id="cart-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Warenkorb</h2>
+            <button onclick="toggleCart()">×</button>
+        </div>
+        <div id="cart-items" class="cart-scroll"></div>
+        <div class="cart-footer">
+            <div class="total-row">Total: <span id="cart-total">0.00</span>€</div>
+            <button class="storno-btn" onclick="clearTable()">STORNO</button>
+            <button class="billing-btn" onclick="openPayment()">BILLING</button>
         </div>
     </div>
 
-    <div id="modal-overlay" class="overlay" onclick="closeModal(event)">
-        <div id="modal-content" onclick="event.stopPropagation()"></div>
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="modal-content" class="modal-box"></div>
     </div>
 
     <script src="script.js"></script>
