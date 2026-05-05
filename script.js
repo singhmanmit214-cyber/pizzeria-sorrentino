@@ -13,62 +13,73 @@
             {name:"Pizza Asparagi",price:17.50},{name:"Pizza Gorgonzola",price:16.50},{name:"Pizza Salsiccia",price:17.50},{name:"Pizza Di Capra",price:18.00}
         ],
         "Pasta": [
-            {name:"Spaghetti Napoli",price:12.00},{name:"Spaghetti Bolognese",price:15.50},{name:"Spaghetti Aglio Olio",price:12.00},{name:"Spaghetti Carbonara",price:16.50},{name:"Tortellini Panne Prosc.",price:15.50},{name:"Penne Arrabbiata",price:13.00},{name:"Penne Amatriciana",price:16.50},{name:"Rigatoni Gorgonzola",price:15.50},{name:"Rigatoni Norcina",price:16.50},{name:"Rigatoni 4 Formaggi",price:15.50},{name:"Tagliatelle Salmone",price:19.50},{name:"Tagliatelle Scampi",price:19.50},{name:"Tagliatelle di Manzo",price:20.50}
+            {name:"Spaghetti Napoli",price:12.00},{name:"Spaghetti Bolognese",price:15.50},{name:"Spaghetti Aglio Olio",price:12.00},{name:"Spaghetti Carbonara",price:16.50},{name:"Tortellini Panna Prosc.",price:15.50},{name:"Penne Arrabbiata",price:13.00},{name:"Penne Amatriciana",price:16.50},{name:"Rigatoni Gorgonzola",price:15.50},{name:"Rigatoni Norcina",price:16.50},{name:"Rigatoni 4 Formaggi",price:15.50},{name:"Tagliatelle Salmone",price:19.50},{name:"Tagliatelle Scampi",price:19.50},{name:"Tagliatelle di Manzo",price:20.50}
         ],
         "Al Forno": [
-            {name:"Hausgemachte Lasagne",price:16.50},{name:"Tortellini al Forno",price:16.50},{name:"Rigatoni al Forno",price:16.50},{name:"Hausgem. Cannelloni",price:17.50},{name:"Auflauf Spezial",price:17.50}
+            {name:"Lasagne Hausgem.",price:16.50},{name:"Tortellini al Forno",price:16.50},{name:"Rigatoni al Forno",price:16.50},{name:"Cannelloni Hausgem.",price:17.50},{name:"Auflauf Spezial",price:17.50}
         ],
         "Snacks": [
-            {name:"Pommes Frites",price:6.00},{name:"Chicken Nuggets (9 Stk)",price:8.50},{name:"Chicken Nuggets (20 Stk)",price:16.00}
+            {name:"Pommes Frites",price:6.00},{name:"Nuggets (9 Stk)",price:8.50},{name:"Nuggets (20 Stk)",price:16.00}
         ],
         "Fisch": [
             {name:"Salmone Griglia",price:25.50},{name:"Salmone Basilico",price:26.50},{name:"Calamari Fritti",price:20.00},{name:"Calamari Griglia",price:25.50},{name:"Pesce Misto",price:35.50}
         ],
         "Carne": [
-            {name:"Schnitzel Wiener Art",price:15.50},{name:"Paprikaschnitzel",price:18.50},{name:"Jägerschnitzel",price:18.50},{name:"Schnitzel Funghi",price:18.50},{name:"Schnitzel Hollandaise",price:18.50},{name:"Zwiebelschnitzel",price:18.50},{name:"Rinderfilet Grill",price:30.50},{name:"Rinderfilet Funghi",price:35.50},{name:"Rumpsteak Grill",price:25.50},{name:"Rumpsteak Pfeffer",price:27.50}
+            {name:"Schnitzel Wiener Art",price:15.50},{name:"Paprikaschnitzel",price:18.50},{name:"Jägerschnitzel",price:18.50},{name:"Schnitzel Funghi",price:18.50},{name:"Schnitzel Hollandaise",price:18.50},{name:"Zwiebelschnitzel",price:18.50},{name:"Rinderfilet Grill",price:30.50},{name:"Rumpsteak Grill",price:25.50}
         ],
         "Dessert": [
-            {name:"Tiramisu Hausgemacht",price:8.00},{name:"Tartufo Eis",price:7.00},{name:"Cassata",price:7.00},{name:"Schoko Souffle",price:7.00}
+            {name:"Tiramisu Hausgemacht",price:8.00},{name:"Panna Cotta",price:6.50},{name:"Tartufo Eis",price:7.00},{name:"Schoko Souffle",price:7.00}
         ]
     },
     "VEGAN": {
         "V-Pizza": [
-            {name:"V. Pizza Primavera",price:12.00},{name:"V. Pizza Margherita",price:12.50},{name:"V. Pizza Salami",price:14.50},{name:"V. Pizza Prosciutto",price:14.50},{name:"V. Pizza Funghi",price:14.00},{name:"V. Pizza Spinaci",price:14.00},{name:"V. Pizza Calzone",price:18.50},{name:"V. Pizza Tonno",price:15.50},{name:"V. Pizza Hawaii",price:15.50},{name:"V. Pizza Prosc. Funghi",price:16.00},{name:"V. Pizza Carciofi",price:16.50},{name:"V. Pizza Spinaci Ex.",price:16.50},{name:"V. Pizza Verdura",price:16.50},{name:"V. Pizza 4 Stagioni",price:18.50},{name:"V. Pizza Rustica",price:18.50},{name:"V. Pizza Melanzane",price:18.50},{name:"V. Pizza Salmone",price:18.50},{name:"V. Pizza Asparagi",price:19.50},{name:"V. Pizza Pollo",price:19.50},{name:"V. Pizza Amsterdam",price:20.50}
+            {name:"V. Pizza Primavera",price:12.00},{name:"V. Pizza Margherita",price:12.50},{name:"V. Pizza Salami",price:14.50},{name:"V. Pizza Prosciutto",price:14.50},{name:"V. Pizza Funghi",price:14.00},{name:"V. Pizza Verdura",price:16.50},{name:"V. Pizza Amsterdam",price:20.50}
         ],
         "V-Pasta": [
-            {name:"V. Spaghetti Napoli",price:13.50},{name:"V. Spagh. Aglio Olio",price:13.50},{name:"V. Penne Arrabbiata",price:14.50},{name:"V. Spaghetti Bolognese",price:18.50},{name:"V. Penne Amatriciana",price:18.50},{name:"V. Tagliatelle al Panna",price:18.50},{name:"V. Penne al Tonno",price:18.50},{name:"V. Rigatoni Norcina",price:19.50},{name:"V. Tagliatelle Salmone",price:20.50},{name:"V. Tagliatelle di Manzo",price:20.50}
-        ],
-        "V-Al Forno": [
-            {name:"V. Rigatoni al Forno",price:18.50},{name:"V. Tortellini al Forno",price:18.50},{name:"V. Lasagne Hausgem.",price:19.50},{name:"V. Cannelloni Hausgem.",price:19.50},{name:"V. Auflauf Spezial",price:20.50}
+            {name:"V. Spaghetti Napoli",price:13.50},{name:"V. Spagh. Aglio Olio",price:13.50},{name:"V. Spaghetti Bolognese",price:18.50},{name:"V. Tagliatelle Salmone",price:20.50}
         ],
         "V-Schnitzel": [
-            {name:"V. Schnitzel Wiener Art",price:17.00},{name:"V. Jägerschnitzel",price:19.50},{name:"V. Schnitzel Funghi",price:19.50},{name:"V. Schnitzel Hollandaise",price:19.50},{name:"V. Zwiebelschnitzel",price:19.50}
-        ],
-        "V-Fisch": [
-            {name:"V. Salmone Griglia",price:26.50},{name:"V. Salmone Basilico",price:28.50}
+            {name:"V. Schnitzel Wiener",price:17.00},{name:"V. Jägerschnitzel",price:19.50},{name:"V. Schnitzel Funghi",price:19.50}
         ],
         "V-Dessert": [
-            {name:"V. Cheesecake Himbeer",price:8.50},{name:"V. Möhrenkuchen",price:5.50},{name:"V. Schokokuchen",price:5.50},{name:"V. Tiramisu",price:8.50}
+            {name:"V. Cheesecake Himbeer",price:8.50},{name:"V. Möhrenkuchen",price:5.50},{name:"V. Tiramisu",price:8.50}
         ]
     },
     "DRINKS": {
         "Alkoholfrei": [
-            {name:"S. Pellegrino 0.25l",price:3.00},{name:"S. Pellegrino 0.75l",price:7.50},{name:"Aqua Panna 0.25l",price:3.00},{name:"Aqua Panna 0.75l",price:7.50},{name:"Coca Cola 0.2l",price:3.00},{name:"Coca Cola 0.33l",price:3.50},{name:"Cola Zero 0.33l",price:3.50},{name:"Fanta 0.33l",price:3.50},{name:"Sprite 0.33l",price:3.50},{name:"VIO Schorlen 0.33l",price:4.00}
+            {name:"S. Pellegrino 0.25l",price:3.00},{name:"S. Pellegrino 0.75l",price:7.50},
+            {name:"Aqua Panna 0.25l",price:3.00},{name:"Aqua Panna 0.75l",price:7.50},
+            {name:"Coca Cola 0.2l",price:3.00},{name:"Coca Cola 0.33l",price:3.50},
+            {name:"Cola Zero 0.33l",price:3.50},{name:"Fanta 0.33l",price:3.50},
+            {name:"Sprite 0.33l",price:3.50},{name:"Mezzo Mix 0.33l",price:3.50},
+            {name:"Vio Apfelschorle 0.3l",price:4.00},{name:"Vio Rhabarber 0.3l",price:4.00},
+            {name:"Vio Johannisbeere 0.3l",price:4.00},{name:"Vio Zitrone-Lime 0.3l",price:4.00},
+            {name:"Fassbrause Zitrone",price:4.00},{name:"Fassbrause Holunder",price:4.00}
         ],
         "Aperitifs": [
-            {name:"Prosecco 0.1l",price:6.00},{name:"Aperol Spritz 0.2l",price:7.50},{name:"Gin Tonic 0.2l",price:8.50},{name:"Limoncello Spritz",price:7.50},{name:"Mojito",price:9.50},{name:"Lillet",price:7.50}
+            {name:"Aperol Spritz",price:7.50},{name:"Hugo",price:7.50},{name:"Lillet Berry",price:7.50},
+            {name:"Limoncello Spritz",price:7.50},{name:"Prosecco 0.1l",price:6.00},{name:"Gin Tonic",price:8.50},{name:"Mojito",price:9.50}
         ],
         "Bier": [
-            {name:"Kölsch 0.2l",price:3.00},{name:"Kölsch 0.3l",price:3.50},{name:"Pils 0.3l",price:4.00},{name:"Jever 0.3l",price:4.00},{name:"Weizenbier 0.5l",price:6.00}
+            {name:"Kölsch 0.2l",price:3.00},{name:"Kölsch 0.3l",price:3.50},
+            {name:"Bitburger Pils 0.3l",price:4.00},{name:"Jever 0.3l",price:4.00},
+            {name:"Weizenbier 0.5l",price:6.00},{name:"Radler 0.3l",price:3.50},
+            {name:"Alkoholfreies Bier",price:3.80}
         ],
-        "Weine": [
-            {name:"Pinot Grigio 0.25l",price:6.50},{name:"Rosato 0.25l",price:6.50},{name:"Montepulciano 0.25l",price:6.50},{name:"Lambrusco 0.25l",price:6.50}
+        "Wein (Offen)": [
+            {name:"Pinot Grigio 0.25l",price:6.50},{name:"Chardonnay 0.25l",price:6.50},
+            {name:"Rosato 0.25l",price:6.50},{name:"Montepulciano 0.25l",price:6.50},
+            {name:"Primitivo 0.25l",price:7.50},{name:"Lambrusco 0.25l",price:6.50}
         ],
         "Spirituosen": [
-            {name:"Ramazzotti 4cl",price:6.00},{name:"Averna 4cl",price:6.00},{name:"Grappa Riserva 2cl",price:6.00},{name:"Jack Daniels 4cl",price:8.00},{name:"Sambuca 4cl",price:6.00}
+            {name:"Ramazzotti 4cl",price:6.00},{name:"Averna 4cl",price:6.00},
+            {name:"Grappa Haus 2cl",price:5.00},{name:"Grappa Riserva 2cl",price:8.50},
+            {name:"Sambuca 4cl",price:6.00},{name:"Limoncello 4cl",price:5.00},
+            {name:"Jack Daniels 4cl",price:8.00}
         ],
         "Heisse Getränke": [
-            {name:"Espresso",price:2.50},{name:"Kaffee",price:3.00},{name:"Cappuccino",price:3.50},{name:"Latte Macchiato",price:4.00},{name:"Tee",price:2.00}
+            {name:"Espresso",price:2.50},{name:"Kaffee",price:3.00},
+            {name:"Cappuccino",price:3.50},{name:"Latte Macchiato",price:4.00},{name:"Tee",price:2.50}
         ]
     }
 };
@@ -144,47 +155,18 @@ function openPayment() {
     const order = tableOrders[activeTable] || [];
     if(order.length === 0) return;
     const total = order.reduce((s, i) => s + i.price, 0);
+    const date = new Date().toLocaleString('de-DE');
+
     document.getElementById('modal-content').innerHTML = `
         <div class="receipt">
             <h2 style="text-align:center">SORRENTINO</h2>
-            <hr>
-            ${order.map(i => `<div style="display:flex;justify-content:space-between"><span>${i.name}</span><span>${i.price.toFixed(2)}€</span></div>`).join('')}
-            <hr>
-            <div style="display:flex;justify-content:space-between;font-weight:bold"><span>GESAMT</span><span>${total.toFixed(2)}€</span></div>
-            <div style="display:flex;gap:10px;margin-top:15px;" class="no-print">
-                <button onclick="finalize('BAR')" style="flex:1;padding:10px;background:green;color:white;border:none">BAR</button>
-                <button onclick="finalize('KARTE')" style="flex:1;padding:10px;background:blue;color:white;border:none">KARTE</button>
+            <p style="text-align:center; font-size:10px;">${date} | Tisch: ${activeTable}</p>
+            <hr style="border-top: 1px dashed #000; margin: 10px 0;">
+            ${order.map(i => `<div style="display:flex;justify-content:space-between; font-size:13px; margin-bottom:2px;"><span>${i.name}</span><span>${i.price.toFixed(2)}€</span></div>`).join('')}
+            <hr style="border-top: 1px dashed #000; margin: 10px 0;">
+            <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:16px;"><span>TOTAL</span><span>${total.toFixed(2)}€</span></div>
+            <div style="display:flex;gap:10px;margin-top:20px;" class="no-print">
+                <button onclick="finalize('BAR')" style="flex:1;padding:12px;background:#2e7d32;color:white;border:none;border-radius:4px;font-weight:bold;cursor:pointer">BAR</button>
+                <button onclick="finalize('KARTE')" style="flex:1;padding:12px;background:#1565c0;color:white;border:none;border-radius:4px;font-weight:bold;cursor:pointer">KARTE</button>
             </div>
-        </div>`;
-    document.getElementById('modal-overlay').style.display = 'flex';
-}
-
-function finalize(method) {
-    const order = tableOrders[activeTable];
-    const total = order.reduce((s, i) => s + i.price, 0);
-    paymentHistory.push({date: new Date().toLocaleDateString(), total: total, method: method});
-    tableOrders[activeTable] = [];
-    save(); window.print(); closeModal(); updateCart(); renderTables();
-}
-
-function showDayClosing() {
-    const bar = paymentHistory.filter(h => h.method === 'BAR').reduce((s, h) => s + h.total, 0);
-    const card = paymentHistory.filter(h => h.method === 'KARTE').reduce((s, h) => s + h.total, 0);
-    document.getElementById('modal-content').innerHTML = `
-        <div class="receipt">
-            <h3>TAGESABSCHLUSS</h3>
-            <p>BAR: ${bar.toFixed(2)}€</p>
-            <p>KARTE: ${card.toFixed(2)}€</p>
-            <hr>
-            <p>TOTAL: ${(bar+card).toFixed(2)}€</p>
-            <button onclick="paymentHistory=[];save();closeModal()" style="width:100%;padding:10px;margin-top:10px;background:red;color:white;border:none">TAG RESET</button>
-        </div>`;
-    document.getElementById('modal-overlay').style.display = 'flex';
-}
-
-function save() {
-    localStorage.setItem('sor_orders', JSON.stringify(tableOrders));
-    localStorage.setItem('sor_history', JSON.stringify(paymentHistory));
-}
-function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
-function clearTable() { if(confirm("Tisch stornieren?")) { tableOrders[activeTable] = []; save(); updateCart(); renderTables(); } }
+            <button class="no-print" style="width:100%; margin-top:10px; padding:10px; background:#eee; border:none; cursor:pointer" onclick="closeModal()">ZURÜCK</button>
