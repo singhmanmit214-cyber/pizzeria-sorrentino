@@ -7,46 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="table-screen" class="screen active">
-        <header><h1>SORRENTINO</h1></header>
-        <div class="table-grid" id="table-grid"></div>
-        <button class="closing-btn" onclick="showDayClosing()">Tagesabschluss</button>
-    </div>
 
-    <div id="menu-screen" class="screen">
-        <header>
-            <button onclick="goBackToTables()" class="back-btn">← Tisch <span id="active-table-title">1</span></button>
-            <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Suchen..." oninput="searchMenu()">
+    <div id="table-screen">
+        <div class="gold-header">
+            <h1>SORRENTINO</h1>
+            <p>TISCHAUSWAHL</p>
+        </div>
+        <div id="table-grid">
             </div>
-            <button onclick="toggleCart()" class="cart-toggle">🛒 <span id="cart-count">0</span></button>
-        </header>
-        
-        <nav class="main-nav">
-            <button onclick="showSection('FOOD')">ESSEN</button>
-            <button onclick="showSection('DRINKS')">GETRÄNKE</button>
-            <button onclick="showSection('VEGAN')">VEGAN</button>
-        </nav>
-        
-        <div id="sub-nav" class="sub-nav"></div>
-        <div id="menu-display" class="menu-grid"></div>
-    </div>
-
-    <div id="cart-sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h2>Warenkorb</h2>
-            <button onclick="toggleCart()">×</button>
-        </div>
-        <div id="cart-items" class="cart-scroll"></div>
-        <div class="cart-footer">
-            <div class="total-row">Total: <span id="cart-total">0.00</span>€</div>
-            <button class="storno-btn" onclick="clearTable()">STORNO</button>
-            <button class="billing-btn" onclick="openPayment()">BILLING</button>
+        <div class="admin-bar">
+            <button onclick="showDayClosing()">TAGESABSCHLUSS</button>
         </div>
     </div>
 
-    <div id="modal-overlay" class="modal-overlay">
-        <div id="modal-content" class="modal-box"></div>
+    <div id="menu-screen">
+        <div class="gold-header">
+            <h2 id="current-tisch-display">TISCH 0</h2>
+        </div>
+
+        <div id="sub-nav-container"></div>
+
+        <div id="menu-display"></div>
+
+        <div class="gold-footer-bar" onclick="openPayment()">
+            <div id="cart-status">0 Positionen</div>
+            <div id="cart-total-price">0,00 €</div>
+            <div class="kasse-btn">KASSE →</div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div id="modal-body"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
