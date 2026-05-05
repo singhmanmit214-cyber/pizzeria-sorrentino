@@ -1,238 +1,50 @@
- /* --- THEME COLORS --- */
-:root {
-    --gold: #DAAB2D;
-    --black: #0A0A0A;
-    --dark: #1A1A1A;
-    --green: #2ecc71; /* Free Table */
-    --red: #e74c3c;   /* Occupied Table */
-    --blue: #3498db;  /* Paid Table */
-    --receipt-bg: #ffffff;
-}
+ * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { font-family: 'Segoe UI', Roboto, sans-serif; background: #121212; height: 100vh; overflow: hidden; color: #333; }
 
-/* --- BASIC SETUP --- */
-body { 
-    background: var(--black); 
-    color: white; 
-    font-family: 'Poppins', sans-serif; 
-    margin: 0; 
-    overflow: hidden; 
-    -webkit-user-select: none;
-}
+#app-container { display: flex; height: 100vh; width: 100vw; }
 
-/* --- TABLE GRID SCREEN --- */
-.header-logo { 
-    padding: 25px; 
-    font-family: 'Playfair Display', serif; 
-    color: var(--gold); 
-    font-size: 2.2rem; 
-    text-align: center; 
-    letter-spacing: 3px;
-}
+/* Sidebar */
+#table-sidebar { flex: 1.2; background: #1e1e1e; padding: 10px; border-right: 1px solid #333; display: flex; flex-direction: column; }
+.logo { color: #fff; text-align: center; font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid #444; padding-bottom: 10px; }
+#table-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1; overflow-y: auto; }
+.t-btn { padding: 15px 5px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; color: white; transition: 0.2s; }
+.t-free { background: #2e7d32; }
+.t-occupied { background: #c62828; }
+.t-active { border: 3px solid #fff; transform: scale(1.05); }
 
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 15px; 
-    padding: 20px; 
-    max-width: 500px; 
-    margin: auto; 
-}
+/* Menu */
+#menu-side { flex: 5.5; background: #f4f4f4; display: flex; flex-direction: column; }
+#cat-list { display: flex; gap: 10px; padding: 15px; overflow-x: auto; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.cat-btn { padding: 12px 20px; border: none; border-radius: 30px; background: #333; color: white; font-weight: bold; white-space: nowrap; cursor: pointer; }
+.cat-btn.active { background: #b22222; }
 
-.t-btn { 
-    aspect-ratio: 1; 
-    background: var(--dark); 
-    border: 1px solid #333; 
-    color: white; 
-    border-radius: 12px; 
-    font-size: 1.4rem; 
-    font-weight: bold; 
-    transition: 0.3s;
-}
+#item-list { flex: 1; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 15px; }
+.i-card { background: white; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+.i-card b { font-size: 0.9rem; margin-bottom: 5px; }
+.i-card button { background: #b22222; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; }
 
-.t-green { border-bottom: 6px solid var(--green); }
-.t-red { border-bottom: 6px solid var(--red); }
-.t-blue { border-bottom: 6px solid var(--blue); }
+/* Cart */
+#cart-side { flex: 2.3; background: #fff; border-left: 1px solid #ddd; display: flex; flex-direction: column; }
+.cart-header { padding: 20px; background: #b22222; color: white; font-weight: bold; font-size: 1.2rem; text-align: center; }
+#cart-items-container { flex: 1; overflow-y: auto; padding: 10px; }
+.cart-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.cart-item button { color: red; border: none; background: none; font-weight: bold; font-size: 1.1rem; }
 
-/* --- POS MAIN LAYOUT --- */
-.pos-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 12px 20px; 
-    background: #000; 
-    border-bottom: 1px solid var(--gold); 
-}
+.cart-footer { padding: 20px; border-top: 2px solid #eee; }
+.total-display { font-size: 1.6rem; font-weight: bold; margin-bottom: 15px; text-align: right; }
+.cart-actions { display: flex; gap: 10px; }
+.btn-cancel { flex: 1; padding: 15px; background: #757575; color: white; border: none; border-radius: 8px; }
+.btn-pay { flex: 2; padding: 15px; background: #2e7d32; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; }
 
-.pos-body { display: flex; height: calc(100vh - 65px); }
+/* Overlay & Receipt */
+.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+.receipt { background: white; width: 100%; max-width: 350px; padding: 20px; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+.pay-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.pay-options button { padding: 15px; border: none; border-radius: 5px; color: white; font-weight: bold; font-size: 1rem; cursor: pointer; }
 
-/* Left Sidebar (Live Cart) */
-.mini-cart { 
-    width: 32%; 
-    background: #111; 
-    border-right: 1px solid #333; 
-    padding: 10px; 
-    display: flex;
-    flex-direction: column;
-}
-
-.mini-cart h3 { 
-    color: var(--gold); 
-    font-size: 0.9rem; 
-    text-transform: uppercase; 
-    border-bottom: 1px solid var(--gold); 
-    padding-bottom: 5px; 
-    margin-top: 0;
-}
-
-#mini-cart-items { flex-grow: 1; overflow-y: auto; }
-
-.m-item { 
-    font-size: 0.85rem; 
-    display: flex; 
-    justify-content: space-between; 
-    padding: 8px 0; 
-    border-bottom: 1px solid #222; 
-}
-
-/* Right Side (Menu) */
-.menu-area { width: 68%; padding: 10px; overflow-y: auto; }
-
-.category-scroll { 
-    display: flex; 
-    overflow-x: auto; 
-    gap: 8px; 
-    padding-bottom: 10px; 
-    margin-bottom: 10px;
-}
-
-.cat-btn { 
-    background: var(--dark); 
-    border: 1px solid var(--gold); 
-    color: white; 
-    padding: 10px 18px; 
-    border-radius: 25px; 
-    white-space: nowrap; 
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.items-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
-    gap: 10px; 
-}
-
-.i-card { 
-    background: var(--dark); 
-    padding: 12px; 
-    border-radius: 10px; 
-    text-align: center; 
-    border: 1px solid #333; 
-}
-
-.i-card b { display: block; font-size: 0.8rem; margin-bottom: 5px; min-height: 32px; }
-
-.i-card button { 
-    background: var(--gold); 
-    border: none; 
-    color: black; 
-    padding: 6px; 
-    width: 100%; 
-    border-radius: 5px; 
-    font-weight: bold;
-}
-
-/* --- OVERLAYS --- */
-.overlay { 
-    position: fixed; 
-    top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.95); 
-    z-index: 1000; 
-    display: flex; justify-content: center; align-items: center; 
-}
-
-.overlay-content { 
-    background: white; 
-    color: black; 
-    width: 90%; 
-    max-width: 450px; 
-    padding: 20px; 
-    border-radius: 15px; 
-}
-
-/* --- PROFESSIONAL RECEIPT DESIGN --- */
-.receipt-card {
-    background: #fff;
-    color: #000;
-    width: 320px;
-    padding: 25px;
-    font-family: 'Courier New', Courier, monospace; /* Thermal Printer Font */
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    border-radius: 2px;
-}
-
-.receipt-header { text-align: center; margin-bottom: 15px; }
-.receipt-header h2 { margin: 0; font-size: 1.5rem; }
-.receipt-header p { margin: 2px 0; font-size: 0.75rem; }
-
-.divider { border-top: 1px dashed #000; margin: 10px 0; }
-
-.receipt-row { 
-    display: flex; 
-    justify-content: space-between; 
-    margin: 4px 0; 
-    font-size: 0.9rem; 
-}
-
-.total-row { 
-    font-weight: bold; 
-    font-size: 1.2rem; 
-    margin-top: 10px; 
-    display: flex; 
-    justify-content: space-between; 
-}
-
-.receipt-footer { text-align: center; font-size: 0.7rem; margin-top: 20px; }
-
-/* --- BILLING ACTIONS --- */
-.payment-selection { display: flex; gap: 10px; margin: 20px 0; }
-.payment-selection button { 
-    flex: 1; padding: 12px; border: none; border-radius: 5px; 
-    font-weight: bold; color: white;
-}
-.pay-cash { background: #27ae60; }
-.pay-card { background: #2980b9; }
-
-.receipt-actions { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 8px; 
-    margin-top: 10px; 
-}
-
-.receipt-actions button { 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    background: #f9f9f9; 
-    font-size: 0.7rem; 
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-close-billing { 
-    width: 100%; 
-    margin-top: 15px; 
-    padding: 10px; 
-    background: #333; 
-    color: white; 
-    border: none; 
-    border-radius: 5px;
-}
-
-/* --- PRINT OPTIMIZATION --- */
 @media print {
     body * { visibility: hidden; }
-    .receipt-card, .receipt-card * { visibility: visible; }
-    .receipt-card { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
-    .receipt-actions, .payment-selection, .btn-close-billing { display: none; }
+    .receipt, .receipt * { visibility: visible; }
+    .receipt { position: absolute; left: 0; top: 0; width: 100%; }
+    .no-print { display: none; }
 }
