@@ -1,187 +1,40 @@
- /* GENERAL STYLES */
-:root {
-    --primary: #2c3e50;
-    --accent: #27ae60;
-    --danger: #e74c3c;
-    --dark: #1a1a1a;
-    --light: #f4f4f4;
-}
-
-body {
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    margin: 0;
-    background: var(--dark);
-    color: white;
-    overflow: hidden; /* Prevents double scrolling */
-}
-
-/* SCREENS */
-.screen {
-    display: none;
-    height: 100vh;
-    width: 100vw;
-}
-
-.screen.active {
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    background: #000;
+ /* Fix for the Menu Display Area */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
     padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid var(--accent);
+    
+    /* THE FIX: This allows scrolling */
+    flex-grow: 1; 
+    overflow-y: auto; 
+    height: calc(100vh - 200px); /* Adjusts height based on header size */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iPhone/Android */
 }
 
-/* TABLE GRID (Screen 1) */
+/* Fix for the Table Grid scrolling */
 .table-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 15px;
     padding: 20px;
+    
+    /* THE FIX: Allows scrolling if you have many tables */
     overflow-y: auto;
+    height: calc(100vh - 100px);
 }
 
-.t-btn {
-    height: 100px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.t-btn.free { background: #444; color: white; }
-.t-btn.occupied { background: var(--danger); color: white; border: 3px solid white; }
-.t-btn:active { transform: scale(0.95); }
-
-/* SEARCH & NAV (Screen 2) */
-.search-container {
+/* Fix for the Cart Sidebar scrolling */
+.cart-scroll {
     flex-grow: 1;
-    margin: 0 15px;
-}
-
-#search-input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    background: #333;
-    color: white;
-}
-
-.main-nav, .sub-nav {
-    display: flex;
-    overflow-x: auto;
-    background: #222;
-    padding: 10px;
-    gap: 10px;
-}
-
-.main-nav button {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.sub-btn {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    white-space: nowrap;
-}
-
-/* MENU ITEMS */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 10px;
-    padding: 15px;
     overflow-y: auto;
-    flex-grow: 1;
-}
-
-.item-card {
-    background: #333;
     padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    border-bottom: 4px solid var(--accent);
-    cursor: pointer;
+    max-height: 60vh; /* Limits height so buttons don't disappear */
 }
 
-.item-name { font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
-.item-price { color: var(--accent); font-size: 1.1rem; }
-
-/* CART SIDEBAR */
-.sidebar {
-    position: fixed;
-    right: -350px;
-    top: 0;
-    width: 300px;
+/* Make sure the main screen doesn't bounce */
+body, html {
     height: 100%;
-    background: #f9f9f9;
-    color: #333;
-    transition: 0.3s;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-}
-
-.sidebar.open { right: 0; }
-
-.cart-header { background: var(--dark); color: white; padding: 15px; display: flex; justify-content: space-between; }
-.cart-scroll { flex-grow: 1; overflow-y: auto; padding: 15px; }
-.cart-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
-
-.cart-footer { padding: 15px; border-top: 2px solid #ddd; }
-.total-row { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; text-align: center; }
-
-/* BILLING BUTTONS */
-.billing-btn { width: 100%; padding: 15px; background: var(--accent); border: none; color: white; font-weight: bold; font-size: 1.1rem; border-radius: 5px; }
-.storno-btn { width: 100%; padding: 10px; background: var(--danger); border: none; color: white; margin-bottom: 5px; border-radius: 5px; }
-
-/* RECEIPT MODAL */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 200;
-}
-
-.modal-box {
-    background: white;
-    color: black;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 5px;
-}
-
-.receipt h2 { border-bottom: 2px dashed #000; padding-bottom: 10px; }
-
-/* PRINTING */
-@media print {
-    .no-print { display: none !important; }
-    body { background: white; color: black; }
-    .modal-overlay { position: static; display: block; background: none; }
-    .modal-box { box-shadow: none; width: 100%; }
-}
-
-/* MOBILE FIX */
-@media (max-width: 600px) {
-    .menu-grid { grid-template-columns: 1fr 1fr; }
+    margin: 0;
+    overflow: hidden; /* Prevents the whole page from scrolling, only the grids */
 }
