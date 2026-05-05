@@ -9,15 +9,7 @@
 </head>
 <body>
 
-    <div id="intro-screen">
-        <div class="elegant-logo-container">
-            <span class="est">EST 2016</span>
-            <h1 class="main-title">SORRENTINO</h1>
-            <p class="sub-title">CLEAN FOOD & GOOD TASTE</p>
-        </div>
-    </div>
-
-    <div id="table-screen" style="display:none;">
+    <div id="table-screen">
         <div class="header-logo">SORRENTINO</div>
         <div class="status-legend">
             <span><i class="dot green"></i> Frei</span>
@@ -29,7 +21,7 @@
 
     <div id="menu-screen" style="display:none;">
         <header class="pos-header">
-            <button class="nav-back" onclick="showTableScreen()">← ZURÜCK</button>
+            <button class="nav-back" onclick="showTableScreen()">← TISCHE</button>
             <div class="table-info">TISCH <span id="active-table-num">0</span></div>
             <div class="total-info"><span id="cart-total">0.00</span>€</div>
         </header>
@@ -40,7 +32,7 @@
 
         <div class="main-content-layout">
             <div id="item-list" class="items-container"></div>
-
+            
             <div id="receipt-live-view"></div>
         </div>
 
