@@ -1,164 +1,55 @@
  :root {
     --gold: #D4AF37;
-    --dark-gold: #aa8a2e;
     --black: #000000;
-    --card-bg: #111111;
 }
-
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body, html {
-    height: 100%; margin: 0;
-    background-color: var(--black);
-    color: white;
-    font-family: 'Trebuchet MS', sans-serif;
-    overflow: hidden; /* Prevents the whole app from bouncing */
+    height: 100%; margin: 0; background: var(--black);
+    color: white; font-family: sans-serif; overflow: hidden;
 }
 
-/* Header Styling */
 .gold-header {
-    background: linear-gradient(to bottom, #1a1a1a, #000);
     border-bottom: 2px solid var(--gold);
-    padding: 10px;
-    text-align: center;
-    color: var(--gold);
-    text-transform: uppercase;
+    padding: 15px; text-align: center; color: var(--gold);
 }
 
-.gold-header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 3px; }
-
-/* Table Grid */
-#table-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
-    overflow-y: auto;
-    height: calc(100vh - 120px);
-}
-
-.t-btn {
-    aspect-ratio: 1/1;
-    background: #050505;
-    border: 1px solid var(--gold);
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 12px;
-}
-
-.occupied { background: #600 !important; border-color: #f00 !important; box-shadow: inset 0 0 10px #000; }
-
-/* STEP 2: THE 3 BIG GOLD BOXES (CENTERED) */
+/* THE HUB: This centers your 3 big boxes */
 .hub-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* Fills the middle space */
-    gap: 20px;
-    padding: 20px;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; height: 70vh; gap: 20px;
 }
 
 .gold-hub-box {
-    width: 100%;
-    max-width: 400px;
-    padding: 35px;
-    background: transparent;
-    color: var(--gold);
-    border: 2px solid var(--gold);
-    border-radius: 20px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    width: 80%; padding: 30px; background: transparent;
+    border: 2px solid var(--gold); color: var(--gold);
+    font-size: 1.5rem; font-weight: bold; border-radius: 15px;
 }
 
-.hub-back {
-    margin-top: 20px;
-    background: transparent;
-    border: none;
-    color: #666;
-    text-decoration: underline;
-}
-
-/* Sub-Navigation Bar */
-#sub-nav-container {
-    display: none; /* Controlled by JS */
-    background: #000;
-    overflow-x: auto;
-    padding: 10px;
-    gap: 10px;
-    border-bottom: 1px solid var(--dark-gold);
-    white-space: nowrap;
-}
-
-.gold-nav-btn {
-    background: var(--card-bg);
-    color: white;
-    border: 1px solid var(--dark-gold);
-    padding: 10px 20px;
-    border-radius: 8px;
-}
-
-.gold-nav-back {
-    background: var(--gold);
-    color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* STEP 3: MENU ITEMS GRID */
+/* MENU GRID */
 #menu-display {
-    flex: 1;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    padding: 15px;
-    align-content: start;
+    flex: 1; overflow-y: auto; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px;
 }
 
 .gold-item-card {
-    background: var(--card-bg);
-    border: 1px solid #222;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
+    background: #111; border: 1px solid #333; padding: 20px;
+    border-radius: 10px; text-align: center;
 }
 
-.gold-price {
-    display: block;
-    color: var(--gold);
-    font-weight: bold;
-    margin-top: 8px;
+#sub-nav-container {
+    display: flex; overflow-x: auto; padding: 10px; gap: 10px;
+    background: #111; border-bottom: 1px solid var(--gold);
 }
 
-/* Footer Cart Bar */
+.gold-nav-btn {
+    background: transparent; color: white; border: 1px solid var(--gold);
+    padding: 10px; border-radius: 5px; white-space: nowrap;
+}
+
+#table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
+.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; }
+
 .gold-footer-bar {
-    background: var(--gold);
-    color: black;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+    background: var(--gold); color: black; padding: 15px;
+    display: flex; justify-content: space-between; font-weight: bold;
 }
-
-/* Modals & Kasse */
-.modal-overlay {
-    position: fixed; top:0; left:0; width:100%; height:100%;
-    background: rgba(0,0,0,0.85); display:none; justify-content: center; align-items: center;
-}
-
-.modal-content {
-    background: white; color: black; padding: 25px;
-    width: 90%; max-width: 450px; border-radius: 15px;
-}
-
-.admin-bar { text-align: center; padding: 10px; }
-.admin-bar button { background: #222; color: #555; border: none; font-size: 0.7rem; }
