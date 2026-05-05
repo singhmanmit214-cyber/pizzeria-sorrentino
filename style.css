@@ -1,55 +1,19 @@
- :root {
-    --gold: #D4AF37;
-    --black: #000000;
-}
+ :root { --gold: #D4AF37; --black: #000000; }
+body, html { height: 100%; margin: 0; background: var(--black); color: white; font-family: sans-serif; overflow: hidden; }
+.gold-header { border-bottom: 2px solid var(--gold); padding: 15px; text-align: center; color: var(--gold); }
 
-body, html {
-    height: 100%; margin: 0; background: var(--black);
-    color: white; font-family: sans-serif; overflow: hidden;
-}
+/* THE HUB - 3 Big Boxes centered */
+.hub-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh; gap: 20px; }
+.gold-hub-box { width: 85%; max-width: 400px; padding: 35px; background: transparent; border: 2px solid var(--gold); color: var(--gold); font-size: 1.6rem; font-weight: bold; border-radius: 15px; text-transform: uppercase; }
 
-.gold-header {
-    border-bottom: 2px solid var(--gold);
-    padding: 15px; text-align: center; color: var(--gold);
-}
+/* MENU ITEMS */
+#menu-display { flex: 1; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; align-content: start; }
+.gold-item-card { background: #111; border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center; }
+.price-tag { color: var(--gold); font-weight: bold; margin-top: 5px; display: block; }
 
-/* THE HUB: This centers your 3 big boxes */
-.hub-container {
-    display: flex; flex-direction: column; justify-content: center;
-    align-items: center; height: 70vh; gap: 20px;
-}
-
-.gold-hub-box {
-    width: 80%; padding: 30px; background: transparent;
-    border: 2px solid var(--gold); color: var(--gold);
-    font-size: 1.5rem; font-weight: bold; border-radius: 15px;
-}
-
-/* MENU GRID */
-#menu-display {
-    flex: 1; overflow-y: auto; display: grid;
-    grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px;
-}
-
-.gold-item-card {
-    background: #111; border: 1px solid #333; padding: 20px;
-    border-radius: 10px; text-align: center;
-}
-
-#sub-nav-container {
-    display: flex; overflow-x: auto; padding: 10px; gap: 10px;
-    background: #111; border-bottom: 1px solid var(--gold);
-}
-
-.gold-nav-btn {
-    background: transparent; color: white; border: 1px solid var(--gold);
-    padding: 10px; border-radius: 5px; white-space: nowrap;
-}
+#sub-nav-container { display: none; overflow-x: auto; padding: 10px; gap: 10px; background: #111; border-bottom: 1px solid var(--gold); }
+.gold-nav-btn { background: transparent; color: white; border: 1px solid var(--gold); padding: 10px; border-radius: 5px; white-space: nowrap; }
 
 #table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
-.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; }
-
-.gold-footer-bar {
-    background: var(--gold); color: black; padding: 15px;
-    display: flex; justify-content: space-between; font-weight: bold;
-}
+.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; font-weight: bold; }
+.gold-footer-bar { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; position: fixed; bottom: 0; width: 100%; }
