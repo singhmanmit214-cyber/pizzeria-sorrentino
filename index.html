@@ -8,28 +8,36 @@
 </head>
 <body>
     <div id="table-screen">
-        <div style="text-align:center; padding:30px; color:var(--gold);">
-            <h1 style="letter-spacing: 5px; margin: 0;">SORRENTINO</h1>
+        <div class="header">
+            <h1>SORRENTINO</h1>
+            <p>TISCHAUSWAHL</p>
         </div>
-        <div id="table-grid"></div>
+        <div id="table-grid-wrapper">
+            <div id="table-grid"></div>
+        </div>
     </div>
 
     <div id="menu-screen">
         <div class="menu-side">
-            <div id="current-tisch-label" style="padding:15px; border-bottom:1px solid var(--gold); color:var(--gold); font-size:1.3rem; font-weight:bold;"></div>
+            <div class="top-bar">
+                <span id="current-tisch-label"></span>
+            </div>
             <div id="sub-nav"></div>
-            <div id="menu-display"></div>
+            
+            <div id="menu-content-wrapper">
+                <div id="menu-display"></div>
+            </div>
         </div>
 
         <div class="receipt-side">
-            <h2 style="color:var(--gold); margin-top:0;">RECHNUNG</h2>
+            <h2>RECHNUNG</h2>
             <div id="order-list"></div>
             <div class="total-section">
                 <span>TOTAL:</span>
                 <span id="total-amount">0.00 €</span>
             </div>
-            <button class="action-btn" onclick="printBon()">BELEG DRUCKEN</button>
-            <button class="action-btn" style="background:#333; color:white;" onclick="renderTables()">ZURÜCK ZU TISCHEN</button>
+            <button class="action-btn print-btn" onclick="printBon()">BELEG DRUCKEN</button>
+            <button class="action-btn back-btn" onclick="renderTables()">ZURÜCK ZU TISCHEN</button>
         </div>
     </div>
     <script src="script.js"></script>
