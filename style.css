@@ -1,47 +1,75 @@
- :root { --gold: #D4AF37; --black: #000000; --dark: #121212; }
-body, html { height: 100%; margin: 0; background: var(--black); color: white; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+ :root { --gold: #D4AF37; --black: #000000; --dark: #121212; --grey: #1a1a1a; }
 
-/* TABLE SCREEN */
+/* FIX MOBILE BOUNCE/SCROLLING */
+body, html { 
+    height: 100%; width: 100%; margin: 0; padding: 0; 
+    background: var(--black); color: white; 
+    font-family: 'Segoe UI', sans-serif; 
+    overflow: hidden; /* Prevents the whole page from scrolling */
+    touch-action: none; /* Stops pull-to-refresh and bouncing */
+}
+
+/* HEADER & TABLES */
+.header { text-align: center; padding: 20px; border-bottom: 2px solid var(--gold); }
+.header h1 { letter-spacing: 5px; margin: 0; color: var(--gold); }
+.header p { margin: 5px 0 0 0; color: #aaa; font-size: 0.9rem; }
+
+#table-grid-wrapper { height: calc(100vh - 100px); overflow-y: auto; touch-action: pan-y; }
 #table-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 15px; padding: 20px; }
-.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.2s; }
-.t-btn:hover { background: #222; }
-.occupied { background: #800000 !important; border-color: #ff4444 !important; }
+.t-btn { aspect-ratio: 1/1; background: var(--grey); border: 2px solid #333; color: white; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.2s; }
+.t-btn:hover { border-color: var(--gold); }
+.occupied { background: #5c0000 !important; border-color: #ff4444 !important; }
 
 /* MAIN LAYOUT */
 #menu-screen { display: none; height: 100vh; flex-direction: row; }
-
-/* LEFT SIDE: MENU */
 .menu-side { flex: 2; display: flex; flex-direction: column; height: 100%; border-right: 2px solid var(--gold); }
-#menu-display { flex: 1; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 15px; align-content: start; }
 
-/* HUB BOXES */
-.hub-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; gap: 20px; }
-.gold-box-large { width: 80%; max-width: 400px; padding: 40px; background: transparent; border: 2px solid var(--gold); color: var(--gold); font-size: 2rem; font-weight: bold; border-radius: 15px; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
-.gold-box-large:hover { background: rgba(212, 175, 55, 0.1); transform: scale(1.02); }
+/* TOP BAR */
+.top-bar { padding: 15px 20px; border-bottom: 1px solid #333; color: var(--gold); font-size: 1.3rem; font-weight: bold; background: var(--grey); }
+
+/* MENU SCROLLING WRAPPER */
+#menu-content-wrapper { flex: 1; overflow-y: auto; touch-action: pan-y; padding: 20px; }
+
+/* BEAUTIFUL HUB CATEGORIES */
+.hub-container { display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 0 auto; margin-top: 20px; }
+.premium-card { display: flex; align-items: center; justify-content: center; gap: 15px; padding: 40px; border-radius: 20px; font-size: 2rem; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.premium-card:active { transform: scale(0.96); }
+
+.essen-card { background: linear-gradient(135deg, #8b0000, #3a0000); border: 2px solid #ff4d4d; }
+.drinks-card { background: linear-gradient(135deg, #002244, #000022); border: 2px solid #4da6ff; }
+.vegan-card { background: linear-gradient(135deg, #004d00, #002200); border: 2px solid #4dff4d; }
+
+/* ITEMS GRID */
+#menu-display { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+.item-card { background: var(--grey); border: 1px solid #333; padding: 20px 15px; border-radius: 12px; text-align: center; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+.item-card:active { background: #333; transform: scale(0.95); }
+.item-name { font-size: 1rem; font-weight: 600; line-height: 1.2; }
+.gold-text { color: var(--gold); font-weight: bold; font-size: 1.1rem; }
+
+/* SUB NAVIGATION */
+#sub-nav { display: none; padding: 12px; gap: 10px; background: #000; border-bottom: 1px solid var(--gold); overflow-x: auto; touch-action: pan-x; white-space: nowrap; }
+.sub-nav-item { background: transparent; color: white; border: 1px solid #555; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 0.95rem; }
+.sub-nav-item:hover { border-color: var(--gold); color: var(--gold); }
+.nav-back-btn { background: var(--gold); border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; color: black; }
 
 /* RIGHT SIDE: RECEIPT (BON) */
 .receipt-side { flex: 0.8; display: flex; flex-direction: column; background: #080808; padding: 20px; height: 100%; }
-#order-list { flex: 1; overflow-y: auto; margin-bottom: 10px; border-bottom: 1px solid #333; }
-.order-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; font-size: 0.95rem; }
+.receipt-side h2 { margin-top: 0; color: var(--gold); font-size: 1.5rem; text-align: center; border-bottom: 1px solid #333; padding-bottom: 15px; }
+#order-list { flex: 1; overflow-y: auto; touch-action: pan-y; margin-bottom: 15px; padding-right: 5px; }
+.order-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #222; font-size: 1rem; }
+.del-btn { background: #ff3333; border: none; color: white; font-weight: bold; font-size: 1.2rem; cursor: pointer; border-radius: 5px; width: 30px; height: 30px; margin-left: 10px; display: flex; align-items: center; justify-content: center; }
 
-/* UI ELEMENTS */
-.item-card { background: var(--dark); border: 1px solid #333; padding: 15px; border-radius: 8px; text-align: center; cursor: pointer; transition: 0.1s; }
-.item-card:active { transform: scale(0.95); background: #222; }
-.gold-text { color: var(--gold); font-weight: bold; display: block; margin-top: 5px; }
+.total-section { font-size: 2rem; font-weight: bold; color: var(--gold); display: flex; justify-content: space-between; padding-top: 15px; border-top: 2px solid var(--gold); margin-bottom: 20px; }
+.action-btn { border: none; padding: 20px; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; margin-bottom: 10px; transition: 0.2s; }
+.print-btn { background: var(--gold); color: black; }
+.print-btn:active { background: #b8962e; }
+.back-btn { background: #222; color: white; border: 1px solid #555; }
+.back-btn:active { background: #111; }
 
-#sub-nav { display: none; padding: 10px; gap: 8px; background: #000; border-bottom: 1px solid var(--gold); overflow-x: auto; }
-.sub-nav-item { background: transparent; color: white; border: 1px solid #444; padding: 10px 15px; border-radius: 5px; white-space: nowrap; cursor: pointer; font-size: 0.9rem; }
-.sub-nav-item:hover { border-color: var(--gold); color: var(--gold); }
-.nav-back-btn { background: var(--gold); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; color: black; }
-
-.total-section { font-size: 1.8rem; font-weight: bold; color: var(--gold); display: flex; justify-content: space-between; margin-bottom: 15px; }
-.action-btn { background: var(--gold); color: black; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 8px; width: 100%; font-size: 1.1rem; }
-.del-btn { background: none; border: none; color: #ff4444; font-weight: bold; font-size: 1.2rem; cursor: pointer; margin-left: 10px; }
-
-/* MOBILE FIX */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 900px) {
     #menu-screen { flex-direction: column; }
-    .receipt-side { height: 45%; flex: none; border-top: 2px solid var(--gold); padding: 15px; }
-    .hub-container { height: 100%; padding: 20px 0; }
-    .gold-box-large { padding: 30px; font-size: 1.5rem; }
+    .menu-side { flex: 1; border-right: none; height: 50%; }
+    .receipt-side { height: 50%; flex: none; border-top: 2px solid var(--gold); padding: 15px; }
+    .premium-card { font-size: 1.5rem; padding: 25px; }
 }
