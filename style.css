@@ -1,42 +1,47 @@
  :root { --gold: #D4AF37; --black: #000000; --dark: #121212; }
-body, html { height: 100%; margin: 0; background: var(--black); color: white; font-family: sans-serif; overflow: hidden; }
+body, html { height: 100%; margin: 0; background: var(--black); color: white; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
 
 /* TABLE SCREEN */
-#table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
-.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; font-weight: bold; font-size: 1.2rem; }
-.occupied { background: #600 !important; border-color: red !important; }
+#table-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 15px; padding: 20px; }
+.t-btn { aspect-ratio: 1/1; background: #111; border: 1px solid var(--gold); color: white; border-radius: 10px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.2s; }
+.t-btn:hover { background: #222; }
+.occupied { background: #800000 !important; border-color: #ff4444 !important; }
 
-/* LAYOUT */
-#menu-screen { display: none; height: 100vh; flex-direction: column; }
+/* MAIN LAYOUT */
+#menu-screen { display: none; height: 100vh; flex-direction: row; }
 
-@media (min-width: 900px) {
-    #menu-screen { flex-direction: row; }
-    .main-menu-area { flex: 2; border-right: 2px solid var(--gold); }
-    .order-sidebar { display: flex !important; flex: 0.8; }
+/* LEFT SIDE: MENU */
+.menu-side { flex: 2; display: flex; flex-direction: column; height: 100%; border-right: 2px solid var(--gold); }
+#menu-display { flex: 1; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 15px; align-content: start; }
+
+/* HUB BOXES */
+.hub-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; gap: 20px; }
+.gold-box-large { width: 80%; max-width: 400px; padding: 40px; background: transparent; border: 2px solid var(--gold); color: var(--gold); font-size: 2rem; font-weight: bold; border-radius: 15px; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
+.gold-box-large:hover { background: rgba(212, 175, 55, 0.1); transform: scale(1.02); }
+
+/* RIGHT SIDE: RECEIPT (BON) */
+.receipt-side { flex: 0.8; display: flex; flex-direction: column; background: #080808; padding: 20px; height: 100%; }
+#order-list { flex: 1; overflow-y: auto; margin-bottom: 10px; border-bottom: 1px solid #333; }
+.order-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; font-size: 0.95rem; }
+
+/* UI ELEMENTS */
+.item-card { background: var(--dark); border: 1px solid #333; padding: 15px; border-radius: 8px; text-align: center; cursor: pointer; transition: 0.1s; }
+.item-card:active { transform: scale(0.95); background: #222; }
+.gold-text { color: var(--gold); font-weight: bold; display: block; margin-top: 5px; }
+
+#sub-nav { display: none; padding: 10px; gap: 8px; background: #000; border-bottom: 1px solid var(--gold); overflow-x: auto; }
+.sub-nav-item { background: transparent; color: white; border: 1px solid #444; padding: 10px 15px; border-radius: 5px; white-space: nowrap; cursor: pointer; font-size: 0.9rem; }
+.sub-nav-item:hover { border-color: var(--gold); color: var(--gold); }
+.nav-back-btn { background: var(--gold); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; color: black; }
+
+.total-section { font-size: 1.8rem; font-weight: bold; color: var(--gold); display: flex; justify-content: space-between; margin-bottom: 15px; }
+.action-btn { background: var(--gold); color: black; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 8px; width: 100%; font-size: 1.1rem; }
+.del-btn { background: none; border: none; color: #ff4444; font-weight: bold; font-size: 1.2rem; cursor: pointer; margin-left: 10px; }
+
+/* MOBILE FIX */
+@media (max-width: 900px) {
+    #menu-screen { flex-direction: column; }
+    .receipt-side { height: 45%; flex: none; border-top: 2px solid var(--gold); padding: 15px; }
+    .hub-container { height: 100%; padding: 20px 0; }
+    .gold-box-large { padding: 30px; font-size: 1.5rem; }
 }
-
-.main-menu-area { display: flex; flex-direction: column; height: 100%; width: 100%; }
-
-/* HUB BUTTONS (Centered) */
-.hub-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; gap: 20px; }
-.gold-box { width: 85%; max-width: 400px; padding: 40px; background: transparent; border: 2px solid var(--gold); color: var(--gold); font-size: 1.8rem; font-weight: bold; border-radius: 15px; }
-
-/* MENU ITEMS */
-#menu-display { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px; overflow-y: auto; align-content: start; }
-.item-card { background: var(--dark); border: 1px solid #333; padding: 20px; border-radius: 10px; text-align: center; }
-.gold-text { color: var(--gold); font-weight: bold; }
-
-/* NAV */
-#sub-nav { display: none; background: #000; padding: 10px; gap: 10px; overflow-x: auto; border-bottom: 1px solid var(--gold); }
-.sub-btn { background: transparent; color: white; border: 1px solid #444; padding: 10px 15px; border-radius: 5px; white-space: nowrap; }
-.nav-back { background: var(--gold); border: none; font-weight: bold; padding: 10px 15px; border-radius: 5px; }
-
-/* SIDEBAR */
-.order-sidebar { display: none; background: #080808; flex-direction: column; padding: 20px; }
-.order-list { flex: 1; overflow-y: auto; margin-bottom: 10px; }
-.order-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222; }
-.total-area { font-size: 1.8rem; color: var(--gold); font-weight: bold; display: flex; justify-content: space-between; padding: 10px 0; }
-.footer-btn { background: var(--gold); color: black; border: none; padding: 15px; font-weight: bold; border-radius: 5px; width: 100%; margin-top: 10px; }
-
-.mobile-footer { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; }
-@media (min-width: 900px) { .mobile-footer { display: none; } }
