@@ -1,51 +1,108 @@
- /* Prevent screen squashing */
+ :root {
+    --gold: #D4AF37;
+    --bg: #0A0A0A;
+    --surface: #161616;
+}
+
+* { box-sizing: border-box; }
+
+body, html {
+    height: 100%; margin: 0;
+    background: var(--bg);
+    color: white; font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* APP SHELL - Keeps everything in place */
 .app-shell {
     display: flex;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
 }
 
-/* Sidebar stays visible on the left */
-.left-nav {
-    width: 180px; 
-    flex-shrink: 0; /* Important: prevents disappearing */
+/* SIDEBAR LEFT */
+.sidebar-left {
+    width: 180px;
+    flex-shrink: 0; /* Prevents disappearing */
     background: #111;
+    border-right: 1px solid #222;
     display: flex;
     flex-direction: column;
 }
 
-/* Middle takes exactly what is left */
-.content-area {
-    flex: 1;
-    min-width: 0; /* Fix for horizontal overflow */
-    display: flex;
-    flex-direction: column;
+.table-indicator {
+    padding: 20px; text-align: center;
+    background: var(--gold); color: black; font-weight: bold;
 }
 
-/* Right sidebar for receipt */
-.right-checkout {
-    width: 280px;
-    flex-shrink: 0;
-    background: #0d0d0d;
-    border-left: 1px solid #222;
+.cat-btn {
+    width: 100%; padding: 20px; background: none;
+    border: none; color: white; border-bottom: 1px solid #222;
+    cursor: pointer; text-align: left;
 }
 
-/* Table Grid Fix - Ensure it fits 15 tables */
-.dynamic-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+.cat-btn.active { background: #222; border-left: 4px solid var(--gold); }
+
+/* MENU CENTER */
+.menu-center {
+    flex: 1; /* Takes remaining space */
+    display: flex; flex-direction: column;
+    min-width: 0;
+}
+
+.menu-top { padding: 15px; background: var(--bg); }
+
+#search {
+    width: 100%; padding: 12px; background: var(--surface);
+    border: 1px solid #333; color: white; border-radius: 8px;
+}
+
+.sub-tabs-row {
+    display: flex; gap: 10px; overflow-x: auto; padding: 10px 0;
+}
+
+.sub-tab-btn {
+    padding: 8px 15px; background: #222; border: 1px solid #444;
+    color: white; border-radius: 20px; white-space: nowrap;
+}
+
+.item-grid-scroll {
+    flex: 1; overflow-y: auto; padding: 15px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
-    padding: 20px;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
+}
+
+.item-card {
+    background: var(--surface); padding: 20px; border-radius: 12px;
+    display: flex; justify-content: space-between; cursor: pointer;
+    border: 1px solid #222;
+}
+
+/* SIDEBAR RIGHT */
+.sidebar-right {
+    width: 320px; flex-shrink: 0;
+    background: #0d0d0d; border-left: 1px solid #222;
+    display: flex; flex-direction: column;
+}
+
+.receipt-items { flex: 1; overflow-y: auto; padding: 15px; }
+
+.receipt-footer { padding: 20px; background: #111; border-top: 1px solid var(--gold); }
+
+.total-line { display: flex; justify-content: space-between; font-size: 1.4rem; margin-bottom: 15px; }
+
+.pay-btn {
+    width: 100%; padding: 15px; background: var(--gold);
+    border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
+}
+
+/* TABLE GRID */
+.table-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 15px; padding: 30px;
 }
 
 .t-btn {
-    height: 100px;
-    background: #1a1a1a;
-    border: 1px solid #D4AF37;
-    color: #D4AF37;
-    border-radius: 8px;
-    font-size: 1.2rem;
+    height: 120px; background: var(--surface); border: 2px solid var(--gold);
+    color: var(--gold); border-radius: 15px; font-size: 1.2rem; cursor: pointer;
 }
