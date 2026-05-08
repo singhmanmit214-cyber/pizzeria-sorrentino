@@ -21,8 +21,8 @@
             {id: "D18", name: "Orangensaft 0,33l", price: 3.50},
             {id: "D19", name: "Fassbrause 0,33l", price: 4.00},
             {id: "D20", name: "Vio Zitrone 0,33l", price: 4.00},
-            {id: "D21", name: "Vio Rhabarberschorle 0,33l", price: 4.00},
-            {id: "D22", name: "Vio Johannisbeerschorle 0,33l", price: 4.00},
+            {id: "D21", name: "Vio Rhabarber 0,33l", price: 4.00},
+            {id: "D22", name: "Vio Johannisbeere 0,33l", price: 4.00},
             {id: "D23", name: "Vio Apfelschorle 0,33l", price: 4.00},
             {id: "D24", name: "Vio Orangensaft 0,33l", price: 4.00}
         ],
@@ -47,170 +47,54 @@
             {id: "B7", name: "Weizenbier (AF) 0,5l", price: 6.00},
             {id: "B8", name: "Malzbier 0,33l", price: 4.00}
         ],
-        "VINO BIANCO": [
+        "WEINE": [
             {id: "W1", name: "Pinot Grigio 0,2l", price: 6.50},
             {id: "W2", name: "Pinot Grigio 0,5l", price: 14.00},
-            {id: "W3", name: "Pinot Grigio 1,0l", price: 26.00}
-        ],
-        "VINO ROSÉ": [
-            {id: "R1", name: "Spineli Rosato 0,2l", price: 6.50},
-            {id: "R2", name: "Spineli Rosato 0,5l", price: 14.00},
-            {id: "R3", name: "Spineli Rosato 1,0l", price: 26.00}
-        ],
-        "VINO ROSSO": [
-            {id: "RO1", name: "Montepulciano 0,2l", price: 6.50},
-            {id: "RO2", name: "Montepulciano 0,5l", price: 14.00},
-            {id: "RO3", name: "Montepulciano 1,0l", price: 26.00},
-            {id: "RO4", name: "Lambrusco 0,2l", price: 6.50},
-            {id: "RO5", name: "Lambrusco 0,5l", price: 14.00},
-            {id: "RO6", name: "Lambrusco 1,0l", price: 26.00}
+            {id: "W3", name: "Pinot Grigio 1,0l", price: 26.00},
+            {id: "W4", name: "Spineli Rosato 0,2l", price: 6.50},
+            {id: "W5", name: "Spineli Rosato 0,5l", price: 14.00},
+            {id: "W6", name: "Spineli Rosato 1,0l", price: 26.00},
+            {id: "W7", name: "Montepulciano 0,2l", price: 6.50},
+            {id: "W8", name: "Montepulciano 0,5l", price: 14.00},
+            {id: "W9", name: "Montepulciano 1,0l", price: 26.00},
+            {id: "W10", name: "Lambrusco 0,2l", price: 6.50},
+            {id: "W11", name: "Lambrusco 0,5l", price: 14.00},
+            {id: "W12", name: "Lambrusco 1,0l", price: 26.00}
         ],
         "SPIRITUOSEN": [
-            {id: "S1", name: "Ramazotti 4cl", price: 6.00},
-            {id: "S2", name: "Averna 4cl", price: 6.00},
-            {id: "S3", name: "Montenegro 4cl", price: 6.00},
-            {id: "S4", name: "Fernet Branca 4cl", price: 6.00},
-            {id: "S5", name: "Sambuca 4cl", price: 6.00},
-            {id: "S6", name: "Limoncello 4cl", price: 5.00},
-            {id: "S7", name: "Vecchia Romanga 4cl", price: 6.00},
-            {id: "S8", name: "Red Label 4cl", price: 7.00},
-            {id: "S9", name: "Black Label 4cl", price: 8.50},
-            {id: "S10", name: "Jack Daniels 4cl", price: 8.00},
-            {id: "S11", name: "Wodka 4cl", price: 6.50},
-            {id: "S12", name: "Disaronno 4cl", price: 6.00},
-            {id: "S13", name: "Tequila 4cl", price: 6.00},
-            {id: "S14", name: "Gin 4cl", price: 6.00}
+            {id: "S1", name: "Ramazotti", price: 6.00},
+            {id: "S2", name: "Averna", price: 6.00},
+            {id: "S3", name: "Montenegro", price: 6.00},
+            {id: "S4", name: "Fernet Branca", price: 6.00},
+            {id: "S5", name: "Sambuca", price: 6.00},
+            {id: "S6", name: "Limoncello", price: 5.00},
+            {id: "S7", name: "Vecchia Romanga", price: 6.00},
+            {id: "S8", name: "Red Label", price: 7.00},
+            {id: "S9", name: "Black Label", price: 8.50},
+            {id: "S10", name: "Jack Daniels", price: 8.00},
+            {id: "S11", name: "Wodka", price: 6.50},
+            {id: "S12", name: "Disaronno", price: 6.00},
+            {id: "S13", name: "Tequila", price: 6.00},
+            {id: "S14", name: "Gin", price: 6.00},
+            {id: "G1", name: "Grappa Riserva", price: 6.00},
+            {id: "G2", name: "Sarpa Oro Poli", price: 8.00}
         ],
-        "GRAPPA": [
-            {id: "G1", name: "Grappa Riserva 2cl", price: 6.00},
-            {id: "G2", name: "Sarpa Oro di Poli 2cl", price: 8.00}
-        ],
-        "HEISSE GETRÄNKE": [
+        "HEIẞ": [
             {id: "H1", name: "Espresso", price: 2.50},
             {id: "H2", name: "Kaffee", price: 3.00},
             {id: "H3", name: "Cappuccino", price: 3.50},
-            {id: "H4", name: "Milchkafee", price: 3.50},
+            {id: "H4", name: "Milchkaffee", price: 3.50},
             {id: "H5", name: "Latte Macchiato", price: 4.00},
             {id: "H6", name: "Tee", price: 2.00}
-        ]
-    },
-    "ESSEN": {
-        "ANTIPASTI": [
-            {id: "1", name: "Bruschetta Clasic", price: 8.50},
-            {id: "1a", name: "Focaccia", price: 6.50},
-            {id: "PB", name: "Pizzabrötchen", price: 5.50},
-            {id: "2", name: "Caprese", price: 12.50},
-            {id: "3", name: "Carpaccio di Manzo", price: 14.00},
-            {id: "4", name: "Carpaccio di Pesce", price: 14.50},
-            {id: "5", name: "Antipasto Italiano", price: 24.50},
-            {id: "6", name: "Antipasto Vegetale", price: 11.50},
-            {id: "7", name: "Ziegenkäse", price: 15.50}
-        ],
-        "INSALATE": [
-            {id: "10", name: "Insalata Mista", price: 9.00},
-            {id: "11", name: "Insalata Pomodoro", price: 7.50},
-            {id: "12", name: "Insalata Rucola", price: 10.50},
-            {id: "13", name: "Insalata Contadina", price: 12.50},
-            {id: "14", name: "Insalata Pollo", price: 12.50},
-            {id: "15", name: "Insalata Salmone", price: 15.50},
-            {id: "16", name: "Insalata Capricciosa", price: 14.50}
-        ],
-        "PIZZA": [
-            {id: "20", name: "Pizza Margherita", price: 10.50},
-            {id: "21", name: "Pizza Bufalina", price: 12.00},
-            {id: "22", name: "Pizza Primavera", price: 12.00},
-            {id: "23", name: "Pizza Salami", price: 12.00},
-            {id: "24", name: "Pizza Prosciutto", price: 12.00},
-            {id: "25", name: "Pizza Funghi", price: 12.00},
-            {id: "26", name: "Pizza Pugliese", price: 14.00},
-            {id: "27", name: "Pizza Inferno", price: 13.00},
-            {id: "28", name: "Pizza Spinaci", price: 12.00},
-            {id: "29", name: "Pizza Prosc. e Funghi", price: 13.50},
-            {id: "30", name: "Pizza Tonno", price: 13.50},
-            {id: "31", name: "Pizza Hawaii", price: 13.00},
-            {id: "32", name: "Pizza Verdura", price: 14.50},
-            {id: "33", name: "Pizza 4 Stagioni", price: 14.50},
-            {id: "34", name: "Pizza 4 Formaggi", price: 14.50},
-            {id: "35", name: "Pizza Carciofi", price: 14.50},
-            {id: "36", name: "Pizza Calzone", price: 15.00},
-            {id: "37", name: "Pizza Rustica", price: 14.50},
-            {id: "38", name: "Pizza Frutti di Mare", price: 14.50},
-            {id: "39", name: "Pizza Capri", price: 14.00},
-            {id: "40", name: "Pizza Melanzane", price: 15.50},
-            {id: "41", name: "Pizza Chef", price: 15.50},
-            {id: "42", name: "Pizza Salmone", price: 16.50},
-            {id: "43", name: "Pizza Parma", price: 16.50},
-            {id: "44", name: "Pizza Salvatore", price: 16.50},
-            {id: "45", name: "Pizza Pollo", price: 16.50},
-            {id: "46", name: "Pizza Amsterdam", price: 17.50},
-            {id: "47", name: "Pizza Chiara", price: 18.50}
-        ],
-        "SPECIAL PIZZA": [
-            {id: "51", name: "Pizza Asparagi", price: 17.50},
-            {id: "52", name: "Pizza Gorgonzola", price: 16.50},
-            {id: "53", name: "Pizza Salsiccia", price: 17.50},
-            {id: "54", name: "Pizza Di Capra", price: 18.00}
-        ],
-        "PASTA": [
-            {id: "61", name: "Spaghetti Napoli", price: 12.00},
-            {id: "62", name: "Spaghetti Bolognese", price: 15.50},
-            {id: "63", name: "Spaghetti Aglio Olio", price: 12.00},
-            {id: "64", name: "Spaghetti Carbonara", price: 16.50},
-            {id: "65", name: "Tortellini Panna", price: 15.50},
-            {id: "66", name: "Penne Arrabbiata", price: 13.00},
-            {id: "67", name: "Penne Amatriciana", price: 16.50},
-            {id: "68", name: "Rigatoni Gorgonzola", price: 15.50},
-            {id: "69", name: "Rigatoni Norcina", price: 16.50},
-            {id: "70", name: "Rigatoni 4 Formaggi", price: 15.50},
-            {id: "71", name: "Tagliatelle Salmone", price: 19.50},
-            {id: "72", name: "Tagliatelle Scampi", price: 19.50},
-            {id: "73", name: "Tagliatelle di Manzo", price: 20.50}
-        ],
-        "AL FORNO": [
-            {id: "100", name: "Lasagne Hausgem.", price: 16.50},
-            {id: "101", name: "Tortellini al Forno", price: 16.50},
-            {id: "102", name: "Rigatoni al Forno", price: 16.50},
-            {id: "103", name: "Cannelloni Hausgem.", price: 17.50},
-            {id: "104", name: "Auflauf Spezial", price: 17.50}
-        ],
-        "FISCH": [
-            {id: "120", name: "Salmone Griglia", price: 25.50},
-            {id: "121", name: "Salmone Basilico", price: 26.50},
-            {id: "F1", name: "Calamari Fritti", price: 20.00},
-            {id: "F2", name: "Calamari Griglia", price: 25.50},
-            {id: "F3", name: "Pesce Misto", price: 35.50}
-        ],
-        "SNACKS": [
-            {id: "110", name: "Pommes Frites", price: 6.00},
-            {id: "111", name: "Chicken Nuggets (6)", price: 8.50},
-            {id: "112", name: "Chicken Nuggets (12)", price: 16.00}
-        ],
-        "SCHNITZEL": [
-            {id: "113", name: "Schnitzel Wiener Art", price: 15.50},
-            {id: "114", name: "Paprikaschnitzel", price: 18.50},
-            {id: "115", name: "Jägerschnitzel", price: 18.50},
-            {id: "116", name: "Schnitzel Funghi", price: 18.50},
-            {id: "117", name: "Schnitzel Hollandaise", price: 18.50},
-            {id: "118", name: "Zwiebelschnitzel", price: 18.50},
-            {id: "B1", name: "Rinderfilet Grill", price: 30.50},
-            {id: "B2", name: "Rinderfilet Funghi", price: 35.50},
-            {id: "B3", name: "Rumpsteak 200g", price: 25.50},
-            {id: "B4", name: "Rumpsteak 250g", price: 27.50}
-        ],
-        "DESSERT": [
-            {id: "140", name: "Tiramisu Hausgem.", price: 8.00},
-            {id: "141", name: "Tartufo Eis", price: 7.00},
-            {id: "142", name: "Cassata", price: 7.00},
-            {id: "143", name: "Schoko Souffle", price: 8.50}
         ]
     },
     "VEGAN": {
         "ANTIPASTI": [
             {id: "201", name: "V. Pizzabrötchen", price: 5.50},
             {id: "202", name: "V. Focaccia", price: 6.50},
-            {id: "203", name: "V. Bruschetta", price: 8.50},
-            {id: "204", name: "V. Antipasto Veg.", price: 11.50},
-            {id: "205", name: "V. Ziegenkäse", price: 15.50}
+            {id: "203", name: "V. Bruschetta Classic", price: 8.50},
+            {id: "204", name: "V. Antipasto Vegetale", price: 11.50},
+            {id: "V-ZK", name: "V. Ziegenkäse", price: 15.50}
         ],
         "INSALATE": [
             {id: "210", name: "V. Ins. Pomodoro", price: 7.50},
@@ -222,43 +106,43 @@
             {id: "216", name: "V. Ins. Capricciosa", price: 17.50}
         ],
         "PIZZA": [
-            {id: "220", name: "V. Pizza Primavera", price: 12.00},
-            {id: "221", name: "V. Pizza Margherita", price: 12.50},
-            {id: "222", name: "V. Pizza Salami", price: 14.50},
-            {id: "223", name: "V. Pizza Prosciutto", price: 14.50},
-            {id: "224", name: "V. Pizza Funghi", price: 14.00},
-            {id: "225", name: "V. Pizza Spinaci (N)", price: 14.00},
-            {id: "226", name: "V. Pizza Tonno", price: 15.50},
-            {id: "227", name: "V. Pizza Hawaii", price: 15.50},
-            {id: "228", name: "V. Pizza Prosc/Fungh", price: 16.00},
-            {id: "229", name: "V. Pizza Carciofi", price: 16.50},
-            {id: "230", name: "V. Pizza Spinaci (X)", price: 16.50},
-            {id: "231", name: "V. Pizza Verdura", price: 16.50},
-            {id: "232", name: "V. Pizza 4 Stagioni", price: 18.50},
-            {id: "233", name: "V. Pizza Calzone", price: 18.50},
-            {id: "234", name: "V. Pizza Rustica", price: 18.50},
-            {id: "235", name: "V. Pizza Melanzane", price: 18.50},
-            {id: "236", name: "V. Pizza Salmone", price: 18.50},
-            {id: "237", name: "V. Pizza Asparagi", price: 19.50},
-            {id: "238", name: "V. Pizza Pollo", price: 19.50},
-            {id: "239", name: "V. Pizza Amsterdam", price: 20.50}
+            {id: "220", name: "V. P. Primavera", price: 12.00},
+            {id: "221", name: "V. P. Margherita", price: 12.50},
+            {id: "222", name: "V. P. Salami", price: 14.50},
+            {id: "223", name: "V. P. Prosciutto", price: 14.50},
+            {id: "224", name: "V. P. Funghi", price: 14.00},
+            {id: "225", name: "V. P. Spinaci Normal", price: 14.00},
+            {id: "226", name: "V. P. Tonno", price: 15.50},
+            {id: "227", name: "V. P. Hawaii", price: 15.50},
+            {id: "228", name: "V. P. Prosc/Funghi", price: 16.00},
+            {id: "229", name: "V. P. Carciofi", price: 16.50},
+            {id: "230", name: "V. P. Spinaci Extra", price: 16.50},
+            {id: "231", name: "V. P. Verdura", price: 16.50},
+            {id: "232", name: "V. P. 4 Stagioni", price: 18.50},
+            {id: "233", name: "V. P. Calzone", price: 18.50},
+            {id: "234", name: "V. P. Rustica", price: 18.50},
+            {id: "235", name: "V. P. Melanzane", price: 18.50},
+            {id: "236", name: "V. P. Salmone", price: 18.50},
+            {id: "237", name: "V. P. Asparagi", price: 19.50},
+            {id: "238", name: "V. P. Pollo", price: 19.50},
+            {id: "239", name: "V. P. Amsterdam", price: 20.50}
         ],
         "PASTA": [
             {id: "250", name: "V. Spagh. Napoli", price: 13.50},
             {id: "251", name: "V. Spagh. Aglio Olio", price: 13.50},
             {id: "252", name: "V. Penne Arrabbiata", price: 14.50},
             {id: "253", name: "V. Spagh. Bolognese", price: 18.50},
-            {id: "254", name: "V. Penne Amatric.", price: 18.50},
+            {id: "254", name: "V. Penne Amatriciana", price: 18.50},
             {id: "255", name: "V. Tagl. al Panna", price: 18.50},
             {id: "256", name: "V. Penne al Tonno", price: 18.50},
-            {id: "257", name: "V. Rigatoni Norcina", price: 19.50},
+            {id: "257", name: "V. Rig. Norcina", price: 19.50},
             {id: "258", name: "V. Tagl. Salmone", price: 20.50},
             {id: "259", name: "V. Tagl. di Manzo", price: 20.50}
         ],
         "AL FORNO": [
-            {id: "269", name: "V. Tort. al Forno", price: 18.50},
-            {id: "270", name: "V. Rig. al Forno", price: 18.50},
-            {id: "271", name: "V. Lasagne Hausgem.", price: 19.50},
+            {id: "269", name: "V. Tortellini Forno", price: 18.50},
+            {id: "270", name: "V. Rigatoni Forno", price: 18.50},
+            {id: "271", name: "V. Lasagne Hausg.", price: 19.50},
             {id: "272", name: "V. Cannelloni Hausg.", price: 19.50},
             {id: "273", name: "V. Auflauf Spezial", price: 20.50}
         ],
@@ -268,21 +152,126 @@
         ],
         "SNACKS": [
             {id: "285", name: "V. Pommes Frites", price: 6.00},
-            {id: "286", name: "V. Nuggets (6)", price: 10.50},
-            {id: "287", name: "V. Nuggets (12)", price: 19.00}
+            {id: "286", name: "V. Nuggets (klein)", price: 10.50},
+            {id: "287", name: "V. Nuggets (groß)", price: 19.00}
         ],
         "SCHNITZEL": [
-            {id: "290", name: "V. Schnitzel Wiener", price: 17.00},
+            {id: "290", name: "V. Schn. Wiener Art", price: 17.00},
             {id: "291", name: "V. Jägerschnitzel", price: 19.50},
-            {id: "292", name: "V. Schnitzel Funghi", price: 19.50},
+            {id: "292", name: "V. Schn. Funghi", price: 19.50},
             {id: "293", name: "V. Schn. Hollandaise", price: 19.50},
             {id: "294", name: "V. Zwiebelschnitzel", price: 19.50}
         ],
         "DESSERT": [
-            {id: "301", name: "V. Cheesecake", price: 8.50},
+            {id: "301", name: "V. Cheesecake Himbeer", price: 8.50},
             {id: "302", name: "V. Möhrenkuchen", price: 5.50},
             {id: "303", name: "V. Schokokuchen", price: 5.50},
             {id: "304", name: "V. Tiramisu", price: 8.50}
+        ]
+    },
+    "ESSEN": {
+        "ANTIPASTI": [
+            {id: "1", name: "Bruschetta Classic", price: 8.50},
+            {id: "1a", name: "Focaccia", price: 6.50},
+            {id: "PB", name: "Pizzabrötchen", price: 5.50},
+            {id: "2", name: "Caprese", price: 12.50},
+            {id: "3", name: "Carpaccio Manzo", price: 14.00},
+            {id: "4", name: "Carpaccio Pesce", price: 14.50},
+            {id: "5", name: "Antipasto Ital.", price: 24.50},
+            {id: "6", name: "Antipasto Veg.", price: 11.50},
+            {id: "7", name: "Ziegenkäse", price: 15.50}
+        ],
+        "INSALATE": [
+            {id: "10", name: "Ins. Mista", price: 9.00},
+            {id: "11", name: "Ins. Pomodoro", price: 7.50},
+            {id: "12", name: "Ins. Rucola", price: 10.50},
+            {id: "13", name: "Ins. Contadina", price: 12.50},
+            {id: "14", name: "Ins. Pollo", price: 12.50},
+            {id: "15", name: "Ins. Salmone", price: 15.50},
+            {id: "16", name: "Ins. Capricciosa", price: 14.50}
+        ],
+        "PIZZA": [
+            {id: "20", name: "P. Margherita", price: 10.50},
+            {id: "21", name: "P. Bufalina", price: 12.00},
+            {id: "22", name: "P. Primavera", price: 12.00},
+            {id: "23", name: "P. Salami", price: 12.00},
+            {id: "24", name: "P. Prosciutto", price: 12.00},
+            {id: "25", name: "P. Funghi", price: 12.00},
+            {id: "26", name: "P. Pugliese", price: 14.00},
+            {id: "27", name: "P. Inferno", price: 13.00},
+            {id: "28", name: "P. Spinaci", price: 12.00},
+            {id: "29", name: "P. Prosc/Funghi", price: 13.50},
+            {id: "30", name: "P. Tonno", price: 13.50},
+            {id: "31", name: "P. Hawaii", price: 13.00},
+            {id: "32", name: "P. Verdura", price: 14.50},
+            {id: "33", name: "P. 4 Stagioni", price: 14.50},
+            {id: "34", name: "P. 4 Formaggi", price: 14.50},
+            {id: "35", name: "P. Carciofi", price: 14.50},
+            {id: "36", name: "P. Calzone", price: 15.00},
+            {id: "37", name: "P. Rustica", price: 14.50},
+            {id: "38", name: "P. Frutti Mare", price: 14.50},
+            {id: "39", name: "P. Capri", price: 14.00},
+            {id: "40", name: "P. Melanzane", price: 15.50},
+            {id: "41", name: "P. Chef", price: 15.50},
+            {id: "42", name: "P. Salmone", price: 16.50},
+            {id: "43", name: "P. Parma", price: 16.50},
+            {id: "44", name: "P. Salvatore", price: 16.50},
+            {id: "45", name: "P. Pollo", price: 16.50},
+            {id: "46", name: "P. Amsterdam", price: 17.50},
+            {id: "47", name: "P. Chiara", price: 18.50}
+        ],
+        "SPECIAL P.": [
+            {id: "51", name: "P. Asparagi", price: 17.50},
+            {id: "52", name: "P. Gorgonzola", price: 16.50},
+            {id: "53", name: "P. Salsiccia", price: 17.50},
+            {id: "54", name: "P. Di Capra", price: 18.00}
+        ],
+        "PASTA": [
+            {id: "61", name: "Spagh. Napoli", price: 12.00},
+            {id: "62", name: "Spagh. Bolognese", price: 15.50},
+            {id: "63", name: "Spagh. Aglio Olio", price: 12.00},
+            {id: "64", name: "Spagh. Carbonara", price: 16.50},
+            {id: "65", name: "Tort. Panna/Prosc", price: 15.50},
+            {id: "66", name: "Penne Arrabbiata", price: 13.00},
+            {id: "67", name: "Penne Amatriciana", price: 16.50},
+            {id: "68", name: "Rig. Gorgonzola", price: 15.50},
+            {id: "69", name: "Rig. Norcina", price: 16.50},
+            {id: "70", name: "Rig. 4 Formaggi", price: 15.50},
+            {id: "71", name: "Tagl. Salmone", price: 19.50},
+            {id: "72", name: "Tagl. Scampi", price: 19.50},
+            {id: "73", name: "Tagl. di Manzo", price: 20.50}
+        ],
+        "AL FORNO": [
+            {id: "100", name: "Lasagne Hausg.", price: 16.50},
+            {id: "101", name: "Tortellini Forno", price: 16.50},
+            {id: "102", name: "Rigatoni Forno", price: 16.50},
+            {id: "103", name: "Cannelloni Hausg.", price: 17.50},
+            {id: "104", name: "Auflauf Spezial", price: 17.50}
+        ],
+        "FISCH": [
+            {id: "120", name: "Salmone Griglia", price: 25.50},
+            {id: "121", name: "Salmone Basilico", price: 26.50},
+            {id: "F1", name: "Calamari Fritti", price: 20.00},
+            {id: "F2", name: "Calamari Griglia", price: 25.50},
+            {id: "F3", name: "Pesce Misto", price: 35.50}
+        ],
+        "SCHNITZEL": [
+            {id: "113", name: "Schn. Wiener Art", price: 15.50},
+            {id: "114", name: "Paprikaschnitzel", price: 18.50},
+            {id: "115", name: "Jägerschnitzel", price: 18.50},
+            {id: "116", name: "Schnitzel Funghi", price: 18.50},
+            {id: "117", name: "Schn. Hollandaise", price: 18.50},
+            {id: "118", name: "Zwiebelschnitzel", price: 18.50},
+            {id: "B1", name: "Rinderfilet Grill", price: 30.50},
+            {id: "B2", name: "Rinderfilet Funghi", price: 35.50},
+            {id: "B3", name: "Rumpsteak 250g", price: 25.50},
+            {id: "B4", name: "Rumpsteak 300g", price: 27.50}
+        ],
+        "DESSERT": [
+            {id: "140", name: "Tiramisu Hausg.", price: 8.00},
+            {id: "141", name: "Tartufo Eis", price: 7.00},
+            {id: "142", name: "Cassata", price: 7.00},
+            {id: "143", name: "Schoko Soufflé", price: 8.50}
         ]
     }
 };
