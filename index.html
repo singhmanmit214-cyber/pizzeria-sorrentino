@@ -1,47 +1,41 @@
- <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino POS</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="start-screen" class="screen">
-        <h1 class="logo">SORRENTINO</h1>
-        <div class="hub-container">
-            <button class="gold-box" onclick="selectMode('HIER ESSEN')">🏠 HIER ESSEN (7%)</button>
-            <button class="gold-box" onclick="selectMode('TAKEAWAY')">🛍️ TAKEAWAY (7%)</button>
-            <button class="gold-box" onclick="selectMode('LIEFERUNG')">🚀 LIEFERUNG (19%)</button>
-        </div>
-    </div>
-
-    <div id="table-screen" class="screen" style="display:none;">
-        <div class="header-bar">
-            <button onclick="showStart()" class="back-btn">←</button>
-            <span id="mode-label"></span>
-        </div>
-        <div id="table-grid"></div>
-    </div>
-
-    <div id="menu-screen" class="screen" style="display:none;">
-        <div class="menu-side">
+ <div id="menu-screen" class="screen" style="display:none;">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <button onclick="showTables()" class="back-btn">←</button>
             <div id="table-label"></div>
-            <div class="search-container">
-                <input type="text" id="main-search" placeholder="№ oder Name suchen..." onkeyup="searchMenu()">
-            </div>
-            <div id="sub-nav"></div>
-            <div id="menu-display"></div>
         </div>
-        <div class="receipt-side">
-            <div id="order-list"></div>
+        <div class="search-container">
+            <input type="text" id="main-search" placeholder="№ oder Name..." onkeyup="searchMenu()">
+        </div>
+        
+        <div class="category-list">
+            <div class="cat-card" onclick="openCategory('ESSEN')">
+                <div class="cat-icon">🍕</div>
+                <div class="cat-info"><b>ESSEN</b><span>Pizza, Pasta, etc.</span></div>
+            </div>
+            <div class="cat-card" onclick="openCategory('GETRÄNKE')">
+                <div class="cat-icon">🍹</div>
+                <div class="cat-info"><b>GETRÄNKE</b><span>Alkoholfrei, Bier, Wein</span></div>
+            </div>
+            <div class="cat-card" onclick="openCategory('VEGAN')">
+                <div class="cat-icon">🌿</div>
+                <div class="cat-info"><b>VEGAN</b><span>Vegan Pizza & Pasta</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="sub-nav" class="sub-tabs"></div>
+        <div id="menu-display" class="item-grid"></div>
+    </div>
+    
+    <div class="receipt-side">
+        <div id="order-list" class="receipt-items"></div>
+        <div class="receipt-footer">
             <div class="total-area">TOTAL: <span id="total-val">0.00 €</span></div>
             <div class="action-btns">
-                <button onclick="showTables()" class="btn-cancel">ZURÜCK</button>
                 <button onclick="completeOrder()" class="btn-print">RECHNUNG</button>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
