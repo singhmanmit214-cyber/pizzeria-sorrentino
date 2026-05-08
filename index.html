@@ -19,8 +19,7 @@
 
         <div class="table-container">
             <h2 class="purple-text">Tisch wählen</h2>
-            <div id="table-grid" class="purple-grid">
-                </div>
+            <div id="table-grid" class="purple-grid"></div> 
         </div>
     </div>
 
@@ -30,11 +29,11 @@
             <aside class="sidebar">
                 <div class="side-logo">S</div>
                 <nav>
-                    <button class="nav-item active" onclick="openCategory('ESSEN')">🍽️ Essen</button>
-                    <button class="nav-item" onclick="openCategory('GETRÄNKE')">🥤 Drinks</button>
-                    <button class="nav-item" onclick="openCategory('VEGAN')">🌿 Vegan</button>
+                    <button class="nav-item" onclick="openCategory('ESSEN')">🍽️ ESSEN</button>
+                    <button class="nav-item" onclick="openCategory('GETRÄNKE')">🥤 DRINKS</button>
+                    <button class="nav-item" onclick="openCategory('VEGAN')">🌿 VEGAN</button>
                 </nav>
-                <button class="back-btn" onclick="location.reload()">← Zurück</button>
+                <button class="back-btn" onclick="location.reload()">← ZURÜCK</button>
             </aside>
 
             <main class="content">
@@ -43,10 +42,10 @@
                         <h2>Tisch <span id="table-num-display">0</span></h2>
                         <span id="mode-label" class="badge">HIER ESSEN</span>
                     </div>
-                    <input type="text" id="main-search" placeholder="Suchen..." onkeyup="searchMenu()">
                 </header>
 
                 <div id="sub-nav" class="sub-nav-bar"></div>
+                
                 <div id="menu-display" class="item-grid"></div>
             </main>
 
