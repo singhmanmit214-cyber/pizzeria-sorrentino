@@ -1,64 +1,36 @@
- <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino POS</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div id="menu-screen" class="pos-container">
-        
-        <aside class="sidebar">
-            <div class="brand">
-                <button onclick="location.reload()" class="back-circle">←</button>
-                <div class="table-info">HIER ESSEN <span class="table-number">T1</span></div>
-            </div>
-            
-            <div class="category-nav">
-                <div class="cat-item active" onclick="openCategory('ESSEN')">
-                    <span class="cat-icon">🍽️</span> <b>Essen</b>
-                </div>
-                <div class="cat-item" onclick="openCategory('GETRÄNKE')">
-                    <span class="cat-icon">🥤</span> <b>Getränke</b>
-                </div>
-                <div class="cat-item" onclick="openCategory('VEGAN')">
-                    <span class="cat-icon">🌿</span> <b>Vegan</b>
-                </div>
-            </div>
-        </aside>
-
-        <main class="menu-main">
-            <header class="menu-header">
-                <div class="search-wrap">
-                    <input type="text" id="main-search" placeholder="№ oder Name suchen..." onkeyup="searchMenu()">
-                </div>
-                <nav id="sub-nav" class="sub-tabs"></nav>
-            </header>
-
-            <div id="menu-display" class="scrollable-content">
-                </div>
-        </main>
-
-        <aside class="order-panel">
-            <div class="order-header">
-                <h3>DEINE BESTELLUNG</h3>
-            </div>
-            
-            <div id="order-list" class="order-scrollable">
-                </div>
-
-            <div class="order-footer">
-                <div class="total-line">
-                    <span>GESAMT</span>
-                    <span id="total-val">0.00 €</span>
-                </div>
-                <button onclick="completeOrder()" class="btn-checkout">Bestellung abschließen</button>
-            </div>
-        </aside>
+ <div id="table-screen" class="full-screen-overlay">
+    <div class="header-bar">
+        <button onclick="showHome()" class="nav-btn">← Home</button>
+        <h2>Tisch wählen</h2>
     </div>
+    <div id="table-grid" class="dynamic-grid">
+        </div>
+</div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+<div id="menu-screen" class="app-shell" style="display:none;">
+    <aside class="left-nav">
+        <div class="table-tag">TISCH <span class="table-number">1</span></div>
+        <div class="nav-links">
+            <button class="nav-item active" onclick="openCategory('ESSEN')">🍽️ Essen</button>
+            <button class="nav-item" onclick="openCategory('GETRÄNKE')">🥤 Getränke</button>
+            <button class="nav-item" onclick="openCategory('VEGAN')">🌿 Vegan</button>
+        </div>
+    </aside>
+
+    <main class="content-area">
+        <div class="search-sticky">
+            <input type="text" placeholder="№ oder Name suchen..." onkeyup="searchMenu()">
+            <nav id="sub-nav" class="horizontal-scroll"></nav>
+        </div>
+        <div id="menu-display" class="scrolling-items"></div>
+    </main>
+
+    <aside class="right-checkout">
+        <h3>DEINE BESTELLUNG</h3>
+        <div id="order-list" class="receipt-scroll"></div>
+        <div class="checkout-footer">
+            <div class="total-row"><span>TOTAL:</span><span id="total-val">0.00 €</span></div>
+            <button class="confirm-btn" onclick="completeOrder()">Abschließen</button>
+        </div>
+    </aside>
+</div>
