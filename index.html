@@ -7,37 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="table-screen">
-        <div class="header">
-            <h1>SORRENTINO</h1>
-            <p>TISCHAUSWAHL</p>
-        </div>
-        <div id="table-grid-wrapper">
-            <div id="table-grid"></div>
+    <div id="start-screen" class="screen">
+        <h1 class="logo">SORRENTINO</h1>
+        <div class="hub-container">
+            <button class="gold-box" onclick="selectMode('HIER ESSEN')">🏠 HIER ESSEN (7%)</button>
+            <button class="gold-box" onclick="selectMode('TAKEAWAY')">🛍️ TAKEAWAY (7%)</button>
+            <button class="gold-box" onclick="selectMode('LIEFERUNG')">🚀 LIEFERUNG (19%)</button>
         </div>
     </div>
 
-    <div id="menu-screen">
+    <div id="table-screen" class="screen" style="display:none;">
+        <div class="header-bar">
+            <button onclick="showStart()" class="back-btn">←</button>
+            <span id="mode-label"></span>
+        </div>
+        <div id="table-grid"></div>
+    </div>
+
+    <div id="menu-screen" class="screen" style="display:none;">
         <div class="menu-side">
-            <div class="top-bar">
-                <span id="current-tisch-label"></span>
+            <div id="table-label"></div>
+            <div class="search-container">
+                <input type="text" id="main-search" placeholder="№ oder Name suchen..." onkeyup="searchMenu()">
             </div>
             <div id="sub-nav"></div>
-            
-            <div id="menu-content-wrapper">
-                <div id="menu-display"></div>
-            </div>
+            <div id="menu-display"></div>
         </div>
-
         <div class="receipt-side">
-            <h2>RECHNUNG</h2>
             <div id="order-list"></div>
-            <div class="total-section">
-                <span>TOTAL:</span>
-                <span id="total-amount">0.00 €</span>
+            <div class="total-area">TOTAL: <span id="total-val">0.00 €</span></div>
+            <div class="action-btns">
+                <button onclick="showTables()" class="btn-cancel">ZURÜCK</button>
+                <button onclick="completeOrder()" class="btn-print">RECHNUNG</button>
             </div>
-            <button class="action-btn print-btn" onclick="printBon()">BELEG DRUCKEN</button>
-            <button class="action-btn back-btn" onclick="renderTables()">ZURÜCK ZU TISCHEN</button>
         </div>
     </div>
     <script src="script.js"></script>
