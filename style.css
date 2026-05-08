@@ -1,155 +1,88 @@
  :root {
-    --bg-black: #050505;
-    --card-bg: #121212;
-    --purple-glow: #8a2be2;
-    --purple-dark: #3a0066;
-    --text-white: #ffffff;
-    --text-dim: #a0a0a0;
+    --bg: #000000;
+    --card: #121212;
+    --purple: #8a2be2;
+    --text: #ffffff;
 }
 
 body {
-    background: var(--bg-black);
-    color: var(--text-white);
-    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
     margin: 0;
-    overflow: hidden;
 }
 
-.view-hidden { display: none; }
-.view-active { display: block; }
+#start-screen { padding: 20px; text-align: center; }
 
-/* Start Screen Styling */
-#start-screen {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-}
+.logo { font-size: 40px; color: var(--purple); font-weight: bold; margin-bottom: 20px; }
 
-.logo {
-    font-size: 3rem;
-    font-weight: bold;
-    color: var(--purple-glow);
-    text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-    margin-bottom: 30px;
-}
-
-.service-selector {
-    margin-bottom: 40px;
-}
-
-.svc-btn {
-    background: #1a1a1a;
-    border: 1px solid var(--purple-glow);
-    color: var(--purple-glow);
-    padding: 15px 30px;
-    margin: 0 10px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.svc-btn.active {
-    background: var(--purple-glow);
-    color: white;
-}
-
+/* Table Grid Styling */
 .purple-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
     max-width: 800px;
+    margin: 20px auto;
 }
 
 .t-btn {
-    background: var(--card-bg);
-    border: 2px solid var(--purple-dark);
+    background: var(--card);
+    border: 2px solid var(--purple);
     color: white;
-    padding: 30px 20px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 1.1rem;
+    font-size: 18px;
 }
 
-.t-btn:hover {
-    border-color: var(--purple-glow);
-    background: var(--purple-dark);
-    box-shadow: 0 0 15px var(--purple-glow);
+.view-hidden { display: none; }
+
+/* Service Buttons */
+.svc-btn {
+    background: #222;
+    color: white;
+    border: 1px solid var(--purple);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-/* App Layout */
+.svc-btn.active { background: var(--purple); }
+
+/* Menu Layout */
 .app-layout {
     display: grid;
-    grid-template-columns: 100px 1fr 350px;
+    grid-template-columns: 150px 1fr 300px;
     height: 100vh;
 }
 
-.sidebar {
-    background: #000;
-    border-right: 1px solid #222;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
+.sidebar { background: #080808; border-right: 1px solid #222; padding: 10px; }
+.nav-item { 
+    display: block; width: 100%; padding: 15px; margin-bottom: 10px;
+    background: #111; color: white; border: 1px solid #333; cursor: pointer;
 }
-
-.nav-item {
-    background: none;
-    border: none;
-    color: var(--text-dim);
-    margin: 20px 0;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.nav-item.active { color: var(--purple-glow); }
 
 .item-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
     padding: 20px;
-    overflow-y: auto;
 }
 
 .item-card {
-    background: var(--card-bg);
-    border: 1px solid #222;
-    padding: 20px;
-    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
     cursor: pointer;
 }
 
-.item-card:active { transform: scale(0.95); }
+.item-card:hover { border-color: var(--purple); }
 
-/* Receipt Panel */
-.receipt-panel {
-    background: #000;
-    border-left: 1px solid #222;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
+.gold-id { color: gold; font-size: 12px; }
 
-.receipt-list { flex-grow: 1; overflow-y: auto; }
+.receipt-panel { background: #050505; border-left: 1px solid #222; padding: 15px; }
 
-.receipt-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #111;
-}
-
-.checkout-btn {
-    background: var(--purple-glow);
-    border: none;
-    color: white;
-    width: 100%;
-    padding: 20px;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-}
+.receipt-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 14px; }
