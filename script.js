@@ -215,4 +215,74 @@
         "INSALATE": [
             {id: "210", name: "V. Ins. Pomodoro", price: 7.50},
             {id: "211", name: "V. Ins. Mista", price: 9.00},
-            {id: "212", name: "V. Ins. Rucola", price
+            {id: "212", name: "V. Ins. Rucola", price: 12.50},
+            {id: "213", name: "V. Ins. Salmone", price: 16.50},
+            {id: "214", name: "V. Ins. Contadina", price: 15.50},
+            {id: "215", name: "V. Ins. Pollo", price: 15.50},
+            {id: "216", name: "V. Ins. Capricciosa", price: 17.50}
+        ],
+        "PIZZA": [
+            {id: "220", name: "V. Pizza Primavera", price: 12.00},
+            {id: "221", name: "V. Pizza Margherita", price: 12.50},
+            {id: "222", name: "V. Pizza Salami", price: 14.50},
+            {id: "223", name: "V. Pizza Prosciutto", price: 14.50},
+            {id: "224", name: "V. Pizza Funghi", price: 14.00},
+            {id: "225", name: "V. Pizza Spinaci (N)", price: 14.00},
+            {id: "226", name: "V. Pizza Tonno", price: 15.50},
+            {id: "227", name: "V. Pizza Hawaii", price: 15.50},
+            {id: "228", name: "V. Pizza Prosc/Fungh", price: 16.00},
+            {id: "229", name: "V. Pizza Carciofi", price: 16.50},
+            {id: "230", name: "V. Pizza Spinaci (X)", price: 16.50},
+            {id: "231", name: "V. Pizza Verdura", price: 16.50},
+            {id: "232", name: "V. Pizza 4 Stagioni", price: 18.50},
+            {id: "233", name: "V. Pizza Calzone", price: 18.50},
+            {id: "234", name: "V. Pizza Rustica", price: 18.50},
+            {id: "235", name: "V. Pizza Melanzane", price: 18.50},
+            {id: "236", name: "V. Pizza Salmone", price: 18.50},
+            {id: "237", name: "V. Pizza Asparagi", price: 19.50},
+            {id: "238", name: "V. Pizza Pollo", price: 19.50},
+            {id: "239", name: "V. Pizza Amsterdam", price: 20.50}
+        ],
+        "PASTA": [
+            {id: "250", name: "V. Spagh. Napoli", price: 13.50},
+            {id: "251", name: "V. Spagh. Aglio Olio", price: 13.50},
+            {id: "252", name: "V. Penne Arrabbiata", price: 14.50},
+            {id: "253", name: "V. Spagh. Bolognese", price: 18.50},
+            {id: "254", name: "V. Penne Amatric.", price: 18.50},
+            {id: "255", name: "V. Tagl. al Panna", price: 18.50},
+            {id: "256", name: "V. Penne al Tonno", price: 18.50},
+            {id: "257", name: "V. Rigatoni Norcina", price: 19.50},
+            {id: "258", name: "V. Tagl. Salmone", price: 20.50},
+            {id: "259", name: "V. Tagl. di Manzo", price: 20.50}
+        ],
+        "AL FORNO": [
+            {id: "269", name: "V. Tort. al Forno", price: 18.50},
+            {id: "270", name: "V. Rig. al Forno", price: 18.50},
+            {id: "271", name: "V. Lasagne Hausgem.", price: 19.50},
+            {id: "272", name: "V. Cannelloni Hausg.", price: 19.50},
+            {id: "273", name: "V. Auflauf Spezial", price: 20.50}
+        ],
+        "FISCH": [
+            {id: "280", name: "V. Salmone Griglia", price: 26.50},
+            {id: "281", name: "V. Salmone Basilico", price: 28.50}
+        ],
+        "SNACKS": [
+            {id: "285", name: "V. Pommes Frites", price: 6.00},
+            {id: "286", name: "V. Nuggets (6)", price: 10.50},
+            {id: "287", name: "V. Nuggets (12)", price: 19.00}
+        ],
+        "SCHNITZEL": [
+            {id: "290", name: "V. Schnitzel Wiener", price: 17.00},
+            {id: "291", name: "V. Jägerschnitzel", price: 19.50},
+            {id: "292", name: "V. Schnitzel Funghi", price: 19.50},
+            {id: "293", name: "V. Schn. Hollandaise", price: 19.50},
+            {id: "294", name: "V. Zwiebelschnitzel", price: 19.50}
+        ],
+        "DESSERT": [
+            {id: "301", name: "V. Cheesecake", price: 8.50},
+            {id: "302", name: "V. Möhrenkuchen", price: 5.50},
+            {id: "303", name: "V. Schokokuchen", price: 5.50},
+            {id: "304", name: "V. Tiramisu", price: 8.50}
+        ]
+    }
+};
