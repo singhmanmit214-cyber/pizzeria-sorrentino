@@ -3,58 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sorrentino POS</title>
+    <title>Sorrentino POS Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="start-screen" class="view">
+    <div id="start-screen" class="view-active">
         <div class="welcome-box">
             <h1>SORRENTINO</h1>
-            <div class="mode-buttons">
-                <button onclick="selectMode('HIER ESSEN')">EAT IN</button>
+            <div class="mode-grid">
+                <button onclick="selectMode('HIER ESSEN')">HIER ESSEN</button>
                 <button onclick="selectMode('TAKEAWAY')">TAKEAWAY</button>
-                <button onclick="selectMode('LIEFERUNG')">DELIVERY</button>
+                <button onclick="selectMode('LIEFERUNG')">LIEFERUNG</button>
             </div>
         </div>
     </div>
 
-    <div id="table-screen" class="view" style="display:none;">
-        <div class="view-header">
-            <button onclick="location.reload()">← ZURÜCK</button>
+    <div id="table-screen" class="view-hidden">
+        <div class="header-bar">
+            <button class="back-btn" onclick="location.reload()">←</button>
             <h2 id="mode-label"></h2>
         </div>
         <div id="table-grid" class="table-grid"></div>
     </div>
 
-    <div id="menu-screen" class="app-shell" style="display:none;">
+    <div id="menu-screen" class="app-shell view-hidden">
         
         <aside class="sidebar-left">
-            <div class="table-indicator">TISCH <span class="table-number">1</span></div>
-            <nav class="main-categories">
-                <button class="cat-btn active" onclick="openCategory('ESSEN')">🍽️ Essen</button>
-                <button class="cat-btn" onclick="openCategory('GETRÄNKE')">🥤 Getränke</button>
-                <button class="cat-btn" onclick="openCategory('VEGAN')">🌿 Vegan</button>
-            </nav>
+            <div class="brand-badge">
+                <span class="table-badge">T<span class="table-number">1</span></span>
+            </div>
+            <div class="nav-stack">
+                <button class="cat-item active" onclick="openCategory('ESSEN')">🍽️ ESSEN</button>
+                <button class="cat-item" onclick="openCategory('GETRÄNKE')">🥤 DRINKS</button>
+                <button class="cat-item" onclick="openCategory('VEGAN')">🌿 VEGAN</button>
+            </div>
         </aside>
 
         <main class="menu-center">
-            <header class="menu-top">
-                <input type="text" id="search" placeholder="Suchen..." onkeyup="searchMenu()">
-                <div id="sub-nav" class="sub-tabs-row"></div>
-            </header>
+            <div class="top-search-area">
+                <input type="text" id="main-search" placeholder="№ oder Name suchen..." onkeyup="searchMenu()">
+                <div id="sub-nav" class="horizontal-tabs"></div>
+            </div>
             <div id="menu-display" class="item-grid-scroll"></div>
         </main>
 
         <aside class="sidebar-right">
-            <h3>BESTELLUNG</h3>
-            <div id="order-list" class="receipt-items"></div>
-            <div class="receipt-footer">
+            <div class="order-header">
+                <h3>BESTELLUNG</h3>
+            </div>
+            <div id="order-list" class="order-items-list">
+                </div>
+            <div class="order-footer">
+                <div class="summary-line">
+                    <span>Zwischensumme</span>
+                    <span id="sub-val">0.00 €</span>
+                </div>
                 <div class="total-line">
-                    <span>TOTAL</span>
+                    <span>GESAMT</span>
                     <span id="total-val">0.00 €</span>
                 </div>
-                <button class="pay-btn" onclick="completeOrder()">BESTELLEN</button>
+                <button class="checkout-btn" onclick="completeOrder()">BESTELLEN</button>
             </div>
         </aside>
     </div>
