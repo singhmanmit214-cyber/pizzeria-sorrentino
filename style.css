@@ -1,125 +1,51 @@
- /* --- GLOBAL RESET --- */
-:root {
-    --gold: #D4AF37;
-    --dark-bg: #0A0A0A;
-    --card-bg: #1A1A1A;
-}
-
-body, html {
-    height: 100%;
-    margin: 0;
-    overflow: hidden; /* Stops the whole screen from scrolling */
-    background: var(--dark-bg);
-    font-family: sans-serif;
-    color: white;
-}
-
-/* --- MAIN POS CONTAINER --- */
-.pos-container {
+ /* Prevent screen squashing */
+.app-shell {
     display: flex;
     height: 100vh;
     width: 100vw;
-    flex-direction: row; /* Sidebar - Menu - Receipt */
+    overflow: hidden;
 }
 
-/* --- LEFT SIDEBAR (Fixed) --- */
-.sidebar {
-    width: 200px; /* Made smaller to save space */
-    flex-shrink: 0;
+/* Sidebar stays visible on the left */
+.left-nav {
+    width: 180px; 
+    flex-shrink: 0; /* Important: prevents disappearing */
     background: #111;
-    border-right: 1px solid #222;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-/* --- MAIN CONTENT (Middle - Flexible) --- */
-.menu-main {
-    flex: 1; /* This takes up all the middle space */
-    display: flex;
-    flex-direction: column;
-    min-width: 0; 
-    background: var(--dark-bg);
-}
-
-/* --- RIGHT PANEL (Receipt - Fixed) --- */
-.order-panel {
-    width: 300px; /* Fixed width */
-    flex-shrink: 0;
-    background: #0F0F0F;
-    border-left: 1px solid var(--gold);
     display: flex;
     flex-direction: column;
 }
 
-/* --- SCROLLING AREAS --- */
-.scrollable-content, .order-scrollable {
+/* Middle takes exactly what is left */
+.content-area {
     flex: 1;
-    overflow-y: auto; /* Only these parts scroll */
-    padding: 15px;
-    -webkit-overflow-scrolling: touch;
+    min-width: 0; /* Fix for horizontal overflow */
+    display: flex;
+    flex-direction: column;
 }
 
-/* --- TABLE GRID FIX (15 Tables) --- */
-.table-grid {
+/* Right sidebar for receipt */
+.right-checkout {
+    width: 280px;
+    flex-shrink: 0;
+    background: #0d0d0d;
+    border-left: 1px solid #222;
+}
+
+/* Table Grid Fix - Ensure it fits 15 tables */
+.dynamic-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
     padding: 20px;
+    height: calc(100vh - 80px);
     overflow-y: auto;
 }
 
 .t-btn {
     height: 100px;
-    background: var(--card-bg);
-    border: 1px solid #333;
-    color: white;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* --- CAT CARDS & ITEM CARDS --- */
-.cat-item {
-    padding: 15px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    cursor: pointer;
     background: #1a1a1a;
-    text-align: center;
-}
-
-.cat-item.active {
-    background: var(--gold);
-    color: black;
-}
-
-.item-card {
-    background: var(--card-bg);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #222;
-}
-
-/* --- SUB-NAV (Antipasti, Pizza, etc) --- */
-.sub-tabs {
-    display: flex;
-    overflow-x: auto; /* Allows sliding left/right */
-    padding: 10px;
-    gap: 10px;
-    background: #111;
-    white-space: nowrap;
-}
-
-.sub-tab-btn {
-    padding: 8px 15px;
-    background: #222;
-    color: white;
-    border: 1px solid #444;
-    border-radius: 20px;
-    cursor: pointer;
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    border-radius: 8px;
+    font-size: 1.2rem;
 }
