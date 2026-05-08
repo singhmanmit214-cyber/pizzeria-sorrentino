@@ -1,98 +1,138 @@
- /* --- LAYOUT FIXES --- */
-#menu-screen {
+ :root {
+    --gold: #D4AF37;
+    --dark-bg: #0A0A0A;
+    --card-bg: #1A1A1A;
+    --text-grey: #A0A0A0;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body, html {
+    height: 100%; margin: 0;
+    background: var(--dark-bg);
+    color: white; font-family: 'Segoe UI', sans-serif;
+    overflow: hidden; /* Prevents the whole screen from scrolling/bouncing */
+}
+
+.pos-container {
     display: flex;
     height: 100vh;
     width: 100vw;
-    background: #000;
 }
 
-/* Sidebar Styling */
+/* --- SIDEBAR --- */
 .sidebar {
-    width: 300px;
+    width: 240px;
     background: #111;
-    border-right: 1px solid #333;
+    border-right: 1px solid #222;
     display: flex;
     flex-direction: column;
+    padding: 20px 10px;
 }
 
-.category-list {
-    padding: 10px;
-    overflow-y: auto;
-}
+.table-number { color: var(--gold); font-weight: bold; }
 
-/* MODERN CARD LOOK (Like your reference) */
-.cat-card {
-    background: #fff;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
+.category-nav { margin-top: 30px; display: flex; flex-direction: column; gap: 10px; }
+
+.cat-item {
     padding: 15px;
-    color: #000;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.cat-card:active { transform: scale(0.95); }
-
-.cat-icon {
-    width: 50px;
-    height: 50px;
-    background: #f8f8f8;
     border-radius: 12px;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    margin-right: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    gap: 10px;
+    background: transparent;
+    transition: 0.2s;
 }
 
-.cat-info b { font-size: 1.1rem; display: block; }
-.cat-info span { font-size: 0.8rem; color: #666; }
+.cat-item.active { background: var(--gold); color: black; }
 
-/* Main Item Area */
-.main-content {
+/* --- MAIN MENU AREA --- */
+.menu-main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: #050505;
+    background: var(--dark-bg);
+}
+
+.menu-header {
+    padding: 20px;
+    background: var(--dark-bg);
+    border-bottom: 1px solid #222;
+}
+
+.search-wrap input {
+    width: 100%;
+    padding: 15px;
+    background: #1A1A1A;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
 }
 
 .sub-tabs {
     display: flex;
     gap: 10px;
-    padding: 15px;
-    overflow-x: auto;
-    background: #111;
+    overflow-x: auto; /* Horizontal scroll for Pizza/Pasta/Al Forno */
+    padding: 15px 0 5px 0;
 }
 
-.item-grid {
+.scrollable-content {
     flex: 1;
-    overflow-y: auto; /* Independent scroll */
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
+    overflow-y: auto; /* VERTICAL SCROLL ONLY FOR FOOD LIST */
+    padding: 20px;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Receipt Fix */
-.receipt-side {
-    width: 320px;
-    background: #000;
-    border-left: 1px solid #D4AF37;
+/* ITEM CARD STYLE (Modern Dark) */
+.item-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid transparent;
+}
+.item-card:hover { border-left-color: var(--gold); }
+
+/* --- ORDER PANEL --- */
+.order-panel {
+    width: 350px;
+    background: #0F0F0F;
+    border-left: 1px solid #222;
     display: flex;
     flex-direction: column;
 }
 
-.receipt-items {
+.order-scrollable {
     flex: 1;
-    overflow-y: auto; /* Independent scroll */
-    padding: 10px;
+    overflow-y: auto; /* SCROLL ONLY FOR ADDED ITEMS */
+    padding: 15px;
 }
 
-.receipt-footer {
-    padding: 15px;
-    background: #111;
-    border-top: 1px solid #D4AF37;
+.order-footer {
+    padding: 20px;
+    background: #151515;
+    border-top: 1px dashed var(--gold);
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 18px;
+    background: var(--gold);
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
