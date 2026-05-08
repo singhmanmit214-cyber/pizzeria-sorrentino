@@ -1,101 +1,155 @@
  :root {
-    --gold: #D4AF37;
-    --dark: #000000;
-    --card: #141414;
-    --border: #222222;
+    --bg-black: #050505;
+    --card-bg: #121212;
+    --purple-glow: #8a2be2;
+    --purple-dark: #3a0066;
+    --text-white: #ffffff;
+    --text-dim: #a0a0a0;
 }
 
-body, html {
-    height: 100%; margin: 0; padding: 0;
-    background: var(--dark); color: white;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+body {
+    background: var(--bg-black);
+    color: var(--text-white);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
     overflow: hidden;
 }
 
-.view-hidden { display: none !important; }
-.view-active { display: flex; flex-direction: column; height: 100vh; }
+.view-hidden { display: none; }
+.view-active { display: block; }
 
-/* LAYOUT SHELL */
-.app-shell {
-    display: flex; height: 100vh; width: 100vw;
+/* Start Screen Styling */
+#start-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
 }
 
-/* SIDEBAR LEFT */
-.sidebar-left {
-    width: 160px; flex-shrink: 0;
-    background: #0A0A0A; border-right: 1px solid var(--border);
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--purple-glow);
+    text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+    margin-bottom: 30px;
 }
 
-.brand-badge { padding: 30px 10px; text-align: center; }
-.table-badge {
-    background: var(--gold); color: black; padding: 15px 25px;
-    border-radius: 12px; font-weight: 800; font-size: 1.5rem;
+.service-selector {
+    margin-bottom: 40px;
 }
 
-.cat-item {
-    width: 100%; border: none; background: none; color: #888;
-    padding: 25px 10px; font-weight: bold; cursor: pointer;
-    transition: 0.3s;
-}
-.cat-item.active { color: var(--gold); background: #111; border-right: 4px solid var(--gold); }
-
-/* CENTER MENU */
-.menu-center {
-    flex: 1; display: flex; flex-direction: column; min-width: 0;
-}
-
-.top-search-area { padding: 20px; background: #050505; border-bottom: 1px solid var(--border); }
-#main-search {
-    width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #333;
-    background: #111; color: white; margin-bottom: 15px;
+.svc-btn {
+    background: #1a1a1a;
+    border: 1px solid var(--purple-glow);
+    color: var(--purple-glow);
+    padding: 15px 30px;
+    margin: 0 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.horizontal-tabs { display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; }
-.sub-tab-btn {
-    padding: 10px 20px; border-radius: 20px; border: 1px solid #444;
-    background: #111; color: white; cursor: pointer;
+.svc-btn.active {
+    background: var(--purple-glow);
+    color: white;
 }
 
-.item-grid-scroll {
-    flex: 1; overflow-y: auto; padding: 20px;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px;
+.purple-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 800px;
 }
 
-/* ITEM CARDS LIKE YOUR PIC */
-.item-card {
-    background: var(--card); border-radius: 15px; padding: 20px;
-    display: flex; justify-content: space-between; align-items: center;
-    border: 1px solid #222; transition: 0.2s;
-}
-.item-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-.gold-id { color: var(--gold); font-weight: bold; margin-right: 10px; }
-
-/* SIDEBAR RIGHT (RECEIPT) */
-.sidebar-right {
-    width: 380px; flex-shrink: 0;
-    background: #050505; border-left: 1px solid var(--border);
-    display: flex; flex-direction: column;
-}
-
-.order-items-list { flex: 1; overflow-y: auto; padding: 20px; }
-.receipt-row {
-    display: flex; justify-content: space-between; padding: 12px 0;
-    border-bottom: 1px solid #1a1a1a;
-}
-
-.order-footer { padding: 25px; background: #0A0A0A; border-top: 2px solid var(--gold); }
-.total-line { display: flex; justify-content: space-between; font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
-.checkout-btn {
-    width: 100%; padding: 20px; background: var(--gold); border: none;
-    border-radius: 12px; font-weight: 800; font-size: 1.1rem; cursor: pointer;
-}
-
-/* TABLE GRID */
-.table-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; padding: 40px;
-}
 .t-btn {
-    height: 140px; background: #111; border: 2px solid #333;
-    color: white; border-radius: 15px; font-size: 1.5rem; font-weight: bold;
+    background: var(--card-bg);
+    border: 2px solid var(--purple-dark);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.1rem;
 }
-.t-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.t-btn:hover {
+    border-color: var(--purple-glow);
+    background: var(--purple-dark);
+    box-shadow: 0 0 15px var(--purple-glow);
+}
+
+/* App Layout */
+.app-layout {
+    display: grid;
+    grid-template-columns: 100px 1fr 350px;
+    height: 100vh;
+}
+
+.sidebar {
+    background: #000;
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    margin: 20px 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.nav-item.active { color: var(--purple-glow); }
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.item-card {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.item-card:active { transform: scale(0.95); }
+
+/* Receipt Panel */
+.receipt-panel {
+    background: #000;
+    border-left: 1px solid #222;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-list { flex-grow: 1; overflow-y: auto; }
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #111;
+}
+
+.checkout-btn {
+    background: var(--purple-glow);
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
